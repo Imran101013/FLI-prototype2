@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .font-nastaliq {
+    font-family: 'Noto Nastaliq Urdu', 'Amiri', serif;
+  }
+  .font-serif-display {
+    font-family: 'Cinzel', serif;
+  }
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Refined typography styling for bilingual content */
+.nastaliq-text {
+  font-family: 'Noto Nastaliq Urdu', 'Amiri', serif;
+  line-height: 2.1;
+  direction: rtl;
+}
+
