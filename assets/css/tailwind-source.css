@@ -14,17 +14,21 @@
   --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
-/* Brand tokens — use these as Elementor Global Colors (Site Settings › Global Colors). */
+/* Brand tokens — use these as Elementor Global Colors (Site Settings › Global Colors).
+ * Three brand colours, used the way fli-online.org uses them:
+ *   maroon = identity (logo, menu, headings, primary buttons, page banners, footer)
+ *   blue   = information surfaces (top bar, home hero, feature panels, labels, icons)
+ *   yellow = action / highlight (buttons and figures on dark backgrounds, banner rule, badges)
+ */
 :root {
-  --fli-maroon: #5B0404;        /* primary: buttons, headings, active states */
+  --fli-maroon: #5B0404;        /* Elementor "Primary": headings, menu, primary buttons, active tabs */
   --fli-maroon-hover: #480303;  /* primary hover */
-  --fli-maroon-deep: #360202;   /* hero background */
   --fli-maroon-footer: #2E0202; /* footer background */
-  --fli-amber: #f59e0b;         /* accent buttons on dark backgrounds */
-  --fli-amber-hover: #d97706;
-  --fli-gold: #C59B27;          /* icons, banner rule */
-  --fli-gold-light: #f5d98b;    /* figures on dark backgrounds */
-  --fli-terracotta: #c26d38;    /* eyebrow labels, hover text */
+  --fli-blue: #084A79;          /* Elementor "Secondary": top bar, feature panels, eyebrow labels, icons */
+  --fli-blue-deep: #072F4C;     /* home hero, gradient start of blue panels */
+  --fli-blue-hover: #063A60;    /* blue borders / hover */
+  --fli-yellow: #F1C236;        /* Elementor "Accent": buttons on dark, banner rule, badges, focus */
+  --fli-yellow-hover: #D9AB28;
   --fli-cream: #faf8f5;         /* page background */
   --fli-sand: #f5f1ea;          /* section panels */
   --fli-border: #e5dfd5;        /* card borders */

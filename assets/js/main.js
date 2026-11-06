@@ -121,7 +121,7 @@
   function resultGroup(title, ic, items, render) {
     if (!items.length) return '';
     return '<div class="space-y-1.5 pt-2 first:pt-0">' +
-      '<div class="font-bold text-[11px] uppercase tracking-wider text-[#5B0404] flex items-center gap-1.5"><span class="text-[#C59B27]">' + icon(ic) + '</span><span>' + title + ' (' + items.length + ')</span></div>' +
+      '<div class="font-bold text-[11px] uppercase tracking-wider text-[#5B0404] flex items-center gap-1.5"><span class="text-[#084A79]">' + icon(ic) + '</span><span>' + title + ' (' + items.length + ')</span></div>' +
       '<ul class="space-y-1">' + items.map(render).join('') + '</ul></div>';
   }
   function resultItem(href, title, meta, extraAttr) {

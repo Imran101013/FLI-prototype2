@@ -83,19 +83,27 @@ Pages with a section tab bar (About, Languages, Programs, Publications, Resource
 
 **Global Colors** (Site Settings › Global Colors). The tokens are also listed at the top of `assets/css/tailwind-source.css`.
 
+The site uses three brand colours, each with one job, following how fli-online.org uses them. The live site has blue in its top bar, hero overlay and feature boxes, uses yellow as the theme's main accent, and uses maroon for the menu and logo.
+
+| Elementor slot | Name | Hex | Used for |
+|---|---|---|---|
+| Primary | Maroon | `#5B0404` | Logo colour, menu, headings, primary buttons on light backgrounds, active tabs, page-title banners (hover `#480303`) |
+| Secondary | Blue | `#084A79` | Top bar, home hero overlay, dark feature panels inside pages, small uppercase labels, check icons, hover text |
+| Accent | Yellow | `#F1C236` | Buttons and figures on dark backgrounds, the rule under page banners, badges, subscribe button, text selection (hover `#D9AB28`) |
+| Text | Ink | `#1F1414` | Body text (secondary `#6B7280`) |
+
+Supporting shades:
+
 | Name | Hex | Used for |
 |---|---|---|
-| Primary (maroon) | `#5B0404` | Buttons, headings, active states |
-| Primary hover | `#480303` | Button hover |
-| Hero / deep maroon | `#360202` | Home hero |
+| Deep blue | `#072F4C` | Home hero background; blue panels are a gradient from this to `#084A79` |
+| Light blue text | `#DCE8F2` | Paragraph text on blue panels |
 | Footer | `#2E0202` | Footer background |
-| Accent (amber) | `#F59E0B` | Buttons on dark backgrounds (hover `#D97706`) |
-| Gold | `#C59B27` | Icons, banner rule (light gold `#F5D98B` for numbers on dark) |
-| Terracotta | `#C26D38` | Small uppercase eyebrow labels |
 | Page background | `#FAF8F5` | Body |
 | Border | `#E5DFD5` | Card borders |
 | Rose tint | `#FAF2F2` | Tinted panels, hover backgrounds |
-| Text | `#1F1414` | Body text (secondary `#6B7280`) |
+
+Yellow is only used as a fill (with maroon text on it) or on dark backgrounds, never as text on white: it would fail contrast. All text on the site meets WCAG AA contrast (4.5:1).
 
 **Logo** (Site Settings › Site Identity):
 - `assets/img/fli-logo.png` is FLI's logo (`for-web-300x169.webp`) with the empty padding trimmed off (232×124 px). Nothing else is changed.
