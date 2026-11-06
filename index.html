@@ -4,18 +4,1992 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Forum for Language Initiatives (FLI) – Preserving Regional Cultures & Languages of Pakistan</title>
-    <meta name="description" content="Official modern WordPress redesign prototype for Forum for Language Initiatives (FLI). Preserving the rich linguistic diversity, folklore, and cultural heritage of Northern Pakistan." />
-    <meta property="og:title" content="Forum for Language Initiatives (FLI) – Preserving Regional Cultures & Languages of Pakistan" />
-    <meta property="og:description" content="Official modern WordPress redesign prototype for Forum for Language Initiatives (FLI). Preserving the rich linguistic diversity, folklore, and cultural heritage of Northern Pakistan." />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="description" content="Official pure HTML prototype for the WordPress/Elementor redesign of Forum for Language Initiatives (FLI). Preserving the 29+ indigenous languages and cultural heritage of Northern Pakistan." />
+    
+    <!-- Google Web Fonts: Cinzel (Display), Noto Nastaliq Urdu, Plus Jakarta Sans, Amiri -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Noto+Nastaliq+Urdu:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Noto+Nastaliq+Urdu:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+
+    <!-- Tailwind CSS CDN for pure standalone HTML execution -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              fli: {
+                blue: '#0D5488',
+                'blue-dark': '#08314F',
+                'blue-light': '#EEF6FA',
+                maroon: '#5B0404',
+                'maroon-dark': '#450303',
+                'maroon-light': '#FAF2F2',
+                gold: '#EFBB20',
+                'gold-dark': '#DCA715',
+                'gold-light': '#FEF9E8'
+              }
+            },
+            fontFamily: {
+              sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+              serif: ['Cinzel', 'Georgia', 'serif'],
+              nastaliq: ['"Noto Nastaliq Urdu"', '"Amiri"', 'serif']
+            }
+          }
+        }
+      }
+    </script>
+
+    <style>
+      :root {
+        --fli-blue: #0D5488;
+        --fli-blue-dark: #08314F;
+        --fli-maroon: #5B0404;
+        --fli-gold: #EFBB20;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      .nastaliq-text {
+        font-family: 'Noto Nastaliq Urdu', 'Amiri', serif;
+        direction: rtl;
+        line-height: 2.2;
+      }
+      .dropdown:hover .dropdown-menu {
+        display: block;
+      }
+      /* View routing display */
+      .app-view {
+        display: none;
+      }
+      .app-view.active {
+        display: block;
+      }
+      /* Sub-tab display */
+      .sub-tab-content {
+        display: none;
+      }
+      .sub-tab-content.active {
+        display: block;
+      }
+    </style>
   </head>
-  <body class="bg-[#faf8f5] text-[#1b2520] font-sans antialiased selection:bg-[#c26d38]/20 selection:text-[#143628]">
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+  <body class="bg-[#FAF8F5] text-[#1F2937] font-sans antialiased selection:bg-[#EFBB20]/30 selection:text-[#5B0404]">
+
+    <!-- ======================================================== -->
+    <!-- 1. TOP INSTITUTIONAL ANNOUNCEMENT BAR                    -->
+    <!-- #5B0404 Heritage Maroon with #EFBB20 Vibrant Gold Accent -->
+    <!-- ======================================================== -->
+    <aside class="bg-[#5B0404] text-[#FBEAEA] text-xs px-4 py-2 border-b border-[#450303]">
+      <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+        <div class="flex items-center gap-3">
+          <span class="font-bold text-[#5B0404] tracking-wider uppercase text-[10px] px-2 py-0.5 bg-[#EFBB20] rounded">UNESCO IDIL 2022–2032</span>
+          <span class="hidden sm:inline text-white/30">|</span>
+          <span class="hidden sm:inline text-white/85">Supporting the International Decade of Indigenous Languages</span>
+        </div>
+        <div class="flex items-center gap-4 text-xs font-medium">
+          <span class="hidden md:inline text-white/80">Islamabad Secretariat: +92 (0)51 225 0068 / 232 5478</span>
+          <button onclick="navigateTo('contact')" class="text-[#EFBB20] hover:text-white transition-colors underline decoration-[#EFBB20]/50 underline-offset-2">
+            Contact Secretariat
+          </button>
+          <button onclick="openModal('wpSpecModal')" class="inline-flex items-center gap-1.5 bg-[#EFBB20] hover:bg-[#DCA715] text-[#5B0404] px-2.5 py-1 rounded font-bold text-[11px] transition-colors shadow-xs">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+            <span>Elementor Free & WP Spec</span>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ======================================================== -->
+    <!-- 2. MAIN HEADER & MULTI-LEVEL NAVIGATION                  -->
+    <!-- #0D5488 Ocean Blue Brand Identity with Gold Accents     -->
+    <!-- ======================================================== -->
+    <header class="sticky top-0 z-40 bg-white/98 backdrop-blur-md border-b border-[#D0DFE8] shadow-xs">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20 gap-8">
+          
+          <!-- Brand Logo & Monogram -->
+          <button onclick="navigateTo('home')" class="flex items-center gap-3 text-left group shrink-0 focus:outline-none">
+            <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-[#5B0404] via-[#480303] to-[#0D5488] flex items-center justify-center text-white shadow-md shadow-[#5B0404]/20 group-hover:scale-105 transition-transform border border-[#EFBB20]/50 shrink-0">
+              <span class="font-serif text-lg font-bold tracking-tight text-[#EFBB20]">FLI</span>
+            </div>
+            <div>
+              <span class="text-base sm:text-lg font-bold font-serif text-[#0D5488] tracking-tight group-hover:text-[#5B0404] transition-colors block whitespace-nowrap">
+                Forum for Language Initiatives
+              </span>
+              <p class="text-[11px] text-[#5B0404] font-medium whitespace-nowrap hidden 2xl:block">
+                Preserving regional cultures & languages of Pakistan • اسلام آباد
+              </p>
+            </div>
+          </button>
+
+          <!-- Desktop Navigation -->
+          <nav class="hidden xl:flex items-center gap-1 text-sm font-semibold text-[#2C3E50]">
+            
+            <!-- Home -->
+            <button onclick="navigateTo('home')" id="nav-btn-home" class="nav-btn px-3 py-2 rounded-lg transition-colors text-[#0D5488] font-bold bg-[#EEF6FA] border-b-2 border-[#EFBB20]">
+              Home
+            </button>
+
+            <!-- About Us Dropdown -->
+            <div class="relative dropdown">
+              <button onclick="navigateTo('about')" id="nav-btn-about" class="nav-btn px-3 py-2 rounded-lg transition-colors flex items-center gap-1 hover:text-[#0D5488] hover:bg-[#EEF6FA]/70">
+                <span>About Us</span>
+                <svg class="w-3.5 h-3.5 opacity-70 text-[#0D5488]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+              </button>
+              <div class="dropdown-menu hidden absolute top-full left-0 w-80 bg-white rounded-xl shadow-xl border border-[#D0DFE8] py-2 px-1 z-50">
+                <button onclick="navigateTo('about', 'overview')" class="w-full text-left px-3 py-2 rounded-lg hover:bg-[#EEF6FA] text-sm transition-colors group">
+                  <div class="font-semibold text-xs text-[#0D5488] group-hover:text-[#5B0404]">Who We Are & 20-Year History</div>
+                  <div class="text-[11px] text-[#6b7280]">Founded in 2003, Societies Registration Act 1860</div>
+                </button>
+                <button onclick="navigateTo('about', 'values')" class="w-full text-left px-3 py-2 rounded-lg hover:bg-[#EEF6FA] text-sm transition-colors group">
+                  <div class="font-semibold text-xs text-[#0D5488] group-hover:text-[#5B0404]">Vision, Mission & 6 Core Values</div>
+                  <div class="text-[11px] text-[#6b7280]">Institutional charter & Urdu Nastaliq calligraphy</div>
+                </button>
+                <button onclick="navigateTo('about', 'objectives')" class="w-full text-left px-3 py-2 rounded-lg hover:bg-[#EEF6FA] text-sm transition-colors group">
+                  <div class="font-semibold text-xs text-[#0D5488] group-hover:text-[#5B0404]">Our Strategic Objectives</div>
+                  <div class="text-[11px] text-[#6b7280]">5 institutional goals and policy milestones</div>
+                </button>
+                <button onclick="navigateTo('about', 'board')" class="w-full text-left px-3 py-2 rounded-lg hover:bg-[#EEF6FA] text-sm transition-colors group">
+                  <div class="font-semibold text-xs text-[#0D5488] group-hover:text-[#5B0404]">FLI Executive Board Members</div>
+                  <div class="text-[11px] text-[#6b7280]">Rozi Khan Burki, Fakhruddin Akhunzada, Dr. Farhat</div>
+                </button>
+                <button onclick="navigateTo('about', 'methodology')" class="w-full text-left px-3 py-2 rounded-lg hover:bg-[#EEF6FA] text-sm transition-colors group">
+                  <div class="font-semibold text-xs text-[#0D5488] group-hover:text-[#5B0404]">Our 4-Pillar Model</div>
+                  <div class="text-[11px] text-[#6b7280]">Survey, orthography, MLE pedagogy & literature</div>
+                </button>
+                <button onclick="navigateTo('about', 'governance')" class="w-full text-left px-3 py-2 rounded-lg hover:bg-[#EEF6FA] text-sm transition-colors group">
+                  <div class="font-semibold text-xs text-[#0D5488] group-hover:text-[#5B0404]">Legal Status & Compliance</div>
+                  <div class="text-[11px] text-[#6b7280]">Non-profit registration, FBR & external audits</div>
+                </button>
+              </div>
+            </div>
+
+            <!-- Target Languages Dropdown -->
+            <div class="relative dropdown">
+              <button onclick="navigateTo('languages')" id="nav-btn-languages" class="nav-btn px-3 py-2 rounded-lg transition-colors flex items-center gap-1.5 hover:text-[#0D5488] hover:bg-[#EEF6FA]/70">
+                <svg class="w-4 h-4 text-[#0D5488]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/></svg>
+                <span>Target Languages</span>
+                <span class="text-[10px] font-bold bg-[#EFBB20] text-[#5B0404] px-1.5 py-0.2 rounded-full shadow-xs">29</span>
+                <svg class="w-3.5 h-3.5 opacity-70 text-[#0D5488]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+              </button>
+              <div class="dropdown-menu hidden absolute top-full left-0 w-80 bg-white rounded-xl shadow-xl border border-[#D0DFE8] py-2 px-1 z-50">
+                <button onclick="navigateTo('languages', 'directory')" class="w-full text-left px-3 py-2 rounded-lg hover:bg-[#EEF6FA] text-sm transition-colors group">
+                  <div class="font-semibold text-xs text-[#0D5488] group-hover:text-[#5B0404]">All 29 Target Languages Directory</div>
+                  <div class="text-[11px] text-[#6b7280]">Profiles, phonology, vitality & orthographies</div>
+                </button>
+                <button onclick="navigateTo('languages', 'map')" class="w-full text-left px-3 py-2 rounded-lg hover:bg-[#EEF6FA] text-sm transition-colors group">
+                  <div class="font-semibold text-xs text-[#0D5488] group-hover:text-[#5B0404]">Language Map of Northern Pakistan</div>
+                  <div class="text-[11px] text-[#6b7280]">Henrik Liljegren 2017 QGIS cartographic map</div>
+                </button>
+                <button onclick="navigateTo('languages', 'tree')" class="w-full text-left px-3 py-2 rounded-lg hover:bg-[#EEF6FA] text-sm transition-colors group">
+                  <div class="font-semibold text-xs text-[#0D5488] group-hover:text-[#5B0404]">Genealogical Language Tree</div>
+                  <div class="text-[11px] text-[#6b7280]">Official SIL / Ethnologue chart document</div>
+                </button>
+                <button onclick="navigateTo('languages', 'relatedness')" class="w-full text-left px-3 py-2 rounded-lg hover:bg-[#EEF6FA] text-sm transition-colors group">
+                  <div class="font-semibold text-xs text-[#0D5488] group-hover:text-[#5B0404]">Language Relatedness Matrix & Lexicon</div>
+                  <div class="text-[11px] text-[#6b7280]">Genetic tree diagram & comparative Swadesh table</div>
+                </button>
+                <button onclick="navigateTo('languages', 'keyboards')" class="w-full text-left px-3 py-2 rounded-lg hover:bg-[#EEF6FA] text-sm transition-colors group border-t border-[#EEF6FA] mt-1">
+                  <div class="font-semibold text-xs text-[#5B0404] flex items-center justify-between">
+                    <span>Android Keyboards (FLI)</span>
+                    <span class="text-[9px] bg-[#EFBB20] text-[#5B0404] font-bold px-1.5 py-0.2 rounded">6 Apps</span>
+                  </div>
+                  <div class="text-[11px] text-[#6b7280]">Indus Kohistani, Khowar, Balti, Gawri, Burushaski, Palula</div>
+                </button>
+              </div>
+            </div>
+
+            <!-- Programs Dropdown -->
+            <div class="relative dropdown">
+              <button onclick="navigateTo('programs')" id="nav-btn-programs" class="nav-btn px-3 py-2 rounded-lg transition-colors flex items-center gap-1 hover:text-[#0D5488] hover:bg-[#EEF6FA]/70">
+                <span>Programs & Training</span>
+                <svg class="w-3.5 h-3.5 opacity-70 text-[#0D5488]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+              </button>
+              <div class="dropdown-menu hidden absolute top-full left-0 w-80 bg-white rounded-xl shadow-xl border border-[#D0DFE8] py-2 px-1 z-50">
+                <button onclick="navigateTo('programs', 'equipping')" class="w-full text-left px-3 py-2 rounded-lg hover:bg-[#EEF6FA] text-sm transition-colors group">
+                  <div class="font-semibold text-xs text-[#0D5488] group-hover:text-[#5B0404]">Equipping the Communities</div>
+                  <div class="text-[11px] text-[#6b7280]">Grassroots capacity building for mother-tongue speakers</div>
+                </button>
+                <button onclick="navigateTo('programs', 'discovery')" class="w-full text-left px-3 py-2 rounded-lg hover:bg-[#EEF6FA] text-sm transition-colors group">
+                  <div class="font-semibold text-xs text-[#0D5488] group-hover:text-[#5B0404]">Discovery Course Offering</div>
+                  <div class="text-[11px] text-[#6b7280]">Linguistics & orthography introductory intensive</div>
+                </button>
+                <button onclick="navigateTo('programs', 'mle')" class="w-full text-left px-3 py-2 rounded-lg hover:bg-[#EEF6FA] text-sm transition-colors group">
+                  <div class="font-semibold text-xs text-[#0D5488] group-hover:text-[#5B0404]">MLE Committee Training (LCT)</div>
+                  <div class="text-[11px] text-[#6b7280]">Mother Tongue-Based Multilingual Education governance</div>
+                </button>
+                <button onclick="navigateTo('programs', 'curriculum')" class="w-full text-left px-3 py-2 rounded-lg hover:bg-[#EEF6FA] text-sm transition-colors group">
+                  <div class="font-semibold text-xs text-[#0D5488] group-hover:text-[#5B0404]">Curriculum & Materials (LMD 1–6)</div>
+                  <div class="text-[11px] text-[#6b7280]">Textbook development & pedagogical workshops</div>
+                </button>
+              </div>
+            </div>
+
+            <!-- Publications Dropdown -->
+            <div class="relative dropdown">
+              <button onclick="navigateTo('publications')" id="nav-btn-publications" class="nav-btn px-3 py-2 rounded-lg transition-colors flex items-center gap-1.5 hover:text-[#0D5488] hover:bg-[#EEF6FA]/70">
+                <svg class="w-4 h-4 text-[#0D5488]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+                <span>Publications</span>
+                <svg class="w-3.5 h-3.5 opacity-70 text-[#0D5488]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+              </button>
+              <div class="dropdown-menu hidden absolute top-full left-0 w-80 bg-white rounded-xl shadow-xl border border-[#D0DFE8] py-2 px-1 z-50">
+                <button onclick="navigateTo('publications', 'vernacular')" class="w-full text-left px-3 py-2 rounded-lg hover:bg-[#EEF6FA] text-sm transition-colors group">
+                  <div class="font-semibold text-xs text-[#0D5488] group-hover:text-[#5B0404]">Vernacular Series (29 Books)</div>
+                  <div class="text-[11px] text-[#6b7280]">Local language literature, proverbs & poetry</div>
+                </button>
+                <button onclick="navigateTo('publications', 'culture-series')" class="w-full text-left px-3 py-2 rounded-lg hover:bg-[#EEF6FA] text-sm transition-colors group">
+                  <div class="font-semibold text-xs text-[#0D5488] group-hover:text-[#5B0404]">Language & Culture Series (25 Works)</div>
+                  <div class="text-[11px] text-[#6b7280]">Academic sociolinguistic surveys & grammars</div>
+                </button>
+                <button onclick="navigateTo('publications', 'other-books')" class="w-full text-left px-3 py-2 rounded-lg hover:bg-[#EEF6FA] text-sm transition-colors group">
+                  <div class="font-semibold text-xs text-[#0D5488] group-hover:text-[#5B0404]">Other Books (31 Primers & Alphabets)</div>
+                  <div class="text-[11px] text-[#6b7280]">Community primers for Gawri, Torwali, Palula</div>
+                </button>
+                <button onclick="navigateTo('newsletters')" class="w-full text-left px-3 py-2 rounded-lg hover:bg-[#EEF6FA] text-sm transition-colors group">
+                  <div class="font-semibold text-xs text-[#0D5488] group-hover:text-[#5B0404]">Newsletters & Annual Reports</div>
+                  <div class="text-[11px] text-[#6b7280]">Official archive from 2012 to 2026</div>
+                </button>
+                <button onclick="navigateTo('publications', 'translations')" class="w-full text-left px-3 py-2 rounded-lg hover:bg-[#EEF6FA] text-sm transition-colors group">
+                  <div class="font-semibold text-xs text-[#0D5488] group-hover:text-[#5B0404]">Materials Translated into Local Tongues</div>
+                  <div class="text-[11px] text-[#6b7280]">Universal Human Rights & UNESCO Declarations</div>
+                </button>
+              </div>
+            </div>
+
+            <!-- Digital Resources -->
+            <button onclick="navigateTo('digital-resources')" id="nav-btn-digital-resources" class="nav-btn px-3 py-2 rounded-lg transition-colors flex items-center gap-1.5 hover:text-[#0D5488] hover:bg-[#EEF6FA]/70">
+              <svg class="w-4 h-4 text-[#0D5488]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+              <span>Digital Tools & Fonts</span>
+            </button>
+
+            <!-- Advocacy -->
+            <button onclick="navigateTo('advocacy')" id="nav-btn-advocacy" class="nav-btn px-3 py-2 rounded-lg transition-colors flex items-center gap-1.5 hover:text-[#0D5488] hover:bg-[#EEF6FA]/70">
+              <svg class="w-4 h-4 text-[#0D5488]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"/></svg>
+              <span>Advocacy & FEL 2024</span>
+            </button>
+
+            <!-- News & Media -->
+            <button onclick="navigateTo('news-media')" id="nav-btn-news-media" class="nav-btn px-3 py-2 rounded-lg transition-colors hover:text-[#0D5488] hover:bg-[#EEF6FA]/70">
+              News & Media
+            </button>
+
+            <!-- Impact Stories -->
+            <button onclick="navigateTo('success-stories')" id="nav-btn-success-stories" class="nav-btn px-3 py-2 rounded-lg transition-colors hover:text-[#0D5488] hover:bg-[#EEF6FA]/70">
+              Impact
+            </button>
+          </nav>
+
+          <!-- Action Buttons -->
+          <div class="flex items-center gap-2.5 shrink-0">
+            <button onclick="openModal('searchModal')" class="p-2.5 text-[#2C3E50] hover:text-[#0D5488] hover:bg-[#EEF6FA] rounded-lg transition-colors" title="Search site">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+            </button>
+
+            <button onclick="navigateTo('contact')" class="hidden md:inline-flex items-center justify-center px-4 py-2.5 text-xs font-bold text-white bg-[#0D5488] hover:bg-[#0A3F66] rounded-lg transition-colors whitespace-nowrap shadow-xs border border-[#EFBB20]/50">
+              Contact Secretariat
+            </button>
+
+            <!-- Mobile Hamburger Toggle -->
+            <button onclick="toggleMobileMenu()" class="xl:hidden p-2 text-[#0D5488] hover:bg-[#EEF6FA] rounded-lg">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Navigation Drawer -->
+      <div id="mobileMenu" class="hidden xl:hidden border-t border-[#D0DFE8] bg-white px-4 pt-3 pb-6 max-h-[85vh] overflow-y-auto space-y-3">
+        <div class="grid grid-cols-2 gap-2 pb-2 border-b border-[#D0DFE8]">
+          <button onclick="navigateTo('home'); toggleMobileMenu()" class="text-left px-3 py-2 rounded-lg text-sm font-semibold hover:bg-[#EEF6FA] text-[#0D5488]">Home</button>
+          <button onclick="navigateTo('about'); toggleMobileMenu()" class="text-left px-3 py-2 rounded-lg text-sm font-semibold hover:bg-[#EEF6FA] text-[#5B0404]">About FLI</button>
+        </div>
+        <div class="space-y-1">
+          <div class="text-[11px] font-bold text-[#5B0404] uppercase tracking-wider px-3">About FLI</div>
+          <button onclick="navigateTo('about', 'overview'); toggleMobileMenu()" class="w-full text-left px-3 py-1.5 text-sm text-[#2C3E50] hover:bg-[#EEF6FA] rounded">Who We Are & History</button>
+          <button onclick="navigateTo('about', 'values'); toggleMobileMenu()" class="w-full text-left px-3 py-1.5 text-sm text-[#2C3E50] hover:bg-[#EEF6FA] rounded">Vision, Mission & Core Values</button>
+          <button onclick="navigateTo('about', 'board'); toggleMobileMenu()" class="w-full text-left px-3 py-1.5 text-sm text-[#2C3E50] hover:bg-[#EEF6FA] rounded">FLI Executive Board Members</button>
+        </div>
+        <div class="space-y-1 border-t border-[#D0DFE8] pt-2">
+          <div class="text-[11px] font-bold text-[#0D5488] uppercase tracking-wider px-3">Target Languages (29)</div>
+          <button onclick="navigateTo('languages', 'directory'); toggleMobileMenu()" class="w-full text-left px-3 py-1.5 text-sm text-[#2C3E50] hover:bg-[#EEF6FA] rounded flex justify-between">
+            <span>All 29 Language Profiles</span>
+            <span class="text-[10px] font-bold bg-[#EFBB20] text-[#5B0404] px-1.5 py-0.5 rounded-full">29</span>
+          </button>
+          <button onclick="navigateTo('languages', 'map'); toggleMobileMenu()" class="w-full text-left px-3 py-1.5 text-sm text-[#2C3E50] hover:bg-[#EEF6FA] rounded">Language Map (Henrik Liljegren 2017)</button>
+          <button onclick="navigateTo('languages', 'tree'); toggleMobileMenu()" class="w-full text-left px-3 py-1.5 text-sm text-[#2C3E50] hover:bg-[#EEF6FA] rounded">Genealogical Language Tree (SIL/FLI Chart)</button>
+          <button onclick="navigateTo('languages', 'relatedness'); toggleMobileMenu()" class="w-full text-left px-3 py-1.5 text-sm text-[#2C3E50] hover:bg-[#EEF6FA] rounded">Language Relatedness Matrix & Lexicon</button>
+          <button onclick="navigateTo('languages', 'keyboards'); toggleMobileMenu()" class="w-full text-left px-3 py-1.5 text-sm text-[#5B0404] font-medium hover:bg-[#EEF6FA] rounded flex justify-between">
+            <span>Android Keyboards (FLI)</span>
+            <span class="text-[9px] bg-[#EFBB20] text-[#5B0404] font-bold px-1.5 py-0.2 rounded">6 Apps</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ======================================================== -->
+    <!-- 3. MAIN CONTENT CONTAINER (SWITCHED BY VANILLA JS)       -->
+    <!-- ======================================================== -->
+    <main class="flex-1">
+
+      <!-- ============================================== -->
+      <!-- VIEW 1: HOME PAGE                              -->
+      <!-- ============================================== -->
+      <section id="view-home" class="app-view active space-y-16 pb-12">
+        
+        <!-- Hero Section: #0D5488 Ocean Navy with #5B0404 Maroon & #EFBB20 Gold -->
+        <section class="relative overflow-hidden bg-gradient-to-br from-[#08314F] via-[#0D5488] to-[#5B0404] text-white">
+          <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-28">
+            <div class="max-w-3xl space-y-6">
+              
+              <div class="inline-flex items-center gap-2 text-xs font-bold text-[#EFBB20] tracking-wide uppercase px-2.5 py-1 bg-black/25 rounded-md backdrop-blur-xs border border-[#EFBB20]/30">
+                <span>National Resource & Training Center for Pakistan’s Linguistic Heritage</span>
+                <span>·</span>
+                <span>Est. 2002</span>
+              </div>
+
+              <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-serif leading-tight tracking-tight text-white">
+                To See all Ethnolinguistic Communities in Pakistan Flourishing Culturally and Economically
+              </h1>
+
+              <p class="text-base sm:text-lg text-[#DCE7F0] leading-relaxed max-w-2xl font-light">
+                We put the mother-tongue speakers in the driving seat of language development, 
+                cultural documentation, and mother-tongue education. Equipping local communities 
+                across the Hindukush, Karakoram, and Himalayas with orthographies, digital keyboards, 
+                curricula, and published literature.
+              </p>
+
+              <div class="flex flex-wrap items-center gap-4 pt-4">
+                <button onclick="navigateTo('languages')" class="px-6 py-3.5 bg-[#EFBB20] hover:bg-[#DCA715] text-[#08314F] font-bold text-sm rounded-xl shadow-lg shadow-black/25 transition-all flex items-center gap-2 group">
+                  <span>Explore 29 Target Languages</span>
+                  <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                </button>
+
+                <button onclick="navigateTo('about')" class="px-6 py-3.5 bg-white/10 hover:bg-white/20 text-white font-semibold text-sm rounded-xl backdrop-blur-md border border-white/25 transition-all">
+                  About FLI & 20-Year History
+                </button>
+
+                <button onclick="openModal('wpSpecModal')" class="px-4 py-3.5 border border-[#EFBB20]/50 hover:border-[#EFBB20] text-[#EFBB20] hover:bg-[#EFBB20]/15 text-xs font-bold rounded-xl transition-all flex items-center gap-2">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+                  <span>Elementor Free & WP Spec</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- KPI Metrics Strip -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 -mt-8 relative z-20">
+          <div class="bg-white rounded-2xl shadow-xl border border-[#D0DFE8] p-6 lg:p-8 grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 divide-y lg:divide-y-0 lg:divide-x divide-[#D0DFE8]">
+            <div class="pt-4 lg:pt-0 lg:px-4 text-center lg:text-left">
+              <div class="text-3xl lg:text-4xl font-extrabold text-[#0D5488] font-serif tabular-nums">29+</div>
+              <div class="text-xs font-bold text-[#1F2937] uppercase tracking-wider mt-1">Target Indigenous Languages</div>
+              <p class="text-xs text-[#6b7280] mt-1">Across Hindukush, Karakoram, Pamir, and Indus Kohistan valleys.</p>
+            </div>
+            <div class="pt-4 lg:pt-0 lg:px-4 text-center lg:text-left">
+              <div class="text-3xl lg:text-4xl font-extrabold text-[#5B0404] font-serif tabular-nums">2,500+</div>
+              <div class="text-xs font-bold text-[#1F2937] uppercase tracking-wider mt-1">Researchers & Educators Trained</div>
+              <p class="text-xs text-[#6b7280] mt-1">Community writers, schoolteachers, poets, and linguists empowered.</p>
+            </div>
+            <div class="pt-4 lg:pt-0 lg:px-4 text-center lg:text-left">
+              <div class="text-3xl lg:text-4xl font-extrabold text-[#0D5488] font-serif tabular-nums">85+</div>
+              <div class="text-xs font-bold text-[#1F2937] uppercase tracking-wider mt-1">Scholarly Volumes & Primers</div>
+              <p class="text-xs text-[#6b7280] mt-1">Vernacular series, grammar sketches, dictionaries, and folklore collections.</p>
+            </div>
+            <div class="pt-4 lg:pt-0 lg:px-4 text-center lg:text-left">
+              <div class="text-3xl lg:text-4xl font-extrabold text-[#5B0404] font-serif tabular-nums">20+ Years</div>
+              <div class="text-xs font-bold text-[#1F2937] uppercase tracking-wider mt-1">Fieldwork & Advocacy</div>
+              <p class="text-xs text-[#6b7280] mt-1">Steadfast service since 2002 alongside grassroots Community-Based Organizations.</p>
+            </div>
+          </div>
+        </section>
+
+        <!-- Institutional Overview & Strategic Goals -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            <div class="lg:col-span-7 space-y-6">
+              <div class="space-y-2">
+                <span class="text-xs font-bold uppercase tracking-wider text-[#0D5488]">Institutional Profile • اسلام آباد</span>
+                <h2 class="text-2xl sm:text-3xl font-bold font-serif text-[#5B0404]">
+                  We are at the Forefront of Indigenous Language Preservation in Pakistan
+                </h2>
+              </div>
+              <p class="text-sm text-[#4b5563] leading-relaxed">
+                The <strong>Forum for Language Initiatives (FLI)</strong> is a non-governmental organization established to assist minoritized language communities of Pakistan—especially those inhabiting the northern mountainous areas—in preserving and developing their mother tongues.
+              </p>
+              <p class="text-sm text-[#4b5563] leading-relaxed">
+                Our core philosophy is simple yet revolutionary: rather than outside scholars treating indigenous languages merely as extraction subjects, we train the native speakers themselves. We equip community writers, village schoolteachers, and cultural custodians with linguistic tools, digital fonts, standard alphabets, and institutional support.
+              </p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2">
+                <div class="p-3.5 bg-white rounded-xl border border-[#D0DFE8] space-y-1">
+                  <div class="font-bold text-xs text-[#0D5488] flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-[#EFBB20]"></span>
+                    <span>Capacity & Field Research</span>
+                  </div>
+                  <p class="text-[11px] text-[#6b7280]">Discovery courses and training in phonology, orthography, and grammar.</p>
+                </div>
+                <div class="p-3.5 bg-white rounded-xl border border-[#D0DFE8] space-y-1">
+                  <div class="font-bold text-xs text-[#5B0404] flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-[#EFBB20]"></span>
+                    <span>Mother-Tongue Education (MLE)</span>
+                  </div>
+                  <p class="text-[11px] text-[#6b7280]">Early-childhood classrooms and local language primers for cognitive enrichment.</p>
+                </div>
+                <div class="p-3.5 bg-white rounded-xl border border-[#D0DFE8] space-y-1">
+                  <div class="font-bold text-xs text-[#0D5488] flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-[#EFBB20]"></span>
+                    <span>Digital Vitality & Keyboards</span>
+                  </div>
+                  <p class="text-[11px] text-[#6b7280]">6 Android keyboards, Nastaliq fonts, and PC Keyman packages for minoritized scripts.</p>
+                </div>
+                <div class="p-3.5 bg-white rounded-xl border border-[#D0DFE8] space-y-1">
+                  <div class="font-bold text-xs text-[#5B0404] flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-[#EFBB20]"></span>
+                    <span>Policy & Human Rights</span>
+                  </div>
+                  <p class="text-[11px] text-[#6b7280]">Advocate with provincial and national assemblies for constitutional recognition.</p>
+                </div>
+              </div>
+              <div class="pt-2 flex flex-wrap items-center gap-4">
+                <button onclick="navigateTo('about')" class="px-5 py-2.5 rounded-lg bg-[#0D5488] hover:bg-[#0A3F66] text-white text-xs font-bold transition-colors flex items-center gap-1.5 border border-[#EFBB20]/40 shadow-xs">
+                  <span>Read Full About FLI, Vision & Board</span>
+                  <svg class="w-3.5 h-3.5 text-[#EFBB20]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                </button>
+                <button onclick="navigateTo('about', 'values')" class="text-xs font-bold text-[#5B0404] hover:text-[#0D5488] flex items-center gap-1.5 transition-colors underline decoration-[#5B0404]/30">
+                  <span>Our 6 Core Values & Urdu Declaration</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="lg:col-span-5 space-y-4">
+              <div class="rounded-2xl overflow-hidden shadow-lg border border-[#D0DFE8] bg-white">
+                <div class="p-8 bg-[#EEF6FA] text-center space-y-4">
+                  <div class="w-16 h-16 rounded-2xl bg-[#0D5488] text-[#EFBB20] flex items-center justify-center font-serif font-bold text-2xl mx-auto shadow-md">FLI</div>
+                  <h3 class="font-serif font-bold text-lg text-[#0D5488]">Grassroots Capacity Hub</h3>
+                  <p class="text-xs text-stone-600 leading-relaxed max-w-sm mx-auto">
+                    Elders, poets, and young university students collaborate during an FLI workshop to transcribe oral folklore, compile proverbs, and establish consensus on orthography.
+                  </p>
+                  <div class="pt-2 flex justify-center gap-2">
+                    <span class="px-2.5 py-1 bg-white text-[#5B0404] font-bold text-xs rounded border border-[#D0DFE8]">2003–2026</span>
+                    <span class="px-2.5 py-1 bg-white text-[#0D5488] font-bold text-xs rounded border border-[#D0DFE8]">29 Languages</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Submenu Jump Cards: Map, Tree, Relatedness, Keyboards -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="bg-gradient-to-br from-[#EEF6FA] via-[#F4F9FC] to-[#FAF2F2] rounded-3xl p-8 lg:p-10 border border-[#D0DFE8] space-y-6">
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+              <div class="space-y-1">
+                <span class="text-xs font-bold uppercase tracking-wider text-[#0D5488]">Linguistic Atlas & Research Tools</span>
+                <h2 class="text-2xl sm:text-3xl font-bold font-serif text-[#5B0404]">Explore the Northern Pakistan Sub-Pages</h2>
+              </div>
+              <button onclick="navigateTo('languages')" class="px-4 py-2 bg-[#0D5488] hover:bg-[#0A3F66] text-white text-xs font-bold rounded-lg transition-colors border border-[#EFBB20]/40">
+                View 29-Language Directory →
+              </button>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <div onclick="navigateTo('languages', 'map')" class="bg-white p-5 rounded-xl border border-[#D0DFE8] hover:border-[#0D5488] transition-all cursor-pointer shadow-xs hover:shadow-md">
+                <div class="w-8 h-8 rounded-lg bg-[#EEF6FA] text-[#0D5488] flex items-center justify-center font-bold mb-3">📍</div>
+                <h4 class="font-bold text-sm text-[#0D5488]">Language Map</h4>
+                <p class="text-xs text-stone-500 mt-1">Henrik Liljegren 2017 QGIS cartographic map produced for FLI.</p>
+              </div>
+
+              <div onclick="navigateTo('languages', 'tree')" class="bg-white p-5 rounded-xl border border-[#D0DFE8] hover:border-[#0D5488] transition-all cursor-pointer shadow-xs hover:shadow-md">
+                <div class="w-8 h-8 rounded-lg bg-[#FAF2F2] text-[#5B0404] flex items-center justify-center font-bold mb-3">🌳</div>
+                <h4 class="font-bold text-sm text-[#5B0404]">Language Tree</h4>
+                <p class="text-xs text-stone-500 mt-1">Official SIL / FLI genealogical chart document.</p>
+              </div>
+
+              <div onclick="navigateTo('languages', 'relatedness')" class="bg-white p-5 rounded-xl border border-[#D0DFE8] hover:border-[#0D5488] transition-all cursor-pointer shadow-xs hover:shadow-md">
+                <div class="w-8 h-8 rounded-lg bg-[#EEF6FA] text-[#0D5488] flex items-center justify-center font-bold mb-3">🧬</div>
+                <h4 class="font-bold text-sm text-[#0D5488]">Relatedness Matrix</h4>
+                <p class="text-xs text-stone-500 mt-1">Genetic tree diagram & comparative Swadesh lexicon.</p>
+              </div>
+
+              <div onclick="navigateTo('languages', 'keyboards')" class="bg-white p-5 rounded-xl border border-[#D0DFE8] hover:border-[#0D5488] transition-all cursor-pointer shadow-xs hover:shadow-md">
+                <div class="w-8 h-8 rounded-lg bg-[#FEF9E8] text-[#5B0404] flex items-center justify-center font-bold mb-3">📱</div>
+                <h4 class="font-bold text-sm text-[#5B0404]">Android Keyboards</h4>
+                <p class="text-xs text-stone-500 mt-1">6 official Google Play mobile keyboards.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Elementor Free Blueprint Callout -->
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="bg-[#FAF2F2] border-2 border-[#5B0404]/30 rounded-2xl p-6 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-6 shadow-xs">
+            <div class="space-y-2 text-center md:text-left">
+              <div class="flex flex-wrap items-center justify-center md:justify-start gap-2">
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-[#5B0404] text-white uppercase tracking-wider">
+                  100% Elementor Free Compatible
+                </span>
+                <span class="text-xs font-bold text-[#0D5488] font-serif">
+                  Zero Elementor Pro Required ($0 License Cost)
+                </span>
+              </div>
+              <h3 class="text-lg font-bold text-stone-900 font-serif">
+                Ready to Build in Free Version of Elementor + WordPress
+              </h3>
+              <p class="text-xs text-stone-600 max-w-xl leading-relaxed">
+                Every section in this prototype is architected using native Elementor Free widgets (Tabs, Counters, Icon Boxes, Image Boxes, Text Editor) and free plugins like <em>Elementor Header & Footer Builder</em> and <em>ACF Free</em>. Open the developer blueprint for exact widget mappings, global color presets, and CPT code.
+              </p>
+            </div>
+            <button onclick="openModal('wpSpecModal')" class="px-6 py-3.5 bg-[#0D5488] hover:bg-[#0A3F66] text-white text-xs font-bold rounded-xl shadow-md transition-all whitespace-nowrap shrink-0 flex items-center gap-2 hover:scale-102 border border-[#EFBB20]/50">
+              <span>Open Elementor Free Guide & Specs</span>
+            </button>
+          </div>
+        </section>
+
+      </section>
+
+
+      <!-- ============================================== -->
+      <!-- VIEW 2: ABOUT US PAGE (6 SUB-TABS)             -->
+      <!-- ============================================== -->
+      <section id="view-about" class="app-view space-y-10 pb-16">
+        
+        <!-- Header Banner -->
+        <section class="bg-gradient-to-r from-[#08314F] via-[#0D5488] to-[#5B0404] text-white py-16 px-4 sm:px-6 lg:px-8 border-b-4 border-[#EFBB20]">
+          <div class="max-w-7xl mx-auto space-y-4">
+            <div class="flex flex-wrap items-center gap-3">
+              <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#EFBB20] text-[#5B0404] tracking-wider uppercase font-bold shadow-xs">
+                Institutional Profile
+              </span>
+              <span class="text-white/40 text-xs">•</span>
+              <span class="text-white/90 text-xs font-mono">Founded 2003 • Islamabad</span>
+              <span class="text-white/40 text-xs">•</span>
+              <span class="text-white/90 text-xs">Societies Registration Act XXI of 1860</span>
+            </div>
+            <h1 class="text-3xl sm:text-5xl font-serif font-bold tracking-tight text-white leading-tight">
+              About Forum for Language Initiatives
+            </h1>
+            <p class="text-base sm:text-lg text-white/90 max-w-3xl leading-relaxed font-light">
+              Empowering minoritized ethnolinguistic communities of northern Pakistan to revitalize, document, and celebrate their mother tongues through community ownership, literacy, and policy advocacy.
+            </p>
+          </div>
+        </section>
+
+        <!-- Sub-Tabs Navigation -->
+        <div class="border-b border-[#D0DFE8] bg-white sticky top-20 z-30 shadow-xs">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="flex space-x-2 sm:space-x-6 overflow-x-auto py-3 no-scrollbar" aria-label="About Sub-sections">
+              <button onclick="showAboutTab('overview')" id="about-tab-overview" class="about-tab-btn px-3 py-2 text-sm font-semibold rounded-md transition-colors bg-[#0D5488] text-white border-b-2 border-[#EFBB20]">Overview & History</button>
+              <button onclick="showAboutTab('values')" id="about-tab-values" class="about-tab-btn px-3 py-2 text-sm font-semibold rounded-md transition-colors text-stone-600 hover:text-[#0D5488] hover:bg-[#EEF6FA]">Vision, Mission & Values</button>
+              <button onclick="showAboutTab('objectives')" id="about-tab-objectives" class="about-tab-btn px-3 py-2 text-sm font-semibold rounded-md transition-colors text-stone-600 hover:text-[#0D5488] hover:bg-[#EEF6FA]">Strategic Objectives</button>
+              <button onclick="showAboutTab('board')" id="about-tab-board" class="about-tab-btn px-3 py-2 text-sm font-semibold rounded-md transition-colors text-stone-600 hover:text-[#0D5488] hover:bg-[#EEF6FA]">Executive Board</button>
+              <button onclick="showAboutTab('methodology')" id="about-tab-methodology" class="about-tab-btn px-3 py-2 text-sm font-semibold rounded-md transition-colors text-stone-600 hover:text-[#0D5488] hover:bg-[#EEF6FA]">4-Pillar Model</button>
+              <button onclick="showAboutTab('governance')" id="about-tab-governance" class="about-tab-btn px-3 py-2 text-sm font-semibold rounded-md transition-colors text-stone-600 hover:text-[#0D5488] hover:bg-[#EEF6FA]">Legal & Governance</button>
+            </nav>
+          </div>
+        </div>
+
+        <!-- Sub-Tab Content 1: Overview & History -->
+        <div id="about-content-overview" class="sub-tab-content active max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+          <div class="bg-white p-6 sm:p-10 rounded-xl border border-[#D0DFE8] shadow-xs space-y-4">
+            <span class="text-xs font-bold text-[#0D5488] uppercase tracking-wider">Who We Are & Historical Roots</span>
+            <h2 class="text-2xl sm:text-3xl font-serif font-bold text-[#5B0404]">Preserving Northern Pakistan’s Living Heritage Since 2003</h2>
+            <div class="text-sm text-stone-700 leading-relaxed space-y-4">
+              <p class="text-base font-medium text-stone-900">
+                The Forum for Language Initiatives (FLI) is a pioneer non-governmental linguistic resource center established in 2003 and headquartered in Islamabad, Pakistan.
+              </p>
+              <p>
+                Pakistan is home to over 70 living languages. Yet more than 30 minoritized mountain idioms spoken across Khyber Pakhtunkhwa (Chitral, Swat, Kohistan, Dir), Gilgit-Baltistan (Hunza, Gilgit, Baltistan), Azad Jammu & Kashmir, and South Waziristan are classified as endangered by UNESCO.
+              </p>
+              <p>
+                FLI was formed by indigenous scholars, community elders, and educators to reverse this trajectory. Rather than treating languages as passive academic specimens, FLI works hand-in-hand with native speakers to establish Community-Based Organizations (CBOs), standardize writing orthographies, develop multilingual pre-primary education (MTB-MLE), publish vernacular folk literature, and engineer digital Nastaliq fonts and mobile keyboards.
+              </p>
+            </div>
+          </div>
+
+          <!-- 20-Year Timeline -->
+          <div class="bg-white p-6 sm:p-8 rounded-xl border border-[#D0DFE8] shadow-xs space-y-6">
+            <h3 class="font-serif font-bold text-xl text-[#0D5488]">20-Year Milestone Timeline</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs">
+              <div class="p-4 rounded-lg bg-[#EEF6FA] border border-[#D0DFE8] space-y-1">
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-[#0D5488] text-white">2003</span>
+                <h4 class="font-bold text-sm text-[#0D5488]">FLI Founded in Islamabad</h4>
+                <p class="text-stone-600">Registered under Societies Registration Act 1860 as the Frontier Language Institute.</p>
+              </div>
+              <div class="p-4 rounded-lg bg-[#FAF2F2] border border-[#E8D5D5] space-y-1">
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-[#5B0404] text-white">2007</span>
+                <h4 class="font-bold text-sm text-[#5B0404]">Mother Tongue Conference</h4>
+                <p class="text-stone-600">Convened northern community delegates to build regional orthographies consensus.</p>
+              </div>
+              <div class="p-4 rounded-lg bg-[#EEF6FA] border border-[#D0DFE8] space-y-1">
+                <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-[#0D5488] text-white">2024</span>
+                <h4 class="font-bold text-sm text-[#0D5488]">FEL XXVIII Conference</h4>
+                <p class="text-stone-600">Co-hosted Foundation for Endangered Languages international summit in Islamabad.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sub-Tab Content 2: Vision, Mission & Values -->
+        <div id="about-content-values" class="sub-tab-content max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="bg-white p-6 sm:p-8 rounded-xl border border-[#D0DFE8] shadow-xs space-y-3">
+              <span class="text-xs font-bold text-[#0D5488] uppercase tracking-wider">Our Vision</span>
+              <h3 class="font-serif font-bold text-xl text-[#0D5488]">Flourishing Ethnolinguistic Communities</h3>
+              <p class="text-sm text-stone-700 leading-relaxed">
+                "To see all ethnolinguistic communities in Pakistan flourishing culturally and economically."
+              </p>
+              <div class="p-4 rounded-lg bg-[#EEF6FA] border border-[#D0DFE8] nastaliq-text text-base text-[#0D5488] font-bold text-right">
+                پاکستان کی تمام لسانی برادریاں ثقافتی اور معاشی طور پر ترقی کریں۔
+              </div>
+            </div>
+
+            <div class="bg-white p-6 sm:p-8 rounded-xl border border-[#D0DFE8] shadow-xs space-y-3">
+              <span class="text-xs font-bold text-[#5B0404] uppercase tracking-wider">Our Mission</span>
+              <h3 class="font-serif font-bold text-xl text-[#5B0404]">Empowering Mother-Tongue Communities</h3>
+              <p class="text-sm text-stone-700 leading-relaxed">
+                "To enable and motivate language communities to preserve, develop, and promote their languages and cultural heritage."
+              </p>
+              <div class="p-4 rounded-lg bg-[#FAF2F2] border border-[#E8D5D5] nastaliq-text text-base text-[#5B0404] font-bold text-right">
+                لسانی برادریوں کو اپنی زبانوں اور ثقافت کو محفوظ کرنے اور فروغ دینے کے قابل بنانا۔
+              </div>
+            </div>
+          </div>
+
+          <!-- 6 Core Values -->
+          <div class="bg-white p-6 sm:p-8 rounded-xl border border-[#D0DFE8] shadow-xs space-y-6">
+            <h3 class="font-serif font-bold text-xl text-[#0D5488]">Our 6 Foundational Core Values</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
+              <div class="p-4 rounded-lg border border-[#D0DFE8] bg-[#EEF6FA] space-y-1.5">
+                <div class="font-bold text-sm text-[#0D5488]">1. Linguistic & Cultural Diversity</div>
+                <p class="text-stone-600">Every tongue represents an irreplaceable repository of human wisdom and environmental knowledge.</p>
+              </div>
+              <div class="p-4 rounded-lg border border-[#D0DFE8] bg-[#FAF2F2] space-y-1.5">
+                <div class="font-bold text-sm text-[#5B0404]">2. Community Ownership & Leadership</div>
+                <p class="text-stone-600">Language preservation cannot be imposed from outside; native speakers are the creators and primary agents.</p>
+              </div>
+              <div class="p-4 rounded-lg border border-[#D0DFE8] bg-[#EEF6FA] space-y-1.5">
+                <div class="font-bold text-sm text-[#0D5488]">3. Academic & Linguistic Rigor</div>
+                <p class="text-stone-600">We unite modern phonological and sociolinguistic research methods with community consensus.</p>
+              </div>
+              <div class="p-4 rounded-lg border border-[#D0DFE8] bg-[#FAF2F2] space-y-1.5">
+                <div class="font-bold text-sm text-[#5B0404]">4. Inclusivity & Gender Equity</div>
+                <p class="text-stone-600">Ensuring women, youth, and marginalized dialect speakers actively guide orthographies and school curricula.</p>
+              </div>
+              <div class="p-4 rounded-lg border border-[#D0DFE8] bg-[#EEF6FA] space-y-1.5">
+                <div class="font-bold text-sm text-[#0D5488]">5. Transparency & Accountability</div>
+                <p class="text-stone-600">Upholding highest fiduciary ethics under Societies Registration Act 1860 with independent audits.</p>
+              </div>
+              <div class="p-4 rounded-lg border border-[#D0DFE8] bg-[#FAF2F2] space-y-1.5">
+                <div class="font-bold text-sm text-[#5B0404]">6. Collaborative Action & Networking</div>
+                <p class="text-stone-600">Partnering with UNESCO, SIL International, FEL, universities, and 14+ grassroots CBOs.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sub-Tab Content 3: Strategic Objectives -->
+        <div id="about-content-objectives" class="sub-tab-content max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+          <div class="bg-white p-6 sm:p-10 rounded-xl border border-[#D0DFE8] shadow-xs space-y-6">
+            <span class="text-xs font-bold text-[#0D5488] uppercase tracking-wider">Five Institutional Milestones</span>
+            <h2 class="text-2xl sm:text-3xl font-serif font-bold text-[#5B0404]">Strategic Goal & Key Objectives</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+              <div class="p-4 rounded-lg border border-[#D0DFE8] bg-stone-50 space-y-1">
+                <span class="font-bold text-[#0D5488] text-sm">Objective 1: Grassroots Capacity</span>
+                <p class="text-stone-600">Train community writers, poets, teachers, and researchers in grammar documentation and literacy.</p>
+              </div>
+              <div class="p-4 rounded-lg border border-[#D0DFE8] bg-stone-50 space-y-1">
+                <span class="font-bold text-[#5B0404] text-sm">Objective 2: Mother-Tongue MLE</span>
+                <p class="text-stone-600">Support community pre-primary schools and mother-tongue textbooks across Swat, Chitral, and Kohistan.</p>
+              </div>
+              <div class="p-4 rounded-lg border border-[#D0DFE8] bg-stone-50 space-y-1">
+                <span class="font-bold text-[#0D5488] text-sm">Objective 3: Literature & Digital Tools</span>
+                <p class="text-stone-600">Publish vernacular storybooks, proverbs, dictionaries, and mobile Android keyboards.</p>
+              </div>
+              <div class="p-4 rounded-lg border border-[#D0DFE8] bg-stone-50 space-y-1">
+                <span class="font-bold text-[#5B0404] text-sm">Objective 4: Policy & Rights Advocacy</span>
+                <p class="text-stone-600">Lobby parliamentarians and education departments for constitutional recognition of linguistic diversity.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sub-Tab Content 4: Executive Board -->
+        <div id="about-content-board" class="sub-tab-content max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+          <div class="bg-white p-6 sm:p-10 rounded-xl border border-[#D0DFE8] shadow-xs space-y-4">
+            <span class="text-xs font-bold text-[#0D5488] uppercase tracking-wider">Governance & Leadership</span>
+            <h2 class="text-2xl sm:text-3xl font-serif font-bold text-[#5B0404]">FLI Executive Board Members</h2>
+            <p class="text-sm text-stone-600 max-w-3xl">
+              Distinguished language activists, scholars, and community champions guiding FLI's statutory policy and fieldwork.
+            </p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-xs">
+            <div class="bg-white p-6 rounded-xl border border-[#D0DFE8] shadow-xs space-y-2">
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-[#0D5488] text-white">Chairman</span>
+              <h3 class="font-bold text-base text-[#0D5488]">Mr. Rozi Khan Burki</h3>
+              <p class="text-stone-500 font-medium">Pir Roshan Literary Tolana, South Waziristan</p>
+              <p class="text-stone-600 leading-relaxed">Eminent native scholar and author of Ormuri (Bargista). Champion of endangered languages in Waziristan.</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl border border-[#D0DFE8] shadow-xs space-y-2">
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-[#5B0404] text-white">Executive Director</span>
+              <h3 class="font-bold text-base text-[#5B0404]">Mr. Fakhruddin Akhunzada</h3>
+              <p class="text-stone-500 font-medium">Forum for Language Initiatives, Islamabad</p>
+              <p class="text-stone-600 leading-relaxed">Pioneering Torwali researcher and language advocate directing FLI programs, UNESCO partnerships, and FEL 2024.</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl border border-[#D0DFE8] shadow-xs space-y-2">
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-stone-700 text-white">Vice Chair</span>
+              <h3 class="font-bold text-base text-[#0D5488]">Dr. Farhat Abdullah</h3>
+              <p class="text-stone-500 font-medium">Department of Anthropology, Quaid-i-Azam University</p>
+              <p class="text-stone-600 leading-relaxed">Specialist in ethnography, cultural documentation, and indigenous knowledge systems in Pakistan.</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl border border-[#D0DFE8] shadow-xs space-y-2">
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-stone-700 text-white">Board Member</span>
+              <h3 class="font-bold text-base text-[#0D5488]">Mr. Razwal Kohistani</h3>
+              <p class="text-stone-500 font-medium">Indus Kohistan Cultural & Linguistic Heritage Society</p>
+              <p class="text-stone-600 leading-relaxed">Lexicographer who authored foundational Indus Kohistani dictionaries and Shina history volumes.</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl border border-[#D0DFE8] shadow-xs space-y-2">
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-stone-700 text-white">Board Member</span>
+              <h3 class="font-bold text-base text-[#0D5488]">Ms. Fauzia Qazi</h3>
+              <p class="text-stone-500 font-medium">Senior Education & Gender Specialist, Islamabad</p>
+              <p class="text-stone-600 leading-relaxed">Pedagogical advisor steering early-childhood literacy, inclusive classrooms, and teacher training.</p>
+            </div>
+
+            <div class="bg-white p-6 rounded-xl border border-[#D0DFE8] shadow-xs space-y-2">
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-stone-700 text-white">Board Member</span>
+              <h3 class="font-bold text-base text-[#0D5488]">Mr. Fazal Karim</h3>
+              <p class="text-stone-500 font-medium">Kalam Community Development Project (GCDP), Swat</p>
+              <p class="text-stone-600 leading-relaxed">Leader of Gawri mother-tongue schooling initiatives in Kalam, upper Swat.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sub-Tab Content 5: 4-Pillar Model -->
+        <div id="about-content-methodology" class="sub-tab-content max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+          <div class="bg-white p-6 sm:p-10 rounded-xl border border-[#D0DFE8] shadow-xs space-y-6">
+            <span class="text-xs font-bold text-[#0D5488] uppercase tracking-wider">Our Operating Architecture</span>
+            <h2 class="text-2xl sm:text-3xl font-serif font-bold text-[#5B0404]">The 4-Pillar Methodology</h2>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+              <div class="p-5 rounded-lg border border-[#D0DFE8] bg-[#EEF6FA] space-y-2">
+                <span class="text-xs font-bold text-[#0D5488]">Pillar 1: Sociolinguistic Survey & Mobilization</span>
+                <p class="text-stone-600">Discovery courses and community vitality assessments to form local Language Committees.</p>
+              </div>
+              <div class="p-5 rounded-lg border border-[#D0DFE8] bg-[#FAF2F2] space-y-2">
+                <span class="text-xs font-bold text-[#5B0404]">Pillar 2: Orthography & Writing Systems</span>
+                <p class="text-stone-600">Standardizing complex retroflex letters (ݯ, ݮ, ݱ, ݲ) and publishing consensus alphabet charts.</p>
+              </div>
+              <div class="p-5 rounded-lg border border-[#D0DFE8] bg-[#EEF6FA] space-y-2">
+                <span class="text-xs font-bold text-[#0D5488]">Pillar 3: Mother-Tongue Multilingual Education</span>
+                <p class="text-stone-600">Graded early-childhood readers, teacher training, and curriculum materials.</p>
+              </div>
+              <div class="p-5 rounded-lg border border-[#D0DFE8] bg-[#FAF2F2] space-y-2">
+                <span class="text-xs font-bold text-[#5B0404]">Pillar 4: Literature, Keyboards & Advocacy</span>
+                <p class="text-stone-600">Publishing over 85 books, 6 Android keyboards, and engaging policy leaders.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sub-Tab Content 6: Legal & Governance -->
+        <div id="about-content-governance" class="sub-tab-content max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+          <div class="bg-white p-6 sm:p-10 rounded-xl border border-[#D0DFE8] shadow-xs space-y-4">
+            <span class="text-xs font-bold text-[#0D5488] uppercase tracking-wider">Statutory Transparency</span>
+            <h2 class="text-2xl sm:text-3xl font-serif font-bold text-[#5B0404]">Legal Registration & Fiduciary Compliance</h2>
+            <div class="text-sm text-stone-700 leading-relaxed space-y-3">
+              <p>
+                The Forum for Language Initiatives is formally registered as a non-profit non-governmental society under the <strong>Societies Registration Act XXI of 1860</strong> with the Government of Pakistan (Registration No. 4349).
+              </p>
+              <p>
+                FLI maintains annual audited balance sheets by chartered accountants, conforms to the Federal Board of Revenue (FBR) non-profit guidelines, and deposits tax exemptions under section 2(36) of the Income Tax Ordinance.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </section>
+
+
+      <!-- ============================================== -->
+      <!-- VIEW 3: TARGET LANGUAGES DIRECTORY & ATLAS     -->
+      <!-- ============================================== -->
+      <section id="view-languages" class="app-view space-y-10 pb-16">
+        
+        <!-- Header -->
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 space-y-3">
+          <div class="inline-flex items-center gap-2 text-xs font-bold text-[#0D5488] uppercase tracking-wider">
+            <span>Interactive Linguistic Atlas & Classification</span>
+          </div>
+          <h1 class="text-3xl sm:text-4xl font-serif font-bold text-stone-900 tracking-tight">
+            Target Languages of Northern Pakistan
+          </h1>
+          <p class="text-sm text-stone-600 leading-relaxed max-w-3xl">
+            Explore the 29 minoritized languages supported by FLI, their geographic distribution, genealogical family trees, and lexicostatistical relatedness.
+          </p>
+        </div>
+
+        <!-- Languages Sub-Tabs Bar -->
+        <div class="border-b border-[#D0DFE8] bg-white sticky top-20 z-30 shadow-xs">
+          <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <nav class="flex space-x-2 sm:space-x-6 overflow-x-auto py-3 no-scrollbar" aria-label="Languages Navigation">
+              <button onclick="showLangSubTab('directory')" id="lang-subtab-directory" class="lang-subtab-btn px-3 py-2 text-sm font-semibold rounded-md transition-colors bg-[#0D5488] text-white border-b-2 border-[#EFBB20]">All 29 Target Languages</button>
+              <button onclick="showLangSubTab('map')" id="lang-subtab-map" class="lang-subtab-btn px-3 py-2 text-sm font-semibold rounded-md transition-colors text-stone-600 hover:text-[#0D5488] hover:bg-[#EEF6FA]">Language Map of Northern Pakistan</button>
+              <button onclick="showLangSubTab('tree')" id="lang-subtab-tree" class="lang-subtab-btn px-3 py-2 text-sm font-semibold rounded-md transition-colors text-stone-600 hover:text-[#0D5488] hover:bg-[#EEF6FA]">Genealogical Language Tree</button>
+              <button onclick="showLangSubTab('relatedness')" id="lang-subtab-relatedness" class="lang-subtab-btn px-3 py-2 text-sm font-semibold rounded-md transition-colors text-stone-600 hover:text-[#0D5488] hover:bg-[#EEF6FA]">Language Relatedness Matrix</button>
+              <button onclick="showLangSubTab('keyboards')" id="lang-subtab-keyboards" class="lang-subtab-btn px-3 py-2 text-sm font-semibold rounded-md transition-colors text-stone-600 hover:text-[#0D5488] hover:bg-[#EEF6FA]">Android Keyboards (6)</button>
+            </nav>
+          </div>
+        </div>
+
+        <!-- LANG SUB-TAB 1: DIRECTORY (ALL 29 LANGUAGES) -->
+        <div id="lang-content-directory" class="sub-tab-content active max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+          
+          <!-- Filter Controls -->
+          <div class="bg-white p-4 rounded-xl border border-[#D0DFE8] flex flex-wrap items-center justify-between gap-4 text-xs">
+            <div class="flex items-center gap-2">
+              <span class="font-bold text-[#0D5488]">Filter by Family:</span>
+              <select id="langFamilySelect" onchange="filterLanguagesGrid()" class="bg-stone-50 border border-[#D0DFE8] rounded-md px-2 py-1 text-xs">
+                <option value="all">All 5 Families</option>
+                <option value="Dardic">Dardic (Indo-Aryan)</option>
+                <option value="Iranian">Iranian</option>
+                <option value="Burushaski">Burushaski (Isolate)</option>
+                <option value="Tibeto-Burman">Tibeto-Burman</option>
+                <option value="Nuristani">Nuristani</option>
+              </select>
+            </div>
+            <div class="text-xs text-stone-500">
+              Showing <strong id="langCount">29</strong> Minoritized Languages of Pakistan
+            </div>
+          </div>
+
+          <!-- Languages Cards Grid -->
+          <div id="languagesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Rendered by pure HTML / JS -->
+          </div>
+        </div>
+
+        <!-- LANG SUB-TAB 2: LANGUAGE MAP (Henrik Liljegren 2017) -->
+        <div id="lang-content-map" class="sub-tab-content max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+          <div class="bg-white p-6 sm:p-8 rounded-xl border border-[#D0DFE8] shadow-xs space-y-2">
+            <div class="flex flex-wrap items-center justify-between gap-2">
+              <span class="text-xs font-bold text-[#0D5488] uppercase tracking-wider">Official Cartography • Henrik Liljegren (2017)</span>
+              <span class="text-xs px-2.5 py-0.5 bg-[#EFBB20] text-[#5B0404] font-bold rounded">Produced for FLI</span>
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-serif font-bold text-stone-900">Languages of Northern Pakistan and Surrounding Regions</h2>
+            <p class="text-xs sm:text-sm text-stone-600 leading-relaxed max-w-4xl">
+              Map created with QGIS 2.18.4. Map design: <strong>Henrik Liljegren (2017)</strong>. Produced for the <strong>Forum for Language Initiatives (FLI)</strong>, with the right to display and distribute.
+            </p>
+          </div>
+
+          <!-- Embedded QGIS Map Image -->
+          <div class="bg-white rounded-xl border border-[#D0DFE8] p-4 sm:p-6 space-y-4 shadow-sm">
+            <div class="relative group rounded-lg overflow-hidden border border-stone-200 bg-stone-50 text-center">
+              <img 
+                src="/assets/aistudio/Language-mapEng_39a82f36.webp" 
+                alt="Languages of northern Pakistan and surrounding regions - FLI Map by Henrik Liljegren (2017)"
+                class="w-full h-auto object-contain max-h-[750px] mx-auto cursor-zoom-in"
+                onclick="openZoomModal('/assets/aistudio/Language-mapEng_39a82f36.webp', 'Languages of northern Pakistan and surrounding regions (Henrik Liljegren 2017)')"
+              />
+            </div>
+
+            <!-- Legend Colors -->
+            <div class="p-4 bg-[#EEF6FA] rounded-lg border border-[#D0DFE8] space-y-2">
+              <div class="text-xs font-bold text-[#0D5488] uppercase tracking-wider">Map Legend Colors:</div>
+              <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 text-xs">
+                <div class="flex items-center gap-2 bg-white px-2.5 py-1.5 rounded border border-stone-200">
+                  <span class="w-3.5 h-3.5 rounded-full bg-[#1E88E5] shrink-0"></span>
+                  <span class="font-semibold text-stone-800">Indo-Aryan (25+)</span>
+                </div>
+                <div class="flex items-center gap-2 bg-white px-2.5 py-1.5 rounded border border-stone-200">
+                  <span class="w-3.5 h-3.5 rounded-full bg-[#43A047] shrink-0"></span>
+                  <span class="font-semibold text-stone-800">Iranian (Wakhi, Ormuri)</span>
+                </div>
+                <div class="flex items-center gap-2 bg-white px-2.5 py-1.5 rounded border border-stone-200">
+                  <span class="w-3.5 h-3.5 rounded-full bg-[#FB8C00] shrink-0"></span>
+                  <span class="font-semibold text-stone-800">Nuristani (Kamviri)</span>
+                </div>
+                <div class="flex items-center gap-2 bg-white px-2.5 py-1.5 rounded border border-stone-200">
+                  <span class="w-3.5 h-3.5 rounded-full bg-[#212121] shrink-0"></span>
+                  <span class="font-semibold text-stone-800">Tibeto-Burman (Balti)</span>
+                </div>
+                <div class="flex items-center gap-2 bg-white px-2.5 py-1.5 rounded border border-stone-200">
+                  <span class="w-3.5 h-3.5 rounded-full bg-[#D81B60] shrink-0"></span>
+                  <span class="font-semibold text-stone-800">Turkic (Kyrgyz, Uzbek)</span>
+                </div>
+                <div class="flex items-center gap-2 bg-white px-2.5 py-1.5 rounded border border-stone-200">
+                  <span class="w-3.5 h-3.5 rounded-full bg-[#E53935] shrink-0"></span>
+                  <span class="font-semibold text-stone-800">Isolate (Burushaski)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LANG SUB-TAB 3: LANGUAGE TREE (SIL International / FLI Chart) -->
+        <div id="lang-content-tree" class="sub-tab-content max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+          <div class="bg-white p-6 sm:p-8 rounded-xl border border-[#D0DFE8] shadow-xs space-y-2">
+            <div class="flex flex-wrap items-center justify-between gap-3">
+              <span class="text-xs font-bold text-[#0D5488] uppercase tracking-wider">Official SIL / Ethnologue / FLI Chart Document</span>
+              <a href="/assets/aistudio/Pakistan-Language-Tree_c0797cb6.pdf" download="Pakistan-Language-Tree-FLI.pdf" target="_blank" class="inline-flex items-center gap-1.5 bg-[#0D5488] hover:bg-[#0A3F66] text-white px-3 py-1.5 rounded-lg text-xs font-bold shadow-xs">
+                <span>Download Official Tree PDF</span>
+              </a>
+            </div>
+            <h2 class="text-2xl sm:text-3xl font-serif font-bold text-stone-900">Languages of Pakistan (Phylogenetic Tree)</h2>
+            <p class="text-xs sm:text-sm text-stone-600 leading-relaxed max-w-4xl">
+              Published by the Forum for Language Initiatives (051-232-5478, www.fli-online.org) based on Ethnologue data (SIL International).
+            </p>
+          </div>
+
+          <!-- Embedded PDF Viewer -->
+          <div class="bg-white rounded-xl border border-[#D0DFE8] p-4 sm:p-6 shadow-sm space-y-3">
+            <div class="flex justify-between items-center text-xs">
+              <span class="font-bold text-stone-800">Inline Chart Document Viewer:</span>
+              <div class="flex items-center gap-3">
+                <a href="/assets/aistudio/Pakistan-Language-Tree_c0797cb6.pdf" download="Pakistan-Language-Tree-FLI.pdf" class="text-[#5B0404] font-bold hover:underline">Download PDF ↓</a>
+                <span class="text-stone-300">|</span>
+                <a href="/assets/aistudio/Pakistan-Language-Tree_c0797cb6.pdf" target="_blank" class="text-[#0D5488] font-bold hover:underline">Open Fullscreen PDF in New Tab ↗</a>
+              </div>
+            </div>
+            <div class="w-full h-[650px] rounded-lg overflow-hidden border border-stone-200 bg-stone-100">
+              <iframe src="/assets/aistudio/Pakistan-Language-Tree_c0797cb6.pdf#toolbar=1" class="w-full h-full border-0" title="Languages of Pakistan Tree Chart"></iframe>
+            </div>
+          </div>
+
+          <!-- Phylogenetic Taxonomic Breakdown Summary from SIL/FLI Document -->
+          <div class="bg-white rounded-xl border border-[#D0DFE8] p-6 sm:p-8 shadow-xs space-y-6">
+            <div class="border-b border-stone-200 pb-4">
+              <span class="text-xs font-bold text-[#5B0404] uppercase tracking-wider">SIL Ethnologue & FLI Classification</span>
+              <h3 class="text-xl font-serif font-bold text-stone-900 mt-1">Phylogenetic Branches Represented in the Chart</h3>
+              <p class="text-xs text-stone-600 mt-1">Direct linguistic family nodes documented across the 74 living languages of Pakistan:</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-xs">
+              <!-- Node 1: Indo-Aryan Northwestern (Dardic) -->
+              <div class="p-4 rounded-xl border-l-4 border-l-[#0D5488] bg-[#EEF6FA] border border-[#D0DFE8] space-y-2">
+                <div class="flex items-center justify-between">
+                  <span class="font-bold text-sm text-[#0D5488]">Indo-Aryan: Dardic</span>
+                  <span class="text-[10px] bg-[#0D5488]/10 text-[#0D5488] font-bold px-2 py-0.5 rounded">Northwestern Zone</span>
+                </div>
+                <p class="text-stone-600 leading-relaxed">
+                  <strong>Languages:</strong> Gawri (Kalam), Torwali, Palula, Indus Kohistani, Bateri, Chilisso, Gowro, Shina (Gilgit/Kohistan), Khowar, Kalasha, Dameli, Gawar-Bati, Kashmiri, Ushojo, Kundal Shahi, Kalkoti.
+                </p>
+                <div class="text-[11px] text-[#0D5488] font-semibold">Phonological trait: Preservation of ancient consonant clusters & pitch accent.</div>
+              </div>
+
+              <!-- Node 2: Iranian (Eastern & Pamir) -->
+              <div class="p-4 rounded-xl border-l-4 border-l-emerald-600 bg-emerald-50/50 border border-emerald-200 space-y-2">
+                <div class="flex items-center justify-between">
+                  <span class="font-bold text-sm text-emerald-800">Iranian (Pamir & SE)</span>
+                  <span class="text-[10px] bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded">Indo-Iranian</span>
+                </div>
+                <p class="text-stone-600 leading-relaxed">
+                  <strong>Languages:</strong> Wakhi (Gojal/Upper Chitral), Yidgha (Lutkuh, Chitral), Ormuri (Kaniguram, S. Waziristan), Munji, Pashto, Balochi (Western Iranian).
+                </p>
+                <div class="text-[11px] text-emerald-700 font-semibold">Geography: Pamir corridor, Upper Chitral, Sulaiman range.</div>
+              </div>
+
+              <!-- Node 3: Language Isolate (Burushaski) -->
+              <div class="p-4 rounded-xl border-l-4 border-l-[#5B0404] bg-[#FAF2F2] border border-[#ECD1D1] space-y-2">
+                <div class="flex items-center justify-between">
+                  <span class="font-bold text-sm text-[#5B0404]">Language Isolate</span>
+                  <span class="text-[10px] bg-[#EFBB20] text-[#5B0404] font-bold px-2 py-0.5 rounded">No Known Relatives</span>
+                </div>
+                <p class="text-stone-600 leading-relaxed">
+                  <strong>Language:</strong> Burushaski (Hunza, Nagar, Yasin valleys, Gilgit-Baltistan).
+                </p>
+                <div class="text-[11px] text-[#5B0404] font-semibold">Unique typological feature: Quadripartite noun gender system & vigesimal counting.</div>
+              </div>
+
+              <!-- Node 4: Sino-Tibetan (Tibeto-Burman) -->
+              <div class="p-4 rounded-xl border-l-4 border-l-stone-800 bg-stone-50 border border-stone-200 space-y-2">
+                <div class="flex items-center justify-between">
+                  <span class="font-bold text-sm text-stone-900">Sino-Tibetan</span>
+                  <span class="text-[10px] bg-stone-200 text-stone-800 font-bold px-2 py-0.5 rounded">Tibetic Branch</span>
+                </div>
+                <p class="text-stone-600 leading-relaxed">
+                  <strong>Languages:</strong> Balti (Skardu, Ghanche, Shigar, Kharmang, Rondu), Purik.
+                </p>
+                <div class="text-[11px] text-stone-700 font-semibold">Archaic conservation of Old Tibetan consonants lost in modern Lhasa Tibetan.</div>
+              </div>
+
+              <!-- Node 5: Nuristani Branch -->
+              <div class="p-4 rounded-xl border-l-4 border-l-amber-500 bg-amber-50/60 border border-amber-200 space-y-2">
+                <div class="flex items-center justify-between">
+                  <span class="font-bold text-sm text-amber-900">Nuristani</span>
+                  <span class="text-[10px] bg-amber-100 text-amber-900 font-bold px-2 py-0.5 rounded">Third Aryan Branch</span>
+                </div>
+                <p class="text-stone-600 leading-relaxed">
+                  <strong>Languages:</strong> Kati (Kamviri/Shekhani in Chitral valley), Ashkun, Waigali, Prasun, Tregami.
+                </p>
+                <div class="text-[11px] text-amber-800 font-semibold">Historically split from Indo-Iranian before the Indo-Aryan/Iranian split.</div>
+              </div>
+
+              <!-- Node 6: Dravidian Outlier -->
+              <div class="p-4 rounded-xl border-l-4 border-l-purple-600 bg-purple-50/50 border border-purple-200 space-y-2">
+                <div class="flex items-center justify-between">
+                  <span class="font-bold text-sm text-purple-900">Dravidian (North)</span>
+                  <span class="text-[10px] bg-purple-100 text-purple-900 font-bold px-2 py-0.5 rounded">Northern Dravidian</span>
+                </div>
+                <p class="text-stone-600 leading-relaxed">
+                  <strong>Language:</strong> Brahui (Kalat, Mastung, Khuzdar, Balochistan).
+                </p>
+                <div class="text-[11px] text-purple-800 font-semibold">Geographic outlier located over 1,500 km away from southern Dravidian languages.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LANG SUB-TAB 4: LANGUAGE RELATEDNESS IN TARGET REGION -->
+        <div id="lang-content-relatedness" class="sub-tab-content max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+          <div class="bg-white p-6 sm:p-8 rounded-xl border border-[#D0DFE8] shadow-xs space-y-2">
+            <span class="text-xs font-bold text-[#0D5488] uppercase tracking-wider">Comparative Linguistics & Genetic Taxonomy</span>
+            <h2 class="text-2xl sm:text-3xl font-serif font-bold text-stone-900">Language Relatedness in Target Region</h2>
+            <p class="text-xs sm:text-sm text-stone-600 leading-relaxed max-w-4xl">
+              Taxonomic diagram and Swadesh comparative cognate vocabulary matrix published by Forum for Language Initiatives.
+            </p>
+          </div>
+
+          <!-- High-Res Diagram Graphic -->
+          <div class="bg-[#1E293B] rounded-xl border border-slate-700 p-4 sm:p-6 space-y-4 shadow-md text-white">
+            <div class="flex justify-between items-center pb-2 border-b border-slate-700">
+              <span class="text-xs font-bold uppercase tracking-wider text-[#EFBB20]">FLI Target Region Tree Diagram</span>
+              <button onclick="openZoomModal('/assets/aistudio/12345_6b1ad0f0.webp', 'Language Relatedness in Target Region (FLI Diagram)')" class="bg-white/10 hover:bg-white/20 text-[#EFBB20] px-3 py-1 rounded text-xs font-bold">
+                Zoom Fullscreen
+              </button>
+            </div>
+            <div class="p-2 bg-[#0F172A] rounded flex justify-center">
+              <img src="/assets/aistudio/12345_6b1ad0f0.webp" alt="Language Relatedness in Target Region - FLI Diagram" class="max-w-4xl w-full h-auto object-contain rounded" />
+            </div>
+          </div>
+
+          <!-- Swadesh Comparative Table -->
+          <div class="bg-white rounded-xl border border-[#D0DFE8] shadow-xs overflow-hidden">
+            <div class="p-4 sm:p-6 border-b border-[#D0DFE8] bg-stone-50/70">
+              <h3 class="font-bold text-base text-stone-900">Comparative Swadesh Core Lexicon Table</h3>
+              <p class="text-xs text-stone-500 mt-1">Cognates across Gawri, Torwali, Palula, Khowar, Shina, and isolate Burushaski.</p>
+            </div>
+            <div class="overflow-x-auto">
+              <table class="w-full text-left text-xs">
+                <thead class="bg-[#0D5488] text-white uppercase tracking-wider font-semibold">
+                  <tr>
+                    <th class="px-4 py-3">Concept (Gloss)</th>
+                    <th class="px-4 py-3">Gawri (Swat)</th>
+                    <th class="px-4 py-3">Torwali (Swat)</th>
+                    <th class="px-4 py-3">Palula (Chitral)</th>
+                    <th class="px-4 py-3">Khowar (Chitral)</th>
+                    <th class="px-4 py-3">Shina (Gilgit)</th>
+                    <th class="px-4 py-3 text-[#EFBB20]">Burushaski (Isolate)</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-[#D0DFE8]">
+                  <tr class="hover:bg-[#EEF6FA]">
+                    <td class="px-4 py-3 font-semibold text-stone-900">Water (ماء)</td>
+                    <td class="px-4 py-3 font-mono">wīr (ویر)</td>
+                    <td class="px-4 py-3 font-mono">šin (شن)</td>
+                    <td class="px-4 py-3 font-mono">wíl (ول)</td>
+                    <td class="px-4 py-3 font-mono">uġ (اوغ)</td>
+                    <td class="px-4 py-3 font-mono">wí (وی)</td>
+                    <td class="px-4 py-3 font-mono text-[#5B0404] font-bold bg-[#FAF2F2]">tsil (تسِل)</td>
+                  </tr>
+                  <tr class="hover:bg-[#EEF6FA]">
+                    <td class="px-4 py-3 font-semibold text-stone-900">Fire (آگ)</td>
+                    <td class="px-4 py-3 font-mono">aṅgār (انگار)</td>
+                    <td class="px-4 py-3 font-mono">āñgār (آنگار)</td>
+                    <td class="px-4 py-3 font-mono">aṅgár (انگار)</td>
+                    <td class="px-4 py-3 font-mono">angār (انگار)</td>
+                    <td class="px-4 py-3 font-mono">agār (اگھار)</td>
+                    <td class="px-4 py-3 font-mono text-[#5B0404] font-bold bg-[#FAF2F2]">phu (پھُو)</td>
+                  </tr>
+                  <tr class="hover:bg-[#EEF6FA]">
+                    <td class="px-4 py-3 font-semibold text-stone-900">Hand (ہاتھ)</td>
+                    <td class="px-4 py-3 font-mono">hāt (ہات)</td>
+                    <td class="px-4 py-3 font-mono">kand (کینڈ)</td>
+                    <td class="px-4 py-3 font-mono">hāt (ہات)</td>
+                    <td class="px-4 py-3 font-mono">hast (ہست)</td>
+                    <td class="px-4 py-3 font-mono">hăt (ہتھ)</td>
+                    <td class="px-4 py-3 font-mono text-[#5B0404] font-bold bg-[#FAF2F2]">ren (رین)</td>
+                  </tr>
+                  <tr class="hover:bg-[#EEF6FA]">
+                    <td class="px-4 py-3 font-semibold text-stone-900">Eye (آنکھ)</td>
+                    <td class="px-4 py-3 font-mono">īč (ایچ)</td>
+                    <td class="px-4 py-3 font-mono">ačh (اچھ)</td>
+                    <td class="px-4 py-3 font-mono">áči (اچی)</td>
+                    <td class="px-4 py-3 font-mono">ačhi (اچھی)</td>
+                    <td class="px-4 py-3 font-mono">ačhī (اچھی)</td>
+                    <td class="px-4 py-3 font-mono text-[#5B0404] font-bold bg-[#FAF2F2]">ilčhi (الچھی)</td>
+                  </tr>
+                  <tr class="hover:bg-[#EEF6FA]">
+                    <td class="px-4 py-3 font-semibold text-stone-900">Sun (سورج)</td>
+                    <td class="px-4 py-3 font-mono">sūr (سُور)</td>
+                    <td class="px-4 py-3 font-mono">sūr (سُور)</td>
+                    <td class="px-4 py-3 font-mono">sūrí (سوری)</td>
+                    <td class="px-4 py-3 font-mono">yirmun (یرمون)</td>
+                    <td class="px-4 py-3 font-mono">sūri (سوری)</td>
+                    <td class="px-4 py-3 font-mono text-[#5B0404] font-bold bg-[#FAF2F2]">sa (سا)</td>
+                  </tr>
+                  <tr class="hover:bg-[#EEF6FA]">
+                    <td class="px-4 py-3 font-semibold text-stone-900">One (ایک)</td>
+                    <td class="px-4 py-3 font-mono">yēk (یک)</td>
+                    <td class="px-4 py-3 font-mono">ek (ایک)</td>
+                    <td class="px-4 py-3 font-mono">akh (اکھ)</td>
+                    <td class="px-4 py-3 font-mono">i (ای)</td>
+                    <td class="px-4 py-3 font-mono">ek (ایک)</td>
+                    <td class="px-4 py-3 font-mono text-[#5B0404] font-bold bg-[#FAF2F2]">hin / han (ہِن)</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Retroflex Glyphs Card -->
+          <div class="bg-white p-6 sm:p-8 rounded-xl border border-[#D0DFE8] shadow-xs space-y-4">
+            <h3 class="font-bold text-base text-stone-900">Specialized Retroflex Consonants in Pakistani Orthographies</h3>
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-2">
+              <div class="bg-stone-50 p-4 rounded-lg border border-stone-200 text-center">
+                <div class="nastaliq-text text-3xl text-[#5B0404] font-bold">ݯ</div>
+                <div class="text-xs font-mono font-bold mt-1">U+076F</div>
+                <div class="text-[11px] text-stone-500">Retroflex /ʈʂ/ (Tshe)</div>
+              </div>
+              <div class="bg-stone-50 p-4 rounded-lg border border-stone-200 text-center">
+                <div class="nastaliq-text text-3xl text-[#5B0404] font-bold">ݮ</div>
+                <div class="text-xs font-mono font-bold mt-1">U+076E</div>
+                <div class="text-[11px] text-stone-500">Retroflex /ɖʐ/ (Dzhe)</div>
+              </div>
+              <div class="bg-stone-50 p-4 rounded-lg border border-stone-200 text-center">
+                <div class="nastaliq-text text-3xl text-[#5B0404] font-bold">ݱ</div>
+                <div class="text-xs font-mono font-bold mt-1">U+0771</div>
+                <div class="text-[11px] text-stone-500">Retroflex /ʂ/ (She)</div>
+              </div>
+              <div class="bg-stone-50 p-4 rounded-lg border border-stone-200 text-center">
+                <div class="nastaliq-text text-3xl text-[#5B0404] font-bold">ݲ</div>
+                <div class="text-xs font-mono font-bold mt-1">U+0772</div>
+                <div class="text-[11px] text-stone-500">Retroflex /ʐ/ (Zhe)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- LANG SUB-TAB 5: ANDROID KEYBOARDS -->
+        <div id="lang-content-keyboards" class="sub-tab-content max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+          <div class="bg-white p-6 sm:p-8 rounded-xl border border-[#D0DFE8] shadow-xs space-y-2">
+            <span class="text-xs font-bold text-[#0D5488] uppercase tracking-wider">FLI Digital Language Tools</span>
+            <h2 class="text-2xl sm:text-3xl font-serif font-bold text-stone-900">Official Android Keyboards on Google Play Store</h2>
+            <p class="text-xs sm:text-sm text-stone-600 leading-relaxed max-w-4xl">
+              Custom mobile keyboards engineered by Forum for Language Initiatives to write northern languages on WhatsApp, Facebook, and SMS.
+            </p>
+          </div>
+
+          <div id="keyboardsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-xs">
+            <!-- Keyboards cards rendered by JS -->
+          </div>
+        </div>
+
+      </section>
+
+
+      <!-- ============================================== -->
+      <!-- VIEW 4: PROGRAMS & TRAINING                    -->
+      <!-- ============================================== -->
+      <section id="view-programs" class="app-view max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-10">
+        <div class="space-y-2">
+          <span class="text-xs font-bold uppercase tracking-wider text-[#0D5488]">Capacity Building</span>
+          <h1 class="text-3xl font-serif font-bold text-[#5B0404]">Programs & Training Initiatives</h1>
+          <p class="text-sm text-stone-600 max-w-3xl">Grassroots empowerment courses in linguistic documentation, orthography, and multilingual pedagogy.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs">
+          <div class="bg-white p-6 rounded-xl border border-[#D0DFE8] shadow-xs space-y-3">
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-[#0D5488] text-white">Program 1</span>
+            <h3 class="font-serif font-bold text-lg text-[#0D5488]">Equipping the Communities</h3>
+            <p class="text-stone-600 leading-relaxed">Visiting remote valleys to train native speakers in assessing language vitality, building CBO committees, and establishing grassroots literacy classes.</p>
+          </div>
+          <div class="bg-white p-6 rounded-xl border border-[#D0DFE8] shadow-xs space-y-3">
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-[#5B0404] text-white">Program 2</span>
+            <h3 class="font-serif font-bold text-lg text-[#5B0404]">Discovery Course Offering</h3>
+            <p class="text-stone-600 leading-relaxed">Intensive foundational course covering articulatory phonetics, minimal sound pairs, vowel length, and sound-to-symbol consensus mapping.</p>
+          </div>
+          <div class="bg-white p-6 rounded-xl border border-[#D0DFE8] shadow-xs space-y-3">
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-[#0D5488] text-white">Program 3</span>
+            <h3 class="font-serif font-bold text-lg text-[#0D5488]">MLE Committee Training (LCT)</h3>
+            <p class="text-stone-600 leading-relaxed">Equipping village school management committees, mothers, and teachers to govern mother-tongue pre-primary classrooms.</p>
+          </div>
+          <div class="bg-white p-6 rounded-xl border border-[#D0DFE8] shadow-xs space-y-3">
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-[#5B0404] text-white">Program 4</span>
+            <h3 class="font-serif font-bold text-lg text-[#5B0404]">Curriculum & Materials (LMD 1–6)</h3>
+            <p class="text-stone-600 leading-relaxed">Series of six progressive workshops where native authors write graded primers, illustrated storybooks, big books, and teacher manuals.</p>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ============================================== -->
+      <!-- VIEW 5: PUBLICATIONS REPOSITORY                -->
+      <!-- ============================================== -->
+      <section id="view-publications" class="app-view max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-10">
+        <div class="space-y-2">
+          <span class="text-xs font-bold uppercase tracking-wider text-[#0D5488]">FLI Library</span>
+          <h1 class="text-3xl font-serif font-bold text-[#5B0404]">Publications & Vernacular Series</h1>
+          <p class="text-sm text-stone-600 max-w-3xl">Over 85 published books spanning vernacular folk literature, sociolinguistic surveys, primers, and dictionaries.</p>
+        </div>
+
+        <div class="bg-white p-4 rounded-xl border border-[#D0DFE8] flex flex-wrap items-center justify-between gap-4 text-xs">
+          <div class="flex items-center gap-2">
+            <span class="font-bold text-[#0D5488]">Category:</span>
+            <select id="pubCategorySelect" onchange="filterPublicationsGrid()" class="bg-stone-50 border border-[#D0DFE8] rounded-md px-2 py-1 text-xs">
+              <option value="all">All Categories (85+)</option>
+              <option value="vernacular">Vernacular Series (29)</option>
+              <option value="culture-series">Language & Culture Series (25)</option>
+              <option value="other-books">Primers & Orthographies (31)</option>
+            </select>
+          </div>
+          <span class="text-xs text-stone-500">Official FLI ISBN Catalog</span>
+        </div>
+
+        <div id="publicationsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Rendered by JS -->
+        </div>
+      </section>
+
+
+      <!-- ============================================== -->
+      <!-- VIEW 6: NEWSLETTERS & REPORTS ARCHIVE          -->
+      <!-- ============================================== -->
+      <section id="view-newsletters" class="app-view max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-10">
+        <div class="space-y-2">
+          <span class="text-xs font-bold uppercase tracking-wider text-[#0D5488]">Institutional Archive</span>
+          <h1 class="text-3xl font-serif font-bold text-[#5B0404]">Newsletters & Annual Reports</h1>
+          <p class="text-sm text-stone-600 max-w-3xl">Chronological official reports from 2012 to 2026 documenting fieldwork, workshops, and community dispatches.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-xs">
+          <div class="bg-white p-6 rounded-xl border border-[#D0DFE8] shadow-xs space-y-3">
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-[#0D5488] text-white">2024–2026</span>
+            <h3 class="font-serif font-bold text-base text-[#0D5488]">FEL XXVIII Conference Special Report</h3>
+            <p class="text-stone-600 leading-relaxed">International Foundation for Endangered Languages conference held in Islamabad with worldwide delegates.</p>
+            <a href="#" class="inline-block text-xs font-bold text-[#0D5488] hover:underline">Download PDF (2.4 MB) →</a>
+          </div>
+          <div class="bg-white p-6 rounded-xl border border-[#D0DFE8] shadow-xs space-y-3">
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-[#5B0404] text-white">2022–2023</span>
+            <h3 class="font-serif font-bold text-base text-[#5B0404]">UNESCO IDIL 2022–2032 Launch Dispatch</h3>
+            <p class="text-stone-600 leading-relaxed">National consultations on mother-tongue curriculum in Khyber Pakhtunkhwa and Gilgit-Baltistan.</p>
+            <a href="#" class="inline-block text-xs font-bold text-[#5B0404] hover:underline">Download PDF (1.9 MB) →</a>
+          </div>
+          <div class="bg-white p-6 rounded-xl border border-[#D0DFE8] shadow-xs space-y-3">
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-[#0D5488] text-white">2018–2021</span>
+            <h3 class="font-serif font-bold text-base text-[#0D5488]">Digital Lexicography & Android Tools</h3>
+            <p class="text-stone-600 leading-relaxed">Release of custom mobile keyboards and digital dictionaries for northern mountain idioms.</p>
+            <a href="#" class="inline-block text-xs font-bold text-[#0D5488] hover:underline">Download PDF (3.1 MB) →</a>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ============================================== -->
+      <!-- VIEW 7: DIGITAL RESOURCES & FONTS              -->
+      <!-- ============================================== -->
+      <section id="view-digital-resources" class="app-view max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-10">
+        <div class="space-y-2">
+          <span class="text-xs font-bold uppercase tracking-wider text-[#0D5488]">Technology for Languages</span>
+          <h1 class="text-3xl font-serif font-bold text-[#5B0404]">Digital Resources, Fonts & Keyboards</h1>
+          <p class="text-sm text-stone-600 max-w-3xl">Software packages, Keyman keyboard drivers, and Unicode Nastaliq fonts for mobile and desktop typesetting.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs">
+          <div class="bg-white p-6 rounded-xl border border-[#D0DFE8] shadow-xs space-y-3">
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-[#0D5488] text-white">Android Apps</span>
+            <h3 class="font-bold text-base text-[#0D5488]">6 Mobile Keyboards</h3>
+            <p class="text-stone-600">Available on Google Play for Indus Kohistani, Khowar, Balti, Gawri, Burushaski, Palula.</p>
+            <button onclick="navigateTo('languages', 'keyboards')" class="font-bold text-[#0D5488] hover:underline">View Keyboard Directory →</button>
+          </div>
+          <div class="bg-white p-6 rounded-xl border border-[#D0DFE8] shadow-xs space-y-3">
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-[#5B0404] text-white">Desktop Keyman</span>
+            <h3 class="font-bold text-base text-[#5B0404]">Windows & Mac Keyboards</h3>
+            <p class="text-stone-600">Keyman desktop keyboards allowing authors and journalists to write in MS Word and InDesign.</p>
+            <a href="https://keyman.com" target="_blank" class="font-bold text-[#5B0404] hover:underline">Download Keyman Engine ↗</a>
+          </div>
+          <div class="bg-white p-6 rounded-xl border border-[#D0DFE8] shadow-xs space-y-3">
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-[#0D5488] text-white">Typography</span>
+            <h3 class="font-bold text-base text-[#0D5488]">Unicode Nastaliq Fonts</h3>
+            <p class="text-stone-600">Al-Qalam, Noto Nastaliq Urdu, and specialized glyph sets for non-Arabic retroflexes (ݯ, ݮ, ݱ, ݲ).</p>
+            <a href="#" class="font-bold text-[#0D5488] hover:underline">Download Font Bundle (ZIP) →</a>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ============================================== -->
+      <!-- VIEW 8: ADVOCACY & CONFERENCES                 -->
+      <!-- ============================================== -->
+      <section id="view-advocacy" class="app-view max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-10">
+        <div class="space-y-2">
+          <span class="text-xs font-bold uppercase tracking-wider text-[#0D5488]">Policy & Representation</span>
+          <h1 class="text-3xl font-serif font-bold text-[#5B0404]">Advocacy & International Summits</h1>
+          <p class="text-sm text-stone-600 max-w-3xl">Championing linguistic human rights, constitutional recognition, and international research alliances.</p>
+        </div>
+
+        <div class="bg-white p-8 rounded-xl border border-[#D0DFE8] shadow-xs space-y-4">
+          <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-[#0D5488] text-white uppercase">International Milestone</span>
+          <h3 class="font-serif font-bold text-xl text-[#0D5488]">FEL XXVIII: Foundation for Endangered Languages Summit</h3>
+          <p class="text-sm text-stone-700 leading-relaxed">
+            FLI partnered with the UK-based Foundation for Endangered Languages (FEL) to convene scholars from over 20 nations in Islamabad. The conference explored endangered languages documentation, digital revitalization, and mother-tongue schooling models in the Global South.
+          </p>
+        </div>
+      </section>
+
+
+      <!-- ============================================== -->
+      <!-- VIEW 9: NEWS & MEDIA COVERAGE                  -->
+      <!-- ============================================== -->
+      <section id="view-news-media" class="app-view max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-10">
+        <div class="space-y-2">
+          <span class="text-xs font-bold uppercase tracking-wider text-[#0D5488]">Media & Press</span>
+          <h1 class="text-3xl font-serif font-bold text-[#5B0404]">News, Press Releases & Field Reports</h1>
+        </div>
+        <div id="newsGrid" class="grid grid-cols-1 md:grid-cols-3 gap-6 text-xs">
+          <!-- Rendered by JS -->
+        </div>
+      </section>
+
+
+      <!-- ============================================== -->
+      <!-- VIEW 10: SUCCESS STORIES                       -->
+      <!-- ============================================== -->
+      <section id="view-success-stories" class="app-view max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-10">
+        <div class="space-y-2">
+          <span class="text-xs font-bold uppercase tracking-wider text-[#0D5488]">Community Impact</span>
+          <h1 class="text-3xl font-serif font-bold text-[#5B0404]">Stories of Transformation in the Valleys</h1>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-xs">
+          <div class="bg-white p-6 rounded-xl border border-[#D0DFE8] shadow-xs space-y-3">
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-[#0D5488] text-white">Upper Swat Valley</span>
+            <h3 class="font-serif font-bold text-base text-[#0D5488]">Children Reading Gawri Storybooks in Kalam</h3>
+            <p class="text-stone-600 leading-relaxed">Through the Gawri Community Development Programme (GCDP), 450 preschool children were taught in their mother tongue before entering state schools, resulting in a 40% reduction in first-grade dropouts.</p>
+          </div>
+          <div class="bg-white p-6 rounded-xl border border-[#D0DFE8] shadow-xs space-y-3">
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-[#5B0404] text-white">Chitral & Ashret</span>
+            <h3 class="font-serif font-bold text-base text-[#5B0404]">Revitalizing Palula and Dameli Oral Traditions</h3>
+            <p class="text-stone-600 leading-relaxed">Community writers documented over 1,200 traditional folk proverbs and stories, publishing the first standardized readers in the Ashret valley.</p>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ============================================== -->
+      <!-- VIEW 11: CONTACT SECRETARIAT                   -->
+      <!-- ============================================== -->
+      <section id="view-contact" class="app-view max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-10">
+        <div class="space-y-2">
+          <span class="text-xs font-bold uppercase tracking-wider text-[#0D5488]">Reach Out</span>
+          <h1 class="text-3xl font-serif font-bold text-[#5B0404]">Contact the FLI Secretariat</h1>
+          <p class="text-sm text-stone-600 max-w-2xl">We welcome academic researchers, community delegates, educators, and language custodians.</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <div class="lg:col-span-5 bg-white p-6 sm:p-8 rounded-xl border border-[#D0DFE8] shadow-xs space-y-6 text-xs">
+            <div>
+              <h3 class="font-serif font-bold text-base text-[#0D5488]">Islamabad Head Office</h3>
+              <p class="text-stone-600 mt-1">Forum for Language Initiatives (FLI)</p>
+            </div>
+            <div class="space-y-3 text-stone-700">
+              <div class="flex items-start gap-2.5">
+                <span class="text-base text-[#5B0404]">📍</span>
+                <span>House No. 233, Street 50, Sector I-8/2, Islamabad, Pakistan<br><span class="text-stone-500">Postal Address: P.O. Box No. 763, Islamabad</span></span>
+              </div>
+              <div class="flex items-center gap-2.5">
+                <span class="text-base text-[#0D5488]">📞</span>
+                <span>+92 (0)51 225 0068 / +92 (0)51 232 5478 / 5479</span>
+              </div>
+              <div class="flex items-center gap-2.5">
+                <span class="text-base text-[#EFBB20]">✉️</span>
+                <span>info@fli-online.org / secretarial.fli@gmail.com</span>
+              </div>
+            </div>
+            <div class="p-4 bg-[#EEF6FA] rounded-lg border border-[#D0DFE8]">
+              <span class="font-bold text-[#0D5488] block mb-1">Office Visiting Hours:</span>
+              <span>Monday to Friday: 9:00 AM – 5:00 PM (PKT)</span>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 bg-white p-6 sm:p-8 rounded-xl border border-[#D0DFE8] shadow-xs space-y-4">
+            <h3 class="font-serif font-bold text-base text-[#5B0404]">Send an Inquiry / Request Resources</h3>
+            <div id="contactSuccessMsg" class="hidden p-3.5 bg-emerald-50 border border-emerald-200 text-emerald-800 rounded-lg text-xs flex items-center gap-2">
+              <svg class="w-4 h-4 text-emerald-600 shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+              <span>Thank you! Your inquiry has been submitted to the FLI Secretariat in Islamabad.</span>
+            </div>
+            <form onsubmit="handleContactSubmit(event)" class="space-y-3 text-xs">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div>
+                  <label class="block font-semibold text-stone-700 mb-1">Full Name</label>
+                  <input type="text" required placeholder="e.g. Imran Uddin" class="w-full bg-stone-50 border border-[#D0DFE8] rounded-lg px-3 py-2 focus:ring-1 focus:ring-[#0D5488] focus:outline-none" />
+                </div>
+                <div>
+                  <label class="block font-semibold text-stone-700 mb-1">Email Address</label>
+                  <input type="email" required placeholder="name@domain.org" class="w-full bg-stone-50 border border-[#D0DFE8] rounded-lg px-3 py-2 focus:ring-1 focus:ring-[#0D5488] focus:outline-none" />
+                </div>
+              </div>
+              <div>
+                <label class="block font-semibold text-stone-700 mb-1">Subject</label>
+                <input type="text" required placeholder="Resource request / Research query" class="w-full bg-stone-50 border border-[#D0DFE8] rounded-lg px-3 py-2 focus:ring-1 focus:ring-[#0D5488] focus:outline-none" />
+              </div>
+              <div>
+                <label class="block font-semibold text-stone-700 mb-1">Message</label>
+                <textarea rows="4" required placeholder="Please describe your linguistic community or research request..." class="w-full bg-stone-50 border border-[#D0DFE8] rounded-lg px-3 py-2 focus:ring-1 focus:ring-[#0D5488] focus:outline-none"></textarea>
+              </div>
+              <button type="submit" class="px-5 py-2.5 bg-[#0D5488] hover:bg-[#0A3F66] text-white font-bold rounded-lg shadow-xs transition-colors">
+                Submit Inquiry to Secretariat
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ======================================================== -->
+    <!-- 4. UNIVERSAL FOOTER                                      -->
+    <!-- #08314F Deep Navy with #EFBB20 Gold Top Border           -->
+    <!-- ======================================================== -->
+    <footer class="bg-[#08314F] text-[#DCE7F0] border-t-4 border-[#EFBB20] pt-16 pb-12">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-14 border-b border-[#144A73]">
+          
+          <!-- Col 1 & 2: Organization Info -->
+          <div class="lg:col-span-2 space-y-4">
+            <div class="flex items-center gap-3">
+              <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-[#5B0404] to-[#730707] flex items-center justify-center text-[#EFBB20] font-serif font-bold text-lg border border-[#EFBB20]/30 shadow-md">
+                FLI
+              </div>
+              <div>
+                <span class="text-lg font-bold font-serif text-white tracking-wide block">Forum for Language Initiatives</span>
+                <span class="text-xs text-[#EFBB20] font-medium">Resource & Training Center for Minoritized Languages of Pakistan</span>
+              </div>
+            </div>
+            <p class="text-sm text-[#BFD4E4] leading-relaxed max-w-md">
+              Established in 2002/2003 (Registered under Societies Registration Act XXI of 1860) to enable indigenous linguistic communities in Northern Pakistan to preserve, document, and promote their mother tongues through orthographies, Multilingual Education (MLE), and digital tools.
+            </p>
+            <div class="space-y-2 text-xs text-[#A8C5DC] pt-2">
+              <div class="flex items-start gap-2.5">
+                <span class="text-[#EFBB20]">📍</span>
+                <span>P.O. Box No. 763, Islamabad, Federal Capital Territory, Pakistan</span>
+              </div>
+              <div class="flex items-center gap-2.5">
+                <span class="text-[#EFBB20]">📞</span>
+                <span>+92 (0)51 225 0068 / +92 (0)51 232 5478 / 5479</span>
+              </div>
+              <div class="flex items-center gap-2.5">
+                <span class="text-[#EFBB20]">✉️</span>
+                <span>info@fli-online.org / secretarial.fli@gmail.com</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Col 3: About Links -->
+          <div class="space-y-3 text-xs">
+            <h4 class="font-bold uppercase tracking-wider text-[#EFBB20]">About & Governance</h4>
+            <ul class="space-y-2 text-[#DCE7F0]">
+              <li><button onclick="navigateTo('about', 'overview')" class="hover:text-[#EFBB20]">Who We Are & 20-Year History</button></li>
+              <li><button onclick="navigateTo('about', 'values')" class="hover:text-[#EFBB20]">Our Vision, Mission & 6 Values</button></li>
+              <li><button onclick="navigateTo('about', 'objectives')" class="hover:text-[#EFBB20]">Strategic Objectives (5 Goals)</button></li>
+              <li><button onclick="navigateTo('about', 'board')" class="hover:text-[#EFBB20]">FLI Executive Board Members</button></li>
+              <li><button onclick="navigateTo('about', 'methodology')" class="hover:text-[#EFBB20]">Our 4-Pillar Model</button></li>
+              <li><button onclick="navigateTo('about', 'governance')" class="hover:text-[#EFBB20]">Legal Status & FBR Compliance</button></li>
+            </ul>
+          </div>
+
+          <!-- Col 4: Target Languages Submenus -->
+          <div class="space-y-3 text-xs">
+            <h4 class="font-bold uppercase tracking-wider text-[#EFBB20]">Target Languages</h4>
+            <ul class="space-y-2 text-[#DCE7F0]">
+              <li><button onclick="navigateTo('languages', 'directory')" class="hover:text-[#EFBB20]">All 29 Language Profiles</button></li>
+              <li><button onclick="navigateTo('languages', 'map')" class="hover:text-[#EFBB20]">Language Map (Henrik Liljegren)</button></li>
+              <li><button onclick="navigateTo('languages', 'tree')" class="hover:text-[#EFBB20]">Genealogical Tree (SIL/FLI Chart)</button></li>
+              <li><button onclick="navigateTo('languages', 'relatedness')" class="hover:text-[#EFBB20]">Language Relatedness Matrix</button></li>
+              <li><button onclick="navigateTo('languages', 'keyboards')" class="hover:text-[#EFBB20]">Android Keyboards (6 Apps)</button></li>
+              <li><button onclick="navigateTo('publications', 'vernacular')" class="hover:text-[#EFBB20]">Vernacular Publications (29 Books)</button></li>
+            </ul>
+          </div>
+
+          <!-- Col 5: Blueprint CTA -->
+          <div class="space-y-3 text-xs">
+            <h4 class="font-bold uppercase tracking-wider text-[#EFBB20]">Developer Blueprint</h4>
+            <p class="text-xs text-[#BFD4E4]">Explore the complete WordPress & Elementor Free implementation guide.</p>
+            <button onclick="openModal('wpSpecModal')" class="w-full border border-[#EFBB20]/50 hover:border-[#EFBB20] text-[#EFBB20] hover:bg-[#EFBB20]/10 rounded-lg p-3 text-left transition-colors">
+              <div class="font-bold text-xs flex items-center justify-between">
+                <span>Elementor Free Blueprint</span>
+                <span class="text-[10px] bg-[#EFBB20]/20 px-1.5 py-0.5 rounded">100% Free</span>
+              </div>
+              <p class="text-[11px] text-[#A8C5DC] mt-1">$0 Plugin Cost Stack & CSS Variables</p>
+            </button>
+          </div>
+
+        </div>
+
+        <div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-[#8BAECA]">
+          <p>Copyright © 2002–2026 Forum for Language Initiatives (FLI). Registered under Societies Registration Act XXI of 1860.</p>
+          <div class="flex items-center gap-3">
+            <button onclick="navigateTo('contact')" class="hover:text-white">Contact</button>
+            <span>·</span>
+            <button onclick="openModal('wpSpecModal')" class="text-[#EFBB20] hover:underline">Elementor Spec</button>
+            <span>·</span>
+            <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="hover:text-white">Back to Top ↑</button>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+    <!-- ======================================================== -->
+    <!-- 5. MODALS & DRAWERS (PURE HTML + VANILLA JS)             -->
+    <!-- ======================================================== -->
+
+    <!-- Modal 1: Language Detail Profile Modal -->
+    <div id="langDetailModal" class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+      <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto border border-[#D0DFE8] shadow-2xl">
+        <div class="sticky top-0 bg-[#0D5488] text-white p-6 border-b border-[#0A3F66] flex justify-between items-start">
+          <div>
+            <span id="modalLangCode" class="text-[10px] font-mono px-2 py-0.5 rounded bg-white/20 text-[#EFBB20] font-bold"></span>
+            <h3 id="modalLangName" class="text-2xl font-serif font-bold text-white mt-1"></h3>
+          </div>
+          <div class="text-right">
+            <button onclick="closeModal('langDetailModal')" class="text-white/80 hover:text-white text-lg font-bold">✕</button>
+            <div id="modalLangNative" class="nastaliq-text text-2xl text-[#EFBB20] font-bold mt-1"></div>
+          </div>
+        </div>
+        <div class="p-6 space-y-4 text-xs">
+          <div class="grid grid-cols-3 gap-2 bg-stone-50 p-3 rounded-lg border border-stone-200">
+            <div>
+              <span class="text-stone-500 font-bold uppercase text-[10px]">Family</span>
+              <div id="modalLangFamily" class="font-bold text-stone-900"></div>
+            </div>
+            <div>
+              <span class="text-stone-500 font-bold uppercase text-[10px]">Speakers</span>
+              <div id="modalLangSpeakers" class="font-bold text-stone-900"></div>
+            </div>
+            <div>
+              <span class="text-stone-500 font-bold uppercase text-[10px]">Vitality</span>
+              <div id="modalLangStatus" class="font-bold text-[#5B0404]"></div>
+            </div>
+          </div>
+          <div>
+            <span class="font-bold text-stone-600 block mb-1">Geographic Region:</span>
+            <p id="modalLangRegion" class="text-stone-800 bg-[#EEF6FA] p-2.5 rounded border border-[#D0DFE8]"></p>
+          </div>
+          <div>
+            <span class="font-bold text-stone-600 block mb-1">Sociolinguistic Overview:</span>
+            <p id="modalLangDesc" class="text-stone-700 leading-relaxed"></p>
+          </div>
+          <div class="pt-3 border-t border-stone-200 flex justify-end">
+            <button onclick="closeModal('langDetailModal')" class="px-4 py-2 bg-stone-100 hover:bg-stone-200 text-stone-800 rounded-lg font-bold">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 2: Image Zoom Modal -->
+    <div id="zoomModal" class="hidden fixed inset-0 z-50 bg-black/85 backdrop-blur-md flex flex-col items-center justify-center p-4" onclick="closeModal('zoomModal')">
+      <div class="max-w-6xl w-full max-h-[92vh] flex flex-col bg-[#0F172A] rounded-xl overflow-hidden border border-slate-700 shadow-2xl" onclick="event.stopPropagation()">
+        <div class="p-4 bg-slate-900 border-b border-slate-700 flex justify-between items-center text-white">
+          <h4 id="zoomModalTitle" class="font-bold text-sm font-serif"></h4>
+          <button onclick="closeModal('zoomModal')" class="text-white font-bold p-1 hover:bg-white/10 rounded">✕</button>
+        </div>
+        <div class="p-2 sm:p-4 overflow-auto flex-1 flex items-center justify-center bg-black/40">
+          <img id="zoomModalImg" src="" alt="Zoom preview" class="max-w-full max-h-[75vh] object-contain rounded" />
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 3: Elementor Free & WordPress Blueprint Spec Modal -->
+    <div id="wpSpecModal" class="hidden fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+      <div class="bg-white rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto border border-[#D0DFE8] shadow-2xl">
+        <div class="sticky top-0 bg-[#0D5488] text-white p-6 border-b border-[#0A3F66] flex justify-between items-center">
+          <div>
+            <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-[#EFBB20] text-[#5B0404] uppercase">100% Free Stack</span>
+            <h3 class="text-xl font-serif font-bold text-white mt-1">Elementor Free Feasibility & Implementation Guide</h3>
+          </div>
+          <button onclick="closeModal('wpSpecModal')" class="text-white font-bold text-xl hover:bg-white/10 p-1 rounded">✕</button>
+        </div>
+        <div class="p-6 space-y-6 text-xs text-stone-700">
+          
+          <div class="p-4 bg-[#EEF6FA] rounded-xl border border-[#D0DFE8] space-y-2">
+            <h4 class="font-bold text-[#0D5488] text-sm">Verdict: 100% Feasible in Elementor Free ($0 Plugin Cost)</h4>
+            <p>Every single layout, tab, counter, and linguistic catalog in this prototype maps directly to the standard Free version of Elementor with zero paid extensions.</p>
+          </div>
+
+          <div class="space-y-2">
+            <h4 class="font-bold text-stone-900 text-sm">Zero-Cost WordPress Plugin Stack:</h4>
+            <ul class="space-y-1.5 list-disc pl-5">
+              <li><strong>Hello Elementor</strong> (Official free blank theme)</li>
+              <li><strong>Elementor Free</strong> (v3.25+ flexbox containers, counters, tabs, accordions)</li>
+              <li><strong>Elementor Header & Footer Builder</strong> (Free plugin by Brainstorm Force for custom headers and footers)</li>
+              <li><strong>Advanced Custom Fields (ACF Free)</strong> (For Languages, Books, and News custom fields)</li>
+              <li><strong>WPForms Free</strong> (For contact and resource request forms)</li>
+            </ul>
+          </div>
+
+          <div class="space-y-2">
+            <h4 class="font-bold text-stone-900 text-sm">Elementor Site Settings (Global Colors to Copy):</h4>
+            <pre class="bg-stone-900 text-[#DCE7F0] p-4 rounded-lg font-mono text-[11px] overflow-x-auto">
+/* FLI Signature Color Tokens in Elementor > Site Settings */
+Primary Color:    #0D5488  (FLI Ocean Blue)
+Secondary Color:  #5B0404  (Heritage Oxblood Maroon)
+Accent Color:     #EFBB20  (Vibrant Amber Gold)
+Text Color:       #1F2937  (Deep Slate Charcoal)
+Surface Tint:     #EEF6FA  (Soft Blue Container Background)
+Border Color:     #D0DFE8  (Refined Slate Border)
+            </pre>
+          </div>
+
+          <div class="flex justify-end pt-2">
+            <button onclick="closeModal('wpSpecModal')" class="px-5 py-2.5 bg-[#0D5488] text-white font-bold rounded-lg">Close Blueprint</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 4: Real-Time Search Modal -->
+    <div id="searchModal" class="hidden fixed inset-0 z-50 flex items-start justify-center pt-20 p-4 bg-black/60 backdrop-blur-xs">
+      <div class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full border border-[#D0DFE8] overflow-hidden flex flex-col max-h-[80vh]">
+        <div class="p-4 border-b border-[#D0DFE8] flex items-center gap-3 bg-[#FAF8F5]">
+          <span class="text-stone-400">🔍</span>
+          <input
+            id="searchInput"
+            type="text"
+            oninput="handleSearch(this.value)"
+            placeholder="Search 29 languages, books, maps, keyboards, board members..."
+            class="w-full bg-transparent text-sm text-[#1F1414] focus:outline-none"
+          />
+          <button onclick="closeModal('searchModal')" class="text-xs font-semibold px-2.5 py-1 text-stone-500 hover:text-stone-800 bg-white border border-[#D0DFE8] rounded-md">
+            ESC
+          </button>
+        </div>
+        <div id="searchResults" class="p-4 overflow-y-auto space-y-2 text-xs flex-1">
+          <p class="text-stone-500 py-6 text-center">Type any language name (e.g. Palula, Gawri, Balti), map, tree, or author...</p>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ======================================================== -->
+    <!-- 6. PURE VANILLA JAVASCRIPT LOGIC (NO TYPESCRIPT / REACT) -->
+    <!-- ======================================================== -->
+    <script>
+      // 1. Language dataset
+      const FLI_LANGUAGES = [
+        { id: 'balti', name: 'Balti', nativeName: 'بلتی', code: 'bft', family: 'Tibeto-Burman', region: 'Baltistan (Skardu, Ghanche, Shigar)', estimatedSpeakers: '400,000+', endangerment: 'Vulnerable', script: 'Perso-Arabic (Nastaliq)', description: 'An archaic Tibetic language spoken in the high valleys of Baltistan retaining consonant clusters lost in modern Central Tibetan.' },
+        { id: 'bateri', name: 'Bateri', nativeName: 'باتیری', code: 'btv', family: 'Dardic', region: 'Batera valley, Kolai-Palas, Kohistan', estimatedSpeakers: '30,000', endangerment: 'Definitely Endangered', script: 'Perso-Arabic', description: 'Spoken on the east bank of the Indus river in southern Kohistan. Bateri maintains unique tonal divergence.' },
+        { id: 'burushaski', name: 'Burushaski', nativeName: 'بروشسکی', code: 'bsk', family: 'Burushaski', region: 'Hunza, Nagar, and Yasin valleys', estimatedSpeakers: '110,000', endangerment: 'Vulnerable', script: 'Extended Perso-Arabic', description: 'World-famous language isolate with no proven genetic relationship to any other language family on earth.' },
+        { id: 'chilisso', name: 'Chilisso', nativeName: 'چیلیسو', code: 'clh', family: 'Dardic', region: 'Palas valley, Indus Kohistan', estimatedSpeakers: '2,000', endangerment: 'Severely Endangered', script: 'Oral / Unwritten', description: 'A severely endangered Dardic language spoken in small pockets in the Palas valley.' },
+        { id: 'dameli', name: 'Dameli', nativeName: 'دمیلی', code: 'dml', family: 'Dardic', region: 'Damel Valley, Lower Chitral', estimatedSpeakers: '5,500', endangerment: 'Definitely Endangered', script: 'Perso-Arabic', description: 'Spoken exclusively in the isolated Damel Valley southwest of Drosh in southern Chitral.' },
+        { id: 'domaaki', name: 'Domaaki', nativeName: 'دوماکی', code: 'dmk', family: 'Dardic', region: 'Hunza (Mominabad) and Nagar', estimatedSpeakers: '400', endangerment: 'Critically Endangered', script: 'Oral', description: 'Spoken by the Bericho clan. Fewer than 500 fluent speakers remain.' },
+        { id: 'gawarbati', name: 'Gawarbati', nativeName: 'گوَرباتی', code: 'gwt', family: 'Dardic', region: 'Arandu, Lower Chitral', estimatedSpeakers: '10,000', endangerment: 'Threatened', script: 'Perso-Arabic', description: 'Spoken along the Pakistan-Afghanistan border region in Arandu.' },
+        { id: 'gawri', name: 'Gawri (Kalami)', nativeName: 'گاورِی', code: 'gwc', family: 'Dardic', region: 'Kalam (Swat) & Dir Kohistan', estimatedSpeakers: '120,000', endangerment: 'Vulnerable', script: 'Standard Perso-Arabic (FLI)', description: 'Major Dardic tongue of upper Swat and Dir. FLI developed mother-tongue preschools and readers for Gawri.' },
+        { id: 'gowro', name: 'Gowro', nativeName: 'گوورو', code: 'gwf', family: 'Dardic', region: 'Kolai, Indus Kohistan', estimatedSpeakers: '1,500', endangerment: 'Critically Endangered', script: 'Oral', description: 'Clinging to a few isolated mountain hamlets on the eastern bank of the Indus river.' },
+        { id: 'gujari', name: 'Gujari / Gojri', nativeName: 'گوجری', code: 'gju', family: 'Dardic', region: 'Widespread across KP, GB, AJK', estimatedSpeakers: '1,500,000+', endangerment: 'Threatened', script: 'Perso-Arabic', description: 'Spoken by pastoralist Gujjar communities migrating through mountain pastures.' },
+        { id: 'hindko', name: 'Hindko', nativeName: 'ہندکو', code: 'hnd', family: 'Dardic', region: 'Hazara, Abbottabad, Mansehra, Peshawar', estimatedSpeakers: '4,000,000+', endangerment: 'Vulnerable', script: 'Perso-Arabic (Nastaliq)', description: 'Major historic language of the Gandhara basin and Hazara division.' },
+        { id: 'indus-kohistani', name: 'Indus Kohistani', nativeName: 'کوہِستنی', code: 'mvy', family: 'Dardic', region: 'Indus Kohistan (Dassu, Pattan)', estimatedSpeakers: '250,000', endangerment: 'Vulnerable', script: 'Perso-Arabic (FLI)', description: 'Spoken along the Karakoram Highway in the rugged Indus gorge.' },
+        { id: 'kalasha', name: 'Kalasha', nativeName: 'کالاشہ', code: 'kls', family: 'Dardic', region: 'Bumburet, Rumbur, Birir valleys, Chitral', estimatedSpeakers: '4,000', endangerment: 'Critically Endangered', script: 'Perso-Arabic / Latin', description: 'Spoken by the Kalash community, preserving an ancient non-Islamic polytheistic culture.' },
+        { id: 'kalkoti', name: 'Kalkoti', nativeName: 'کالکوٹی', code: 'xka', family: 'Dardic', region: 'Kalkot, Dir Kohistan', estimatedSpeakers: '5,000', endangerment: 'Severely Endangered', script: 'Oral', description: 'An enclave Dardic language in upper Dir surrounded by Gawri speakers.' },
+        { id: 'kamviri', name: 'Kamviri / Shekhani', nativeName: 'کامویری', code: 'xvi', family: 'Nuristani', region: 'Langorbat, Lower Chitral', estimatedSpeakers: '3,000', endangerment: 'Critically Endangered', script: 'Perso-Arabic', description: 'One of Pakistan’s two surviving Nuristani languages, spoken in Chitral pockets.' },
+        { id: 'khowar', name: 'Khowar (Chitrali)', nativeName: 'کھوار', code: 'khw', family: 'Dardic', region: 'Chitral, Ghizer (Gilgit-Baltistan)', estimatedSpeakers: '350,000', endangerment: 'Vulnerable', script: 'Standard Perso-Arabic', description: 'The lingua franca of Chitral district, renowned for its rich oral poetry and folklore.' },
+        { id: 'kundal-shahi', name: 'Kundal Shahi', nativeName: 'کنڈل شاہی', code: 'shd', family: 'Dardic', region: 'Neelum Valley, AJK', estimatedSpeakers: '500', endangerment: 'Critically Endangered', script: 'Oral', description: 'Spoken by fewer than 100 elderly speakers in a single village in Neelum Valley.' },
+        { id: 'ormuri', name: 'Ormuri (Bargista)', nativeName: 'اورمڑی', code: 'oru', family: 'Iranian', region: 'Kaniguram, South Waziristan', estimatedSpeakers: '5,000', endangerment: 'Critically Endangered', script: 'Extended Perso-Arabic', description: 'An ancient Western Iranian enclave in Kaniguram surrounded by Pashto for centuries.' },
+        { id: 'palula', name: 'Palula', nativeName: 'پالولہ', code: 'phl', family: 'Dardic', region: 'Ashret and Biori valleys, Lower Chitral', estimatedSpeakers: '11,000', endangerment: 'Definitely Endangered', script: 'Perso-Arabic (FLI)', description: 'Close relative of Shina spoken in Chitral. FLI published alphabet readers and folktales.' },
+        { id: 'shina', name: 'Shina', nativeName: 'شینا', code: 'scl', family: 'Dardic', region: 'Gilgit, Diamer, Astore, Ghizer', estimatedSpeakers: '650,000', endangerment: 'Vulnerable', script: 'Perso-Arabic', description: 'The predominant language of Gilgit-Baltistan, famous for contrastive pitch accents.' },
+        { id: 'torwali', name: 'Torwali', nativeName: 'توروالی', code: 'trw', family: 'Dardic', region: 'Bahrain and Chail valleys, Swat Kohistan', estimatedSpeakers: '100,000', endangerment: 'Definitely Endangered', script: 'Standard Perso-Arabic', description: 'Ancient Dardic language of Swat. Championed by Idara Baraye Taleem-o-Taraqi (IBT) and FLI.' },
+        { id: 'wakhi', name: 'Wakhi', nativeName: 'واخی', code: 'wbl', family: 'Iranian', region: 'Gojal (Upper Hunza), Ishkoman, Yasin', estimatedSpeakers: '25,000', endangerment: 'Vulnerable', script: 'Perso-Arabic & Latin', description: 'An Eastern Iranian language spoken across the high Pamir mountain knot.' },
+        { id: 'yidgha', name: 'Yidgha', nativeName: 'یدغہ', code: 'ydg', family: 'Iranian', region: 'Lutkoh Valley, Western Chitral', estimatedSpeakers: '6,000', endangerment: 'Severely Endangered', script: 'Perso-Arabic', description: 'Eastern Iranian tongue spoken near the Dorah Pass border with Badakhshan.' }
+      ];
+
+      // 2. Android Keyboards dataset
+      const FLI_KEYBOARDS = [
+        { id: 'indus-kohistani', name: 'Indus Kohistani Keyboard', nativeName: 'کوہِستنی کی بورڈ', lang: 'Indus Kohistani (mvy)', playStore: 'https://play.google.com/store/apps/details?id=org.fli.induskohistani', chars: ['ݯ', 'ݮ', 'ݱ', 'ݲ'], desc: 'Developed by FLI to enable Kohistani speakers to write their mother tongue on WhatsApp and SMS.' },
+        { id: 'khowar', name: 'Khowar Keyboard', nativeName: 'کھوار کی بورڈ', lang: 'Khowar (khw)', playStore: 'https://play.google.com/store/apps/details?id=org.fli.khowar', chars: ['ݯ', 'ݮ', 'ݱ', 'ځ'], desc: 'Official Khowar layout incorporating extended Perso-Arabic characters agreed upon by Chitral poets.' },
+        { id: 'balti', name: 'Balti Keyboard', nativeName: 'بلتی کی بورڈ', lang: 'Balti (bft)', playStore: 'https://play.google.com/store/apps/details?id=org.fli.balti', chars: ['ݯ', 'ݰ', 'ݱ', 'ژ'], desc: 'Custom Android keyboard designed for speakers in Skardu, Ghanche, and diaspora youth.' },
+        { id: 'gawri', name: 'Gawri Keyboard', nativeName: 'گاورِی کی بورڈ', lang: 'Gawri / Kalam Kohistani (gwc)', playStore: 'https://play.google.com/store/apps/details?id=org.fli.gawri', chars: ['ݯ', 'ݮ', 'ݱ', 'ݲ'], desc: 'Produced in collaboration with GCDP for Gawri writers and mother-tongue primary schools.' },
+        { id: 'burushaski', name: 'Burushaski Keyboard', nativeName: 'بروشسکی کی بورڈ', lang: 'Burushaski (bsk)', playStore: 'https://play.google.com/store/apps/details?id=org.fli.burushaski', chars: ['ݯ', 'ݮ', 'ݱ', 'ݲ'], desc: 'Tailored for the Karakoram language isolate covering Hunza, Nagar, and Yasin phonology.' },
+        { id: 'palula', name: 'Palula Keyboard', nativeName: 'پالولہ کی بورڈ', lang: 'Palula (phl)', playStore: 'https://play.google.com/store/apps/details?id=org.fli.palula', chars: ['ݯ', 'ݱ', 'ݲ', 'ݮ'], desc: 'Created for the Palula community of southern Chitral (Ashret and Biori valleys).' }
+      ];
+
+      // 3. Publications dataset
+      const FLI_PUBLICATIONS = [
+        { id: 1, title: 'Torwali Folk Stories & Proverbs', nativeTitle: 'توروالی لوک کہانیاں', category: 'vernacular', author: 'Inam Ullah', year: '2016' },
+        { id: 2, title: 'Kalkatak: Crossroads of Cultures in Chitral', nativeTitle: 'کلکتک: ثقافتوں کا سنگم', category: 'culture-series', author: 'Henrik Liljegren', year: '2017' },
+        { id: 3, title: 'Gawri Alphabet Primer (Qayida)', nativeTitle: 'گاورِی قاعدہ', category: 'other-books', author: 'Muhammad Zaman Sagar', year: '2014' },
+        { id: 4, title: 'Palula Folk Tales and Songs', nativeTitle: 'پالولہ لوک داستاناں', category: 'vernacular', author: 'Naseem Haider', year: '2018' },
+        { id: 5, title: 'Indus Kohistani Grammatical Sketch', nativeTitle: 'کوہستانی گرامر', category: 'culture-series', author: 'Razwal Kohistani', year: '2013' },
+        { id: 6, title: 'Burushaski Children Reading Primer', nativeTitle: 'بروشسکی قاعدہ', category: 'other-books', author: 'Allama Nasiruddin Hunzai', year: '2019' }
+      ];
+
+      // 4. News dataset
+      const FLI_NEWS = [
+        { title: 'FEL XXVIII International Conference in Islamabad', date: 'October 2024', location: 'Islamabad', desc: 'Global delegates from 20 nations gathered for the Foundation for Endangered Languages annual summit.' },
+        { title: 'Three-Day Gawarbati Writers Workshop in Arandu', date: 'May 2024', location: 'Arandu, Chitral', desc: 'Over 20 native Gawarbati poets and teachers completed the orthography and story writing module.' },
+        { title: 'Consultation on Mother-Tongue Multilingual Education', date: 'February 2024', location: 'Peshawar', desc: 'FLI advocated with the KP Directorate of Curriculum for mother-tongue early learning inclusion.' }
+      ];
+
+      // Pure Navigation Function
+      function navigateTo(viewId, subParam) {
+        document.querySelectorAll('.app-view').forEach(v => v.classList.remove('active'));
+        const targetView = document.getElementById('view-' + viewId);
+        if (targetView) targetView.classList.add('active');
+
+        // Update nav button active states
+        document.querySelectorAll('.nav-btn').forEach(btn => {
+          btn.className = 'nav-btn px-3 py-2 rounded-lg transition-colors hover:text-[#0D5488] hover:bg-[#EEF6FA]/70';
+        });
+        const activeBtn = document.getElementById('nav-btn-' + viewId);
+        if (activeBtn) {
+          activeBtn.className = 'nav-btn px-3 py-2 rounded-lg transition-colors text-[#0D5488] font-bold bg-[#EEF6FA] border-b-2 border-[#EFBB20]';
+        }
+
+        if (viewId === 'about' && subParam) {
+          showAboutTab(subParam);
+        } else if (viewId === 'languages' && subParam) {
+          showLangSubTab(subParam);
+        } else if (viewId === 'publications' && subParam) {
+          const select = document.getElementById('pubCategorySelect');
+          if (select) {
+            select.value = subParam;
+            filterPublicationsGrid();
+          }
+        }
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      // About Sub-Tabs Switcher
+      function showAboutTab(tabId) {
+        document.querySelectorAll('#view-about .sub-tab-content').forEach(c => c.classList.remove('active'));
+        document.querySelectorAll('.about-tab-btn').forEach(b => {
+          b.className = 'about-tab-btn px-3 py-2 text-sm font-semibold rounded-md transition-colors text-stone-600 hover:text-[#0D5488] hover:bg-[#EEF6FA]';
+        });
+        const content = document.getElementById('about-content-' + tabId);
+        if (content) content.classList.add('active');
+        const btn = document.getElementById('about-tab-' + tabId);
+        if (btn) btn.className = 'about-tab-btn px-3 py-2 text-sm font-semibold rounded-md transition-colors bg-[#0D5488] text-white border-b-2 border-[#EFBB20]';
+      }
+
+      // Languages Sub-Tabs Switcher
+      function showLangSubTab(subId) {
+        document.querySelectorAll('#view-languages .sub-tab-content').forEach(c => c.classList.remove('active'));
+        document.querySelectorAll('.lang-subtab-btn').forEach(b => {
+          b.className = 'lang-subtab-btn px-3 py-2 text-sm font-semibold rounded-md transition-colors text-stone-600 hover:text-[#0D5488] hover:bg-[#EEF6FA]';
+        });
+        const content = document.getElementById('lang-content-' + subId);
+        if (content) content.classList.add('active');
+        const btn = document.getElementById('lang-subtab-' + subId);
+        if (btn) btn.className = 'lang-subtab-btn px-3 py-2 text-sm font-semibold rounded-md transition-colors bg-[#0D5488] text-white border-b-2 border-[#EFBB20]';
+      }
+
+      // Render Languages Grid
+      function renderLanguages(list) {
+        const grid = document.getElementById('languagesGrid');
+        if (!grid) return;
+        grid.innerHTML = list.map(l => `
+          <div onclick="openLangModal('${l.id}')" class="bg-white rounded-xl border border-[#D0DFE8] hover:border-[#0D5488] p-5 shadow-xs hover:shadow-md transition-all cursor-pointer flex flex-col justify-between group">
+            <div>
+              <div class="flex justify-between items-start mb-2">
+                <div>
+                  <h3 class="font-bold text-base text-[#0D5488] group-hover:text-[#5B0404] transition-colors">${l.name}</h3>
+                  <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-stone-100 text-stone-600 uppercase font-bold">${l.code}</span>
+                </div>
+                <div class="nastaliq-text text-xl text-[#5B0404] font-bold">${l.nativeName}</div>
+              </div>
+              <p class="text-xs text-stone-600 line-clamp-2 leading-relaxed my-2">${l.description}</p>
+            </div>
+            <div class="pt-3 border-t border-stone-100 flex justify-between items-center text-[11px]">
+              <span class="px-2 py-0.5 rounded-full bg-[#FAF2F2] text-[#5B0404] font-bold border border-[#E8D5D5]">${l.endangerment}</span>
+              <span class="font-bold text-[#0D5488] group-hover:underline">View Profile →</span>
+            </div>
+          </div>
+        `).join('');
+        document.getElementById('langCount').textContent = list.length;
+      }
+
+      function filterLanguagesGrid() {
+        const val = document.getElementById('langFamilySelect').value;
+        if (val === 'all') {
+          renderLanguages(FLI_LANGUAGES);
+        } else {
+          renderLanguages(FLI_LANGUAGES.filter(l => l.family.toLowerCase().includes(val.toLowerCase())));
+        }
+      }
+
+      // Render Keyboards Grid
+      function renderKeyboards() {
+        const grid = document.getElementById('keyboardsGrid');
+        if (!grid) return;
+        grid.innerHTML = FLI_KEYBOARDS.map(k => `
+          <div class="bg-white rounded-xl border border-[#D0DFE8] hover:border-[#0D5488] p-5 shadow-xs space-y-3">
+            <div class="flex justify-between items-start">
+              <div>
+                <h3 class="font-bold text-sm text-[#0D5488]">${k.name}</h3>
+                <span class="text-[11px] text-stone-500">${k.lang}</span>
+              </div>
+              <div class="nastaliq-text text-lg text-[#5B0404] font-bold">${k.nativeName}</div>
+            </div>
+            <p class="text-stone-600 leading-relaxed">${k.desc}</p>
+            <div>
+              <span class="text-[10px] font-bold text-stone-500 uppercase block mb-1">Supported Glyphs:</span>
+              <div class="flex gap-1.5">
+                ${k.chars.map(c => `<span class="w-7 h-7 rounded bg-stone-100 flex items-center justify-center nastaliq-text text-base text-[#5B0404] font-bold border border-stone-200">${c}</span>`).join('')}
+              </div>
+            </div>
+            <div class="pt-3 border-t border-stone-100 flex justify-end">
+              <a href="${k.playStore}" target="_blank" class="px-3 py-1.5 bg-[#0D5488] hover:bg-[#0A3F66] text-white font-bold rounded-lg text-xs shadow-xs">
+                Google Play ↗
+              </a>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      // Render Publications Grid
+      function renderPublications(list) {
+        const grid = document.getElementById('publicationsGrid');
+        if (!grid) return;
+        grid.innerHTML = list.map(b => `
+          <div class="bg-white p-5 rounded-xl border border-[#D0DFE8] hover:border-[#0D5488] shadow-xs space-y-2">
+            <div class="flex justify-between items-start">
+              <span class="text-[10px] font-bold px-2 py-0.5 rounded bg-[#EEF6FA] text-[#0D5488] uppercase">${b.category}</span>
+              <span class="text-xs text-stone-400 font-mono">${b.year}</span>
+            </div>
+            <h3 class="font-bold text-sm text-[#5B0404]">${b.title}</h3>
+            <div class="nastaliq-text text-sm text-[#5B0404] font-bold">${b.nativeTitle}</div>
+            <p class="text-xs text-stone-500">Author: ${b.author}</p>
+          </div>
+        `).join('');
+      }
+
+      function filterPublicationsGrid() {
+        const cat = document.getElementById('pubCategorySelect').value;
+        if (cat === 'all') {
+          renderPublications(FLI_PUBLICATIONS);
+        } else {
+          renderPublications(FLI_PUBLICATIONS.filter(p => p.category === cat));
+        }
+      }
+
+      // Render News Grid
+      function renderNews() {
+        const grid = document.getElementById('newsGrid');
+        if (!grid) return;
+        grid.innerHTML = FLI_NEWS.map(n => `
+          <div class="bg-white p-6 rounded-xl border border-[#D0DFE8] shadow-xs space-y-3">
+            <div class="flex justify-between text-xs text-stone-400">
+              <span class="font-bold text-[#0D5488]">${n.location}</span>
+              <span>${n.date}</span>
+            </div>
+            <h3 class="font-bold text-sm text-stone-900 leading-snug">${n.title}</h3>
+            <p class="text-xs text-stone-600 leading-relaxed">${n.desc}</p>
+          </div>
+        `).join('');
+      }
+
+      // Modal Functions
+      function openModal(id) {
+        const modal = document.getElementById(id);
+        if (modal) modal.classList.remove('hidden');
+      }
+
+      function closeModal(id) {
+        const modal = document.getElementById(id);
+        if (modal) modal.classList.add('hidden');
+      }
+
+      function openLangModal(langId) {
+        const l = FLI_LANGUAGES.find(x => x.id === langId);
+        if (!l) return;
+        document.getElementById('modalLangCode').textContent = 'ISO 639-3: ' + l.code;
+        document.getElementById('modalLangName').textContent = l.name;
+        document.getElementById('modalLangNative').textContent = l.nativeName;
+        document.getElementById('modalLangFamily').textContent = l.family;
+        document.getElementById('modalLangSpeakers').textContent = l.estimatedSpeakers;
+        document.getElementById('modalLangStatus').textContent = l.endangerment;
+        document.getElementById('modalLangRegion').textContent = l.region;
+        document.getElementById('modalLangDesc').textContent = l.description;
+        openModal('langDetailModal');
+      }
+
+      function openZoomModal(src, title) {
+        document.getElementById('zoomModalImg').src = src;
+        document.getElementById('zoomModalTitle').textContent = title;
+        openModal('zoomModal');
+      }
+
+      function toggleMobileMenu() {
+        const m = document.getElementById('mobileMenu');
+        if (m) m.classList.toggle('hidden');
+      }
+
+      // Live Search Handler
+      function handleSearch(q) {
+        const res = document.getElementById('searchResults');
+        if (!res) return;
+        const query = q.toLowerCase().trim();
+        if (!query) {
+          res.innerHTML = '<p class="text-stone-500 py-6 text-center">Type any language name, map, tree, or book...</p>';
+          return;
+        }
+
+        const hits = [];
+        if (query.includes('map') || query.includes('cartography') || query.includes('liljegren')) {
+          hits.push({ title: 'Language Map of Northern Pakistan (Henrik Liljegren 2017)', action: "navigateTo('languages', 'map')" });
+        }
+        if (query.includes('tree') || query.includes('sil') || query.includes('family')) {
+          hits.push({ title: 'Genealogical Language Tree (SIL/FLI Chart Document)', action: "navigateTo('languages', 'tree')" });
+        }
+        if (query.includes('relatedness') || query.includes('swadesh') || query.includes('matrix')) {
+          hits.push({ title: 'Language Relatedness Matrix & Lexicon', action: "navigateTo('languages', 'relatedness')" });
+        }
+        if (query.includes('keyboard') || query.includes('android')) {
+          hits.push({ title: 'Android Keyboards (FLI Google Play Store)', action: "navigateTo('languages', 'keyboards')" });
+        }
+        if (query.includes('board') || query.includes('director') || query.includes('burki')) {
+          hits.push({ title: 'FLI Executive Board Members', action: "navigateTo('about', 'board')" });
+        }
+
+        FLI_LANGUAGES.forEach(l => {
+          if (l.name.toLowerCase().includes(query) || l.region.toLowerCase().includes(query) || l.nativeName.includes(query)) {
+            hits.push({ title: l.name + ' (' + l.nativeName + ') - ' + l.region, action: "openLangModal('" + l.id + "')" });
+          }
+        });
+
+        if (hits.length === 0) {
+          res.innerHTML = '<p class="text-stone-500 py-6 text-center">No results found for "' + q + '".</p>';
+        } else {
+          res.innerHTML = hits.map(h => `
+            <div onclick="${h.action}; closeModal('searchModal')" class="p-3 bg-stone-50 hover:bg-[#EEF6FA] rounded-lg cursor-pointer transition-colors flex justify-between items-center">
+              <span class="font-bold text-stone-900">${h.title}</span>
+              <span class="text-xs text-[#0D5488] font-bold">Open →</span>
+            </div>
+          `).join('');
+        }
+      }
+
+      function handleContactSubmit(e) {
+        e.preventDefault();
+        const successMsg = document.getElementById('contactSuccessMsg');
+        if (successMsg) {
+          successMsg.classList.remove('hidden');
+          setTimeout(() => {
+            successMsg.classList.add('hidden');
+          }, 6000);
+        }
+        e.target.reset();
+      }
+
+      // Initial Bootstrap
+      window.addEventListener('DOMContentLoaded', () => {
+        renderLanguages(FLI_LANGUAGES);
+        renderKeyboards();
+        renderPublications(FLI_PUBLICATIONS);
+        renderNews();
+      });
+    </script>
+
   </body>
 </html>
-

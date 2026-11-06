@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Language Relatedness in Target Region – Forum for Language Initiatives (FLI)</title>
+    <meta name="description" content="Taxonomic tree diagram, comparative Swadesh cognate vocabulary, and special orthographic character cards for northern Pakistani languages." />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Noto+Nastaliq+Urdu:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Amiri:wght@400;700&display=swap" rel="stylesheet" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              fli: {
+                blue: '#0D5488',
+                'blue-dark': '#08314F',
+                'blue-light': '#EEF6FA',
+                maroon: '#5B0404',
+                gold: '#EFBB20'
+              }
+            },
+            fontFamily: {
+              sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+              serif: ['Cinzel', 'Georgia', 'serif'],
+              nastaliq: ['"Noto Nastaliq Urdu"', '"Amiri"', 'serif']
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      .nastaliq-text { font-family: 'Noto Nastaliq Urdu', 'Amiri', serif; direction: rtl; }
+    </style>
+  </head>
+  <body class="bg-[#FAF8F5] text-[#1F2937] font-sans antialiased">
+
+    <!-- TOP ANNOUNCEMENT BAR (#5B0404 Heritage Maroon) -->
+    <aside class="bg-[#5B0404] text-[#FBEAEA] text-xs px-4 py-2 border-b border-[#450303]">
+      <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+        <div class="flex items-center gap-3">
+          <span class="font-bold text-[#5B0404] uppercase text-[10px] px-2 py-0.5 bg-[#EFBB20] rounded">FLI Comparative Linguistics</span>
+          <span class="text-white/85">Language Relatedness & Lexicostatistics in Northern Pakistan</span>
+        </div>
+        <div class="flex items-center gap-4 text-xs font-medium">
+          <a href="index.html" class="inline-flex items-center gap-1.5 bg-[#EFBB20] hover:bg-[#DCA715] text-[#5B0404] px-2.5 py-1 rounded font-bold text-[11px] transition-colors shadow-xs">
+            <span>← Back to Master Prototype</span>
+          </a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- HEADER (#0D5488 Ocean Blue) -->
+    <header class="sticky top-0 z-40 bg-white/98 backdrop-blur-md border-b border-[#D0DFE8] shadow-xs">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20 gap-8">
+          <a href="index.html" class="flex items-center gap-3 text-left group shrink-0">
+            <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-[#5B0404] to-[#0D5488] flex items-center justify-center text-white shadow-md border border-[#EFBB20]/50 shrink-0">
+              <span class="font-serif text-lg font-bold text-[#EFBB20]">FLI</span>
+            </div>
+            <div>
+              <span class="text-base sm:text-lg font-bold font-serif text-[#0D5488] block">Forum for Language Initiatives</span>
+              <p class="text-[11px] text-[#5B0404] font-medium hidden sm:block">National Linguistic Resource & Training Center • Islamabad, Pakistan</p>
+            </div>
+          </a>
+
+          <nav class="hidden md:flex items-center gap-2 text-sm font-semibold text-[#2C3E50]">
+            <a href="index.html" class="px-3 py-2 rounded-lg hover:text-[#0D5488] hover:bg-[#EEF6FA]">Home</a>
+            <a href="about.html" class="px-3 py-2 rounded-lg hover:text-[#0D5488] hover:bg-[#EEF6FA]">About Us</a>
+            <a href="target-languages.html" class="px-3 py-2 rounded-lg hover:text-[#0D5488] hover:bg-[#EEF6FA]">Target Languages (29)</a>
+            <a href="language-map.html" class="px-3 py-2 rounded-lg hover:text-[#0D5488] hover:bg-[#EEF6FA]">Language Map</a>
+            <a href="language-tree.html" class="px-3 py-2 rounded-lg hover:text-[#0D5488] hover:bg-[#EEF6FA]">Language Tree</a>
+            <a href="language-relatedness.html" class="px-3 py-2 rounded-lg text-[#0D5488] font-bold bg-[#EEF6FA] border-b-2 border-[#EFBB20]">Relatedness Matrix</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10">
+      
+      <!-- Page Header -->
+      <div class="bg-white p-6 sm:p-8 rounded-2xl border border-[#D0DFE8] shadow-xs space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 bg-[#FEF9E8] text-[#5B0404] rounded-full text-xs font-bold uppercase tracking-wider border border-[#EFBB20]/50">
+          <span>Comparative Linguistics & Genetic Taxonomy</span>
+          <span>•</span>
+          <span>FLI Target Region</span>
+        </div>
+        <h1 class="text-2xl sm:text-4xl font-serif font-bold text-stone-900">
+          Language Relatedness in Target Region
+        </h1>
+        <p class="text-xs sm:text-sm text-stone-600 leading-relaxed max-w-4xl">
+          Genetic taxonomic diagram and Swadesh comparative cognate vocabulary matrix published by the <strong>Forum for Language Initiatives</strong>. Illustrates the genetic divergence between Indo-Aryan (Dardic, Kunar, Chitral, Kohistani, Shina), Iranian (Eastern & Pamir), Sino-Tibetan (Balti), and the Language Isolate (Burushaski).
+        </p>
+      </div>
+
+      <!-- Taxonomic Diagram Card -->
+      <div class="bg-[#1A2530] rounded-2xl border border-[#2D3F52] p-6 sm:p-8 shadow-xl text-white space-y-4">
+        <div class="flex flex-wrap items-center justify-between gap-3 border-b border-white/10 pb-4">
+          <div>
+            <span class="text-xs font-bold text-[#EFBB20] uppercase tracking-wider">FLI Taxonomic Tree Diagram</span>
+            <h2 class="text-lg font-serif font-bold text-white mt-0.5">Classification Hierarchy in Northern Pakistan</h2>
+          </div>
+          <a href="/assets/aistudio/12345_6b1ad0f0.webp" download="FLI-Language-Relatedness-Taxonomy.webp" class="inline-flex items-center gap-1.5 bg-[#EFBB20] hover:bg-[#DCA715] text-[#5B0404] px-3.5 py-1.5 rounded-lg text-xs font-bold transition-colors shadow-xs">
+            <span>Download Diagram Image</span>
+          </a>
+        </div>
+        <div class="relative rounded-xl overflow-hidden bg-black/40 flex items-center justify-center p-2">
+          <img 
+            src="/assets/aistudio/12345_6b1ad0f0.webp" 
+            alt="Language Relatedness in Target Region Taxonomic Diagram" 
+            class="w-full h-auto max-h-[750px] object-contain cursor-zoom-in"
+            onclick="document.getElementById('zoomModal').classList.remove('hidden')"
+          />
+        </div>
+      </div>
+
+      <!-- Comparative Swadesh Lexicon Table -->
+      <div class="bg-white rounded-2xl border border-[#D0DFE8] p-6 sm:p-8 shadow-xs space-y-6">
+        <div class="border-b border-stone-200 pb-4">
+          <span class="text-xs font-bold text-[#0D5488] uppercase tracking-wider">Lexicostatistical Cognates</span>
+          <h2 class="text-xl sm:text-2xl font-serif font-bold text-stone-900 mt-1">Comparative Swadesh Lexicon Across Target Languages</h2>
+          <p class="text-xs text-stone-600 mt-1">
+            Examining cognates across Dardic languages (Gawri, Torwali, Palula, Khowar, Shina) and the non-related isolate (Burushaski):
+          </p>
+        </div>
+
+        <div class="overflow-x-auto rounded-xl border border-stone-200">
+          <table class="w-full text-left text-xs">
+            <thead class="bg-[#0D5488] text-white uppercase text-[11px] tracking-wider">
+              <tr>
+                <th class="p-3">Gloss (Meaning)</th>
+                <th class="p-3">Gawri (Swat Kohistan)</th>
+                <th class="p-3">Torwali (Swat)</th>
+                <th class="p-3">Palula (Chitral)</th>
+                <th class="p-3">Khowar (Chitral)</th>
+                <th class="p-3">Shina (Gilgit)</th>
+                <th class="p-3 bg-[#5B0404]">Burushaski (Isolate)</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-stone-200">
+              <tr class="hover:bg-[#EEF6FA]">
+                <td class="p-3 font-bold text-stone-900">One (1)</td>
+                <td class="p-3 font-semibold text-[#0D5488]">yak / yek</td>
+                <td class="p-3">ek</td>
+                <td class="p-3">aak</td>
+                <td class="p-3">iwi / yak</td>
+                <td class="p-3">ek</td>
+                <td class="p-3 font-bold text-[#5B0404] bg-[#FAF2F2]">hin / hen</td>
+              </tr>
+              <tr class="hover:bg-[#EEF6FA]">
+                <td class="p-3 font-bold text-stone-900">Two (2)</td>
+                <td class="p-3 font-semibold text-[#0D5488]">du</td>
+                <td class="p-3">du</td>
+                <td class="p-3">dúu</td>
+                <td class="p-3">jhu</td>
+                <td class="p-3">du</td>
+                <td class="p-3 font-bold text-[#5B0404] bg-[#FAF2F2]">altan / alto</td>
+              </tr>
+              <tr class="hover:bg-[#EEF6FA]">
+                <td class="p-3 font-bold text-stone-900">Water</td>
+                <td class="p-3 font-semibold text-[#0D5488]">wiy / woy</td>
+                <td class="p-3">ci</td>
+                <td class="p-3">wíi</td>
+                <td class="p-3">uch</td>
+                <td class="p-3">wei</td>
+                <td class="p-3 font-bold text-[#5B0404] bg-[#FAF2F2]">čil</td>
+              </tr>
+              <tr class="hover:bg-[#EEF6FA]">
+                <td class="p-3 font-bold text-stone-900">Eye</td>
+                <td class="p-3 font-semibold text-[#0D5488]">içi</td>
+                <td class="p-3">açi</td>
+                <td class="p-3">ačhíi</td>
+                <td class="p-3">ghench</td>
+                <td class="p-3">ačhí</td>
+                <td class="p-3 font-bold text-[#5B0404] bg-[#FAF2F2]">elči</td>
+              </tr>
+              <tr class="hover:bg-[#EEF6FA]">
+                <td class="p-3 font-bold text-stone-900">Fire</td>
+                <td class="p-3 font-semibold text-[#0D5488]">angār</td>
+                <td class="p-3">angār</td>
+                <td class="p-3">angā́ar</td>
+                <td class="p-3">anğár</td>
+                <td class="p-3">agár</td>
+                <td class="p-3 font-bold text-[#5B0404] bg-[#FAF2F2]">phu</td>
+              </tr>
+              <tr class="hover:bg-[#EEF6FA]">
+                <td class="p-3 font-bold text-stone-900">Sun</td>
+                <td class="p-3 font-semibold text-[#0D5488]">sūr</td>
+                <td class="p-3">sūri</td>
+                <td class="p-3">súuri</td>
+                <td class="p-3">yorm</td>
+                <td class="p-3">suri</td>
+                <td class="p-3 font-bold text-[#5B0404] bg-[#FAF2F2]">sa</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Unique Non-Arabic Retroflex Unicode Characters Card -->
+      <div class="bg-white rounded-2xl border border-[#D0DFE8] p-6 sm:p-8 shadow-xs space-y-6">
+        <div class="border-b border-stone-200 pb-4">
+          <span class="text-xs font-bold text-[#5B0404] uppercase tracking-wider">Orthography & Typography</span>
+          <h2 class="text-xl sm:text-2xl font-serif font-bold text-stone-900 mt-1">Special Unicode Glyphs Engineered by FLI</h2>
+          <p class="text-xs text-stone-600 mt-1">
+            Because northern languages possess retroflex fricatives and affricates absent in Arabic and Urdu, FLI standardized these letters for Unicode and mobile keyboards:
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
+          <div class="p-4 rounded-xl border border-stone-200 bg-stone-50 space-y-2 text-center">
+            <span class="text-4xl font-serif font-bold text-[#0D5488] block">ݯ</span>
+            <div class="font-bold text-stone-900">U+076F (Arabic Letter Hah with Small Tah)</div>
+            <p class="text-stone-500 text-[11px]">Used for voiceless retroflex affricate [ʈ͡ʂ] in Gawri, Torwali, Palula.</p>
+          </div>
+          <div class="p-4 rounded-xl border border-stone-200 bg-stone-50 space-y-2 text-center">
+            <span class="text-4xl font-serif font-bold text-[#0D5488] block">ݮ</span>
+            <div class="font-bold text-stone-900">U+076E (Arabic Letter Hah with Two Dots Above)</div>
+            <p class="text-stone-500 text-[11px]">Used for voiced retroflex affricate [ɖ͡ʐ] in Kohistani languages.</p>
+          </div>
+          <div class="p-4 rounded-xl border border-stone-200 bg-stone-50 space-y-2 text-center">
+            <span class="text-4xl font-serif font-bold text-[#5B0404] block">ݱ</span>
+            <div class="font-bold text-stone-900">U+0771 (Arabic Letter Seen with Small Tah)</div>
+            <p class="text-stone-500 text-[11px]">Used for voiceless retroflex fricative [ʂ] in Shina and Gawri.</p>
+          </div>
+          <div class="p-4 rounded-xl border border-stone-200 bg-stone-50 space-y-2 text-center">
+            <span class="text-4xl font-serif font-bold text-[#5B0404] block">ݲ</span>
+            <div class="font-bold text-stone-900">U+0772 (Arabic Letter Hah with Four Dots)</div>
+            <p class="text-stone-500 text-[11px]">Used for voiced retroflex fricative [ʐ] in Burushaski and Khowar.</p>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- ZOOM MODAL -->
+    <div id="zoomModal" class="hidden fixed inset-0 z-50 bg-black/90 p-4 flex items-center justify-center" onclick="this.classList.add('hidden')">
+      <div class="relative max-w-7xl max-h-[95vh] overflow-auto">
+        <button class="absolute top-2 right-2 bg-white/20 hover:bg-white text-white hover:text-black p-2 rounded-full font-bold">✕</button>
+        <img src="/assets/aistudio/12345_6b1ad0f0.webp" alt="Full view" class="w-full h-auto rounded-lg shadow-2xl" />
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#08314F] text-[#DCE7F0] border-t-4 border-[#EFBB20] py-8 text-center text-xs mt-16">
+      <p>Forum for Language Initiatives (FLI) • Comparative Linguistics & Orthography Division</p>
+      <div class="mt-2 flex justify-center gap-4 text-[#8BAECA]">
+        <a href="index.html" class="hover:text-white">Home</a>
+        <a href="about.html" class="hover:text-white">About Us</a>
+        <a href="language-map.html" class="hover:text-white">Language Map</a>
+        <a href="language-tree.html" class="hover:text-white">Language Tree</a>
+      </div>
+    </footer>
+
+  </body>
+</html>

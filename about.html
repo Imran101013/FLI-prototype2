@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us – Forum for Language Initiatives (FLI)</title>
+    <meta name="description" content="About Forum for Language Initiatives (FLI), founded in 2002/2003 under the Societies Registration Act XXI of 1860. Preserving Northern Pakistan's minoritized languages." />
+    
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Noto+Nastaliq+Urdu:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              fli: {
+                blue: '#0D5488',
+                'blue-dark': '#08314F',
+                'blue-light': '#EEF6FA',
+                maroon: '#5B0404',
+                'maroon-dark': '#450303',
+                'maroon-light': '#FAF2F2',
+                gold: '#EFBB20',
+                'gold-dark': '#DCA715',
+                'gold-light': '#FEF9E8'
+              }
+            },
+            fontFamily: {
+              sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+              serif: ['Cinzel', 'Georgia', 'serif'],
+              nastaliq: ['"Noto Nastaliq Urdu"', '"Amiri"', 'serif']
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      .nastaliq-text { font-family: 'Noto Nastaliq Urdu', 'Amiri', serif; direction: rtl; line-height: 2.2; }
+      .sub-tab-content { display: none; }
+      .sub-tab-content.active { display: block; }
+    </style>
+  </head>
+  <body class="bg-[#FAF8F5] text-[#1F2937] font-sans antialiased selection:bg-[#EFBB20]/30 selection:text-[#5B0404]">
+
+    <!-- 1. TOP ANNOUNCEMENT BAR (#5B0404 Heritage Maroon) -->
+    <aside class="bg-[#5B0404] text-[#FBEAEA] text-xs px-4 py-2 border-b border-[#450303]">
+      <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+        <div class="flex items-center gap-3">
+          <span class="font-bold text-[#5B0404] tracking-wider uppercase text-[10px] px-2 py-0.5 bg-[#EFBB20] rounded">UNESCO IDIL 2022–2032</span>
+          <span class="hidden sm:inline text-white/30">|</span>
+          <span class="hidden sm:inline text-white/85">Supporting the International Decade of Indigenous Languages</span>
+        </div>
+        <div class="flex items-center gap-4 text-xs font-medium">
+          <span class="hidden md:inline text-white/80">Islamabad Secretariat: +92 (0)51 225 0068 / 232 5478</span>
+          <a href="index.html#contact" class="text-[#EFBB20] hover:text-white transition-colors underline decoration-[#EFBB20]/50 underline-offset-2">Contact Secretariat</a>
+          <a href="index.html" class="inline-flex items-center gap-1.5 bg-[#EFBB20] hover:bg-[#DCA715] text-[#5B0404] px-2.5 py-1 rounded font-bold text-[11px] transition-colors shadow-xs">
+            <span>← Back to Master Prototype</span>
+          </a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- 2. MAIN HEADER (#0D5488 Ocean Blue) -->
+    <header class="sticky top-0 z-40 bg-white/98 backdrop-blur-md border-b border-[#D0DFE8] shadow-xs">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20 gap-8">
+          <a href="index.html" class="flex items-center gap-3 text-left group shrink-0">
+            <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-[#5B0404] via-[#480303] to-[#0D5488] flex items-center justify-center text-white shadow-md shadow-[#5B0404]/20 border border-[#EFBB20]/50 shrink-0">
+              <span class="font-serif text-lg font-bold tracking-tight text-[#EFBB20]">FLI</span>
+            </div>
+            <div>
+              <span class="text-base sm:text-lg font-bold font-serif text-[#0D5488] tracking-tight block">Forum for Language Initiatives</span>
+              <p class="text-[11px] text-[#5B0404] font-medium hidden sm:block">National Linguistic Resource & Training Center • Islamabad, Pakistan</p>
+            </div>
+          </a>
+
+          <!-- Navigation Links -->
+          <nav class="hidden md:flex items-center gap-2 text-sm font-semibold text-[#2C3E50]">
+            <a href="index.html" class="px-3 py-2 rounded-lg hover:text-[#0D5488] hover:bg-[#EEF6FA]">Home</a>
+            <a href="about.html" class="px-3 py-2 rounded-lg text-[#0D5488] font-bold bg-[#EEF6FA] border-b-2 border-[#EFBB20]">About Us</a>
+            <a href="target-languages.html" class="px-3 py-2 rounded-lg hover:text-[#0D5488] hover:bg-[#EEF6FA]">Target Languages (29)</a>
+            <a href="language-map.html" class="px-3 py-2 rounded-lg hover:text-[#0D5488] hover:bg-[#EEF6FA]">Language Map</a>
+            <a href="language-tree.html" class="px-3 py-2 rounded-lg hover:text-[#0D5488] hover:bg-[#EEF6FA]">Language Tree</a>
+            <a href="language-relatedness.html" class="px-3 py-2 rounded-lg hover:text-[#0D5488] hover:bg-[#EEF6FA]">Relatedness Matrix</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- 3. PAGE HERO BANNER -->
+    <section class="bg-gradient-to-r from-[#08314F] via-[#0D5488] to-[#5B0404] text-white py-14 sm:py-20 relative overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1 bg-[#EFBB20] text-[#5B0404] rounded-full text-xs font-bold uppercase tracking-wider shadow-xs">
+          <span>Institutional Profile</span>
+          <span>•</span>
+          <span>Founded 2003 • Islamabad</span>
+          <span>•</span>
+          <span>Societies Registration Act XXI of 1860</span>
+        </div>
+        <h1 class="text-3xl sm:text-5xl font-serif font-bold text-white tracking-tight max-w-4xl leading-tight">
+          About Forum for Language Initiatives
+        </h1>
+        <p class="text-base sm:text-lg text-[#DCE7F0] max-w-3xl leading-relaxed">
+          Empowering minoritized ethnolinguistic communities of northern Pakistan to revitalize, document, and celebrate their mother tongues through community ownership, literacy, and policy advocacy.
+        </p>
+      </div>
+    </section>
+
+    <!-- 4. SUB-TAB NAVIGATION -->
+    <div class="sticky top-20 z-30 bg-white border-b border-[#D0DFE8] shadow-xs">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex space-x-1 sm:space-x-2 overflow-x-auto py-3 no-scrollbar text-xs sm:text-sm font-semibold">
+          <button onclick="showTab('overview')" id="tab-btn-overview" class="tab-btn px-4 py-2 rounded-lg text-[#0D5488] bg-[#EEF6FA] font-bold border-b-2 border-[#0D5488] transition-colors whitespace-nowrap">Overview & History</button>
+          <button onclick="showTab('values')" id="tab-btn-values" class="tab-btn px-4 py-2 rounded-lg text-stone-600 hover:text-[#0D5488] hover:bg-stone-50 transition-colors whitespace-nowrap">Vision, Mission & Values</button>
+          <button onclick="showTab('objectives')" id="tab-btn-objectives" class="tab-btn px-4 py-2 rounded-lg text-stone-600 hover:text-[#0D5488] hover:bg-stone-50 transition-colors whitespace-nowrap">Strategic Objectives</button>
+          <button onclick="showTab('board')" id="tab-btn-board" class="tab-btn px-4 py-2 rounded-lg text-stone-600 hover:text-[#0D5488] hover:bg-stone-50 transition-colors whitespace-nowrap">Executive Board</button>
+          <button onclick="showTab('methodology')" id="tab-btn-methodology" class="tab-btn px-4 py-2 rounded-lg text-stone-600 hover:text-[#0D5488] hover:bg-stone-50 transition-colors whitespace-nowrap">4-Pillar Model</button>
+          <button onclick="showTab('governance')" id="tab-btn-governance" class="tab-btn px-4 py-2 rounded-lg text-stone-600 hover:text-[#0D5488] hover:bg-stone-50 transition-colors whitespace-nowrap">Legal & Governance</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. TAB CONTENT PANELS -->
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      
+      <!-- TAB 1: OVERVIEW & HISTORY -->
+      <div id="tab-content-overview" class="sub-tab-content active space-y-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+          <div class="lg:col-span-8 space-y-6 text-sm text-stone-700 leading-relaxed bg-white p-6 sm:p-10 rounded-2xl border border-[#D0DFE8] shadow-xs">
+            <span class="text-xs font-bold text-[#0D5488] uppercase tracking-wider">Who We Are & Historical Roots</span>
+            <h2 class="text-2xl sm:text-3xl font-serif font-bold text-[#5B0404]">Preserving Northern Pakistan’s Living Heritage Since 2003</h2>
+            <p>
+              The <strong>Forum for Language Initiatives (FLI)</strong> is a pioneer non-governmental linguistic resource center established in 2003 and headquartered in Islamabad, Pakistan.
+            </p>
+            <p>
+              Pakistan is home to over 70 living languages. Yet more than 30 minoritized mountain idioms spoken across Khyber Pakhtunkhwa (Chitral, Swat, Kohistan, Dir), Gilgit-Baltistan (Hunza, Gilgit, Baltistan), Azad Jammu & Kashmir, and South Waziristan are classified as endangered by UNESCO.
+            </p>
+            <p>
+              FLI was formed by indigenous scholars, community elders, and educators to reverse this trajectory. Rather than treating languages as passive academic specimens, FLI works hand-in-hand with native speakers to establish Community-Based Organizations (CBOs), standardize writing orthographies, develop multilingual pre-primary education (MTB-MLE), publish vernacular folk literature, and engineer digital Nastaliq fonts and mobile keyboards.
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-stone-200">
+              <div class="p-4 bg-[#EEF6FA] rounded-xl border border-[#D0DFE8]">
+                <div class="text-2xl font-serif font-bold text-[#0D5488]">29+</div>
+                <div class="font-bold text-xs text-stone-900 mt-0.5">Target Mother Tongues</div>
+                <div class="text-xs text-stone-600 mt-1">Dardic, Iranian, Burushaski, Tibetic, and Nuristani speech varieties.</div>
+              </div>
+              <div class="p-4 bg-[#FAF2F2] rounded-xl border border-[#ECD1D1]">
+                <div class="text-2xl font-serif font-bold text-[#5B0404]">2,500+</div>
+                <div class="font-bold text-xs text-stone-900 mt-0.5">Native Speakers Trained</div>
+                <div class="text-xs text-stone-600 mt-1">Equipped as writers, phonologists, curriculum designers, and teachers.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-4 space-y-6">
+            <div class="bg-gradient-to-br from-[#0D5488] to-[#08314F] text-white p-6 sm:p-8 rounded-2xl shadow-md border-t-4 border-[#EFBB20]">
+              <h3 class="font-serif font-bold text-lg mb-2">Institutional Milestone</h3>
+              <p class="text-xs text-[#BFD4E4] leading-relaxed mb-4">
+                Over 20 years of continuous fieldwork across remote mountain valleys from the Karakoram Highway to the Durand Line.
+              </p>
+              <div class="space-y-3 text-xs text-[#DCE7F0]">
+                <div class="flex items-center gap-2"><span class="text-[#EFBB20]">✓</span> 85+ Published Volumes</div>
+                <div class="flex items-center gap-2"><span class="text-[#EFBB20]">✓</span> 6 Android Keyboards on Google Play</div>
+                <div class="flex items-center gap-2"><span class="text-[#EFBB20]">✓</span> 15 Community-Based Language Committees</div>
+                <div class="flex items-center gap-2"><span class="text-[#EFBB20]">✓</span> Host of FEL XXVIII International Conference</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 2: VISION, MISSION & VALUES -->
+      <div id="tab-content-values" class="sub-tab-content space-y-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <!-- Vision Card -->
+          <div class="bg-gradient-to-br from-[#0D5488] to-[#08314F] text-white p-8 rounded-2xl shadow-lg border-t-4 border-[#EFBB20] space-y-4">
+            <div class="inline-flex items-center gap-2 px-3 py-1 bg-[#EFBB20] text-[#5B0404] rounded-full text-xs font-bold uppercase tracking-wider">
+              <span>Our Vision</span>
+            </div>
+            <h3 class="font-serif font-bold text-xl text-white">To See all Ethnolinguistic Communities Flourishing Culturally and Economically</h3>
+            <p class="text-xs sm:text-sm text-[#DCE7F0] leading-relaxed">
+              We envision a pluralistic Pakistan where every linguistic community experiences total cultural dignity, social inclusion, and economic advancement through the continuous use and development of their ancestral mother tongue.
+            </p>
+            <div class="p-4 bg-white/10 rounded-xl border border-white/20 mt-4">
+              <p class="nastaliq-text text-lg text-[#EFBB20]">
+                تمام نسلی و لسانی گروہوں کو اپنی زبان و ثقافت کو برقرار رکھتے ہوئے پروان چڑھتے اور ترقی کرتے دیکھنا۔
+              </p>
+            </div>
+          </div>
+
+          <!-- Mission Card -->
+          <div class="bg-gradient-to-br from-[#5B0404] to-[#450303] text-white p-8 rounded-2xl shadow-lg border-t-4 border-[#EFBB20] space-y-4">
+            <div class="inline-flex items-center gap-2 px-3 py-1 bg-[#EFBB20] text-[#5B0404] rounded-full text-xs font-bold uppercase tracking-wider">
+              <span>Our Mission</span>
+            </div>
+            <h3 class="font-serif font-bold text-xl text-white">Empowering Minoritized Language Communities</h3>
+            <p class="text-xs sm:text-sm text-[#FBEAEA] leading-relaxed">
+              To assist the minoritized language communities of Pakistan—especially those inhabiting the northern mountainous areas—in preserving and developing their mother tongues, cultural heritage, and literature through research, training, orthography development, and mother-tongue education.
+            </p>
+            <div class="p-4 bg-white/10 rounded-xl border border-white/20 mt-4">
+              <p class="nastaliq-text text-lg text-[#EFBB20]">
+                پاکستان کی غیر غالب لسانی برادریوں کو اپنی مادری زبانوں کے تحفظ اور فروغ کے لیے بااختیار بنانا۔
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 6 Core Values -->
+        <div class="bg-white p-6 sm:p-10 rounded-2xl border border-[#D0DFE8] shadow-xs space-y-6">
+          <div class="border-b border-stone-200 pb-4">
+            <span class="text-xs font-bold text-[#5B0404] uppercase tracking-wider">Institutional Ethics & Culture</span>
+            <h3 class="text-2xl font-serif font-bold text-stone-900 mt-1">Our 6 Core Values</h3>
+            <p class="text-xs sm:text-sm text-stone-600 mt-1">Guiding principles established by FLI’s governing charter:</p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-xs sm:text-sm">
+            <div class="p-5 rounded-xl border border-[#D0DFE8] bg-[#EEF6FA] space-y-2">
+              <div class="w-8 h-8 rounded-lg bg-[#0D5488] text-white flex items-center justify-center font-bold">1</div>
+              <h4 class="font-serif font-bold text-base text-[#0D5488]">Respect for Diversity</h4>
+              <p class="text-stone-600 leading-relaxed">We honor each language and culture as an irreplaceable treasury of human knowledge, wisdom, and local biodiversity stewardship.</p>
+            </div>
+            <div class="p-5 rounded-xl border border-[#ECD1D1] bg-[#FAF2F2] space-y-2">
+              <div class="w-8 h-8 rounded-lg bg-[#5B0404] text-white flex items-center justify-center font-bold">2</div>
+              <h4 class="font-serif font-bold text-base text-[#5B0404]">Community Ownership</h4>
+              <p class="text-stone-600 leading-relaxed">We believe lasting language revitalization succeeds only when local mother-tongue speakers lead research, decisions, and curriculum design.</p>
+            </div>
+            <div class="p-5 rounded-xl border border-[#EFBB20]/40 bg-[#FEF9E8] space-y-2">
+              <div class="w-8 h-8 rounded-lg bg-[#EFBB20] text-[#5B0404] flex items-center justify-center font-bold">3</div>
+              <h4 class="font-serif font-bold text-base text-[#5B0404]">Grassroots Participation</h4>
+              <p class="text-stone-600 leading-relaxed">Our programs involve village elders, schoolteachers, women storytellers, and youth equally in orthography development and cultural documentation.</p>
+            </div>
+            <div class="p-5 rounded-xl border border-stone-200 bg-stone-50 space-y-2">
+              <div class="w-8 h-8 rounded-lg bg-stone-800 text-white flex items-center justify-center font-bold">4</div>
+              <h4 class="font-serif font-bold text-base text-stone-900">Academic Rigor</h4>
+              <p class="text-stone-600 leading-relaxed">We apply modern sociolinguistic standards, acoustic phonology, and ISO 639-3 classifications to every dictionary and grammar sketch.</p>
+            </div>
+            <div class="p-5 rounded-xl border border-emerald-200 bg-emerald-50 space-y-2">
+              <div class="w-8 h-8 rounded-lg bg-emerald-700 text-white flex items-center justify-center font-bold">5</div>
+              <h4 class="font-serif font-bold text-base text-emerald-800">Inclusivity & Equity</h4>
+              <p class="text-stone-600 leading-relaxed">We advocate for the linguistic human rights of minoritized mountain communities without bias to ethnicity, geography, or socioeconomic status.</p>
+            </div>
+            <div class="p-5 rounded-xl border border-purple-200 bg-purple-50 space-y-2">
+              <div class="w-8 h-8 rounded-lg bg-purple-700 text-white flex items-center justify-center font-bold">6</div>
+              <h4 class="font-serif font-bold text-base text-purple-900">Sustainability & Digital Vitality</h4>
+              <p class="text-stone-600 leading-relaxed">Bridging ancient oral heritage into the 21st century through Unicode keyboards, digital storytelling, and multilingual school curricula.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 3: STRATEGIC OBJECTIVES -->
+      <div id="tab-content-objectives" class="sub-tab-content space-y-8">
+        <div class="bg-white p-6 sm:p-10 rounded-2xl border border-[#D0DFE8] shadow-xs space-y-6">
+          <div class="border-b border-stone-200 pb-4">
+            <span class="text-xs font-bold text-[#0D5488] uppercase tracking-wider">Strategic Roadmap</span>
+            <h2 class="text-2xl sm:text-3xl font-serif font-bold text-stone-900 mt-1">Our 5 Strategic Objectives</h2>
+            <p class="text-xs sm:text-sm text-stone-600 mt-1">The five core mandates governing FLI’s operations and training programs:</p>
+          </div>
+
+          <div class="space-y-4 text-xs sm:text-sm">
+            <div class="p-5 bg-stone-50 hover:bg-[#EEF6FA] rounded-xl border border-[#D0DFE8] transition-colors flex gap-4 items-start">
+              <span class="w-8 h-8 rounded-full bg-[#0D5488] text-white flex items-center justify-center font-bold shrink-0">1</span>
+              <div>
+                <h4 class="font-bold text-base text-[#0D5488]">Capacity Building of Language Communities</h4>
+                <p class="text-stone-600 mt-1 leading-relaxed">Train mother-tongue speakers in linguistic survey methods, descriptive phonology, orthography development, grammar formulation, lexicography, and creative literature production.</p>
+              </div>
+            </div>
+
+            <div class="p-5 bg-stone-50 hover:bg-[#EEF6FA] rounded-xl border border-[#D0DFE8] transition-colors flex gap-4 items-start">
+              <span class="w-8 h-8 rounded-full bg-[#0D5488] text-white flex items-center justify-center font-bold shrink-0">2</span>
+              <div>
+                <h4 class="font-bold text-base text-[#0D5488]">Promoting Mother Tongue-Based Multilingual Education (MTB-MLE)</h4>
+                <p class="text-stone-600 mt-1 leading-relaxed">Advocate for and establish early childhood mother-tongue schooling models, developing graded primers, big books, and pedagogical materials that transition children smoothly to Urdu and English.</p>
+              </div>
+            </div>
+
+            <div class="p-5 bg-stone-50 hover:bg-[#EEF6FA] rounded-xl border border-[#D0DFE8] transition-colors flex gap-4 items-start">
+              <span class="w-8 h-8 rounded-full bg-[#0D5488] text-white flex items-center justify-center font-bold shrink-0">3</span>
+              <div>
+                <h4 class="font-bold text-base text-[#0D5488]">Documentation & Vernacular Literature Production</h4>
+                <p class="text-stone-600 mt-1 leading-relaxed">Record, transcribe, and publish oral traditions, poetry, folk proverbs, ethnographic accounts, and dictionaries to preserve endangered intangible cultural heritage.</p>
+              </div>
+            </div>
+
+            <div class="p-5 bg-stone-50 hover:bg-[#EEF6FA] rounded-xl border border-[#D0DFE8] transition-colors flex gap-4 items-start">
+              <span class="w-8 h-8 rounded-full bg-[#0D5488] text-white flex items-center justify-center font-bold shrink-0">4</span>
+              <div>
+                <h4 class="font-bold text-base text-[#0D5488]">Digital Language Vitality & Keyboard Development</h4>
+                <p class="text-stone-600 mt-1 leading-relaxed">Ensure minoritized languages thrive in the digital sphere by engineering custom Android keyboards, Keyman packages for PC, and standardizing Nastaliq and Arabic unicode glyphs.</p>
+              </div>
+            </div>
+
+            <div class="p-5 bg-stone-50 hover:bg-[#EEF6FA] rounded-xl border border-[#D0DFE8] transition-colors flex gap-4 items-start">
+              <span class="w-8 h-8 rounded-full bg-[#0D5488] text-white flex items-center justify-center font-bold shrink-0">5</span>
+              <div>
+                <h4 class="font-bold text-base text-[#0D5488]">Linguistic Human Rights & Policy Advocacy</h4>
+                <p class="text-stone-600 mt-1 leading-relaxed">Engage parliamentarians, provincial assemblies (KP, GB, AJK), educational directorates, and international organizations (UNESCO) to secure legal recognition and curriculum inclusion.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 4: EXECUTIVE BOARD -->
+      <div id="tab-content-board" class="sub-tab-content space-y-8">
+        <div class="bg-white p-6 sm:p-10 rounded-2xl border border-[#D0DFE8] shadow-xs space-y-6">
+          <div class="border-b border-stone-200 pb-4">
+            <span class="text-xs font-bold text-[#5B0404] uppercase tracking-wider">Leadership & Governance</span>
+            <h2 class="text-2xl sm:text-3xl font-serif font-bold text-stone-900 mt-1">FLI Executive Board Members</h2>
+            <p class="text-xs sm:text-sm text-stone-600 mt-1">Distinguished linguists, educators, community leaders, and custodians of northern languages:</p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="p-6 rounded-xl border border-[#D0DFE8] bg-stone-50 hover:bg-[#EEF6FA] transition-colors space-y-3">
+              <div class="w-12 h-12 rounded-full bg-[#0D5488] text-white font-serif font-bold flex items-center justify-center text-lg">RB</div>
+              <div>
+                <h4 class="font-serif font-bold text-base text-stone-900">Rozi Khan Burki</h4>
+                <p class="text-xs font-bold text-[#0D5488]">Chairman, FLI Executive Board</p>
+                <p class="text-xs text-stone-500">Representative of the Ormuri Language Community (South Waziristan)</p>
+              </div>
+              <p class="text-xs text-stone-600 leading-relaxed">Pioneering advocate for the Ormuri language of Kaniguram; instrumental in preserving southeastern Iranian linguistic heritage in Pakistan.</p>
+            </div>
+
+            <div class="p-6 rounded-xl border border-[#ECD1D1] bg-stone-50 hover:bg-[#FAF2F2] transition-colors space-y-3">
+              <div class="w-12 h-12 rounded-full bg-[#5B0404] text-white font-serif font-bold flex items-center justify-center text-lg">FA</div>
+              <div>
+                <h4 class="font-serif font-bold text-base text-stone-900">Fakhruddin Akhunzada</h4>
+                <p class="text-xs font-bold text-[#5B0404]">Executive Director & Board Secretary</p>
+                <p class="text-xs text-stone-500">Author & Sociolinguist (Gawri & Swat Valley)</p>
+              </div>
+              <p class="text-xs text-stone-600 leading-relaxed">Leading figure in northern language initiatives; co-author of foundational Gawri-Urdu-English dictionaries and multi-language surveys.</p>
+            </div>
+
+            <div class="p-6 rounded-xl border border-[#D0DFE8] bg-stone-50 hover:bg-[#EEF6FA] transition-colors space-y-3">
+              <div class="w-12 h-12 rounded-full bg-[#0D5488] text-white font-serif font-bold flex items-center justify-center text-lg">FA</div>
+              <div>
+                <h4 class="font-serif font-bold text-base text-stone-900">Dr. Farhat Abdullah</h4>
+                <p class="text-xs font-bold text-[#0D5488]">Board Member & Academic Advisor</p>
+                <p class="text-xs text-stone-500">Department of Anthropology, Quaid-i-Azam University</p>
+              </div>
+              <p class="text-xs text-stone-600 leading-relaxed">Senior academic anthropologist focusing on indigenous ethnography, cultural safeguarding, and northern mountain communities.</p>
+            </div>
+
+            <div class="p-6 rounded-xl border border-stone-200 bg-stone-50 hover:bg-stone-100 transition-colors space-y-3">
+              <div class="w-12 h-12 rounded-full bg-stone-800 text-white font-serif font-bold flex items-center justify-center text-lg">RK</div>
+              <div>
+                <h4 class="font-serif font-bold text-base text-stone-900">Razwal Kohistani</h4>
+                <p class="text-xs font-bold text-[#5B0404]">Board Member</p>
+                <p class="text-xs text-stone-500">Historian & Scholar of Indus Kohistani</p>
+              </div>
+              <p class="text-xs text-stone-600 leading-relaxed">Renowned indigenous historian and author of multiple monographs on the history, culture, and language of Indus Kohistan.</p>
+            </div>
+
+            <div class="p-6 rounded-xl border border-stone-200 bg-stone-50 hover:bg-stone-100 transition-colors space-y-3">
+              <div class="w-12 h-12 rounded-full bg-stone-800 text-white font-serif font-bold flex items-center justify-center text-lg">FQ</div>
+              <div>
+                <h4 class="font-serif font-bold text-base text-stone-900">Fauzia Qazi</h4>
+                <p class="text-xs font-bold text-[#0D5488]">Board Member & Education Specialist</p>
+                <p class="text-xs text-stone-500">Gender & Community Development</p>
+              </div>
+              <p class="text-xs text-stone-600 leading-relaxed">Expert in female literacy, community mobilization, and inclusive mother-tongue early education programs.</p>
+            </div>
+
+            <div class="p-6 rounded-xl border border-stone-200 bg-stone-50 hover:bg-stone-100 transition-colors space-y-3">
+              <div class="w-12 h-12 rounded-full bg-stone-800 text-white font-serif font-bold flex items-center justify-center text-lg">FK</div>
+              <div>
+                <h4 class="font-serif font-bold text-base text-stone-900">Fazal Karim</h4>
+                <p class="text-xs font-bold text-[#5B0404]">Board Member & Community Liaison</p>
+                <p class="text-xs text-stone-500">Chitral & Gilgit-Baltistan Coordination</p>
+              </div>
+              <p class="text-xs text-stone-600 leading-relaxed">Decades of leadership connecting grassroots language development committees with national resource platforms.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 5: 4-PILLAR MODEL -->
+      <div id="tab-content-methodology" class="sub-tab-content space-y-8">
+        <div class="bg-white p-6 sm:p-10 rounded-2xl border border-[#D0DFE8] shadow-xs space-y-6">
+          <div class="border-b border-stone-200 pb-4">
+            <span class="text-xs font-bold text-[#0D5488] uppercase tracking-wider">Methodology</span>
+            <h2 class="text-2xl sm:text-3xl font-serif font-bold text-stone-900 mt-1">Our 4-Pillar Model of Language Revitalization</h2>
+            <p class="text-xs sm:text-sm text-stone-600 mt-1">The cyclical framework developed by FLI to move languages from oral vulnerability to published sustainability:</p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 text-xs sm:text-sm">
+            <div class="p-6 rounded-xl border-t-4 border-t-[#0D5488] bg-stone-50 border border-[#D0DFE8] space-y-3">
+              <span class="font-bold text-xs uppercase tracking-wider text-[#0D5488]">Pillar 1</span>
+              <h4 class="font-serif font-bold text-base text-stone-900">Survey & Sociolinguistics</h4>
+              <p class="text-stone-600 leading-relaxed">Assessing language vitality, dialectal variation, bilingualism rates, and community attitudes to determine urgent documentation priorities.</p>
+            </div>
+            <div class="p-6 rounded-xl border-t-4 border-t-[#5B0404] bg-stone-50 border border-[#ECD1D1] space-y-3">
+              <span class="font-bold text-xs uppercase tracking-wider text-[#5B0404]">Pillar 2</span>
+              <h4 class="font-serif font-bold text-base text-stone-900">Orthography & Phonology</h4>
+              <p class="text-stone-600 leading-relaxed">Organizing orthography conferences with village elders, scholars, and teachers to establish consensus on standard Arabic/Nastaliq alphabets.</p>
+            </div>
+            <div class="p-6 rounded-xl border-t-4 border-t-[#EFBB20] bg-stone-50 border border-stone-200 space-y-3">
+              <span class="font-bold text-xs uppercase tracking-wider text-[#5B0404]">Pillar 3</span>
+              <h4 class="font-serif font-bold text-base text-stone-900">MTB-MLE Education</h4>
+              <p class="text-stone-600 leading-relaxed">Producing early childhood curriculum, training local community teachers, and piloting community-run mother-tongue schools.</p>
+            </div>
+            <div class="p-6 rounded-xl border-t-4 border-t-emerald-600 bg-stone-50 border border-emerald-200 space-y-3">
+              <span class="font-bold text-xs uppercase tracking-wider text-emerald-800">Pillar 4</span>
+              <h4 class="font-serif font-bold text-base text-stone-900">Literature & Digital Vitality</h4>
+              <p class="text-stone-600 leading-relaxed">Publishing folklore anthologies, dictionaries, mobile Android keyboards, and digital media to ensure the language thrives in daily modern life.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 6: LEGAL & GOVERNANCE -->
+      <div id="tab-content-governance" class="sub-tab-content space-y-8">
+        <div class="bg-white p-6 sm:p-10 rounded-2xl border border-[#D0DFE8] shadow-xs space-y-6 text-xs sm:text-sm text-stone-700 leading-relaxed">
+          <div class="border-b border-stone-200 pb-4">
+            <span class="text-xs font-bold text-[#5B0404] uppercase tracking-wider">Statutory Transparency</span>
+            <h2 class="text-2xl sm:text-3xl font-serif font-bold text-stone-900 mt-1">Legal Status & Compliance</h2>
+            <p class="text-xs sm:text-sm text-stone-600 mt-1">Official registration, auditing, and tax compliance credentials of FLI:</p>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="p-5 bg-stone-50 rounded-xl border border-stone-200 space-y-2">
+              <h4 class="font-bold text-[#0D5488] text-sm">Societies Registration Act XXI of 1860</h4>
+              <p>Registered as a non-profit organization with the Directorate of Social Welfare & Voluntary Agencies, Islamabad Capital Territory (ICT). Registration Number: <strong>4349/5/4392</strong>.</p>
+            </div>
+            <div class="p-5 bg-stone-50 rounded-xl border border-stone-200 space-y-2">
+              <h4 class="font-bold text-[#5B0404] text-sm">Federal Board of Revenue (FBR)</h4>
+              <p>Recognized as a tax-exempt non-profit non-governmental organization under Section 2(36) of the Income Tax Ordinance 2001, compliant with all annual return filings.</p>
+            </div>
+          </div>
+
+          <div class="p-5 bg-[#EEF6FA] rounded-xl border border-[#D0DFE8]">
+            <h4 class="font-bold text-[#0D5488] mb-1">Secretariat Office Address:</h4>
+            <p>House No. 233, Street 50, Sector I-8/2, Islamabad, Pakistan • P.O. Box No. 763, Islamabad, Federal Capital Territory, Pakistan.</p>
+            <p class="mt-1">Telephone: +92 (0)51 225 0068 / +92 (0)51 232 5478 / 5479 • Email: info@fli-online.org / secretarial.fli@gmail.com</p>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- 6. FOOTER (#08314F Deep Navy with #EFBB20 Gold Top Border) -->
+    <footer class="bg-[#08314F] text-[#DCE7F0] border-t-4 border-[#EFBB20] pt-12 pb-8 mt-16">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-4">
+        <p class="text-xs text-[#BFD4E4]">
+          Forum for Language Initiatives (FLI) • Registered under Societies Registration Act XXI of 1860 • Islamabad, Pakistan
+        </p>
+        <div class="flex justify-center gap-6 text-xs text-[#8BAECA]">
+          <a href="index.html" class="hover:text-white">Home</a>
+          <a href="about.html" class="hover:text-white font-bold text-[#EFBB20]">About Us</a>
+          <a href="target-languages.html" class="hover:text-white">Target Languages</a>
+          <a href="language-map.html" class="hover:text-white">Language Map</a>
+          <a href="language-tree.html" class="hover:text-white">Language Tree</a>
+          <a href="language-relatedness.html" class="hover:text-white">Relatedness Matrix</a>
+          <a href="index.html#contact" class="hover:text-white">Contact</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Tab Switching Script -->
+    <script>
+      function showTab(tabId) {
+        document.querySelectorAll('.sub-tab-content').forEach(el => el.classList.remove('active'));
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+          btn.classList.remove('text-[#0D5488]', 'bg-[#EEF6FA]', 'font-bold', 'border-b-2', 'border-[#0D5488]');
+          btn.classList.add('text-stone-600');
+        });
+
+        const activePanel = document.getElementById('tab-content-' + tabId);
+        const activeBtn = document.getElementById('tab-btn-' + tabId);
+        if (activePanel) activePanel.classList.add('active');
+        if (activeBtn) {
+          activeBtn.classList.remove('text-stone-600');
+          activeBtn.classList.add('text-[#0D5488]', 'bg-[#EEF6FA]', 'font-bold', 'border-b-2', 'border-[#0D5488]');
+        }
+      }
+
+      // Check query param on load
+      const urlParams = new URLSearchParams(window.location.search);
+      const tabParam = urlParams.get('tab');
+      if (tabParam && ['overview', 'values', 'objectives', 'board', 'methodology', 'governance'].includes(tabParam)) {
+        showTab(tabParam);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Language Map of Northern Pakistan – Forum for Language Initiatives (FLI)</title>
+    <meta name="description" content="Cartographic map of the languages of Northern Pakistan and surrounding regions, produced by Henrik Liljegren (2017) with QGIS 2.18.4 for the Forum for Language Initiatives." />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              fli: {
+                blue: '#0D5488',
+                'blue-dark': '#08314F',
+                'blue-light': '#EEF6FA',
+                maroon: '#5B0404',
+                gold: '#EFBB20'
+              }
+            },
+            fontFamily: {
+              sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'],
+              serif: ['Cinzel', 'Georgia', 'serif']
+            }
+          }
+        }
+      }
+    </script>
+  </head>
+  <body class="bg-[#FAF8F5] text-[#1F2937] font-sans antialiased">
+
+    <!-- TOP ANNOUNCEMENT BAR (#5B0404 Heritage Maroon) -->
+    <aside class="bg-[#5B0404] text-[#FBEAEA] text-xs px-4 py-2 border-b border-[#450303]">
+      <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+        <div class="flex items-center gap-3">
+          <span class="font-bold text-[#5B0404] uppercase text-[10px] px-2 py-0.5 bg-[#EFBB20] rounded">Official FLI Cartography</span>
+          <span class="text-white/85">Languages of Northern Pakistan and Surrounding Regions</span>
+        </div>
+        <div class="flex items-center gap-4 text-xs font-medium">
+          <a href="index.html" class="inline-flex items-center gap-1.5 bg-[#EFBB20] hover:bg-[#DCA715] text-[#5B0404] px-2.5 py-1 rounded font-bold text-[11px] transition-colors shadow-xs">
+            <span>← Back to Master Prototype</span>
+          </a>
+        </div>
+      </div>
+    </aside>
+
+    <!-- HEADER (#0D5488 Ocean Blue) -->
+    <header class="sticky top-0 z-40 bg-white/98 backdrop-blur-md border-b border-[#D0DFE8] shadow-xs">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-20 gap-8">
+          <a href="index.html" class="flex items-center gap-3 text-left group shrink-0">
+            <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-[#5B0404] to-[#0D5488] flex items-center justify-center text-white shadow-md border border-[#EFBB20]/50 shrink-0">
+              <span class="font-serif text-lg font-bold text-[#EFBB20]">FLI</span>
+            </div>
+            <div>
+              <span class="text-base sm:text-lg font-bold font-serif text-[#0D5488] block">Forum for Language Initiatives</span>
+              <p class="text-[11px] text-[#5B0404] font-medium hidden sm:block">National Linguistic Resource & Training Center • Islamabad, Pakistan</p>
+            </div>
+          </a>
+
+          <nav class="hidden md:flex items-center gap-2 text-sm font-semibold text-[#2C3E50]">
+            <a href="index.html" class="px-3 py-2 rounded-lg hover:text-[#0D5488] hover:bg-[#EEF6FA]">Home</a>
+            <a href="about.html" class="px-3 py-2 rounded-lg hover:text-[#0D5488] hover:bg-[#EEF6FA]">About Us</a>
+            <a href="target-languages.html" class="px-3 py-2 rounded-lg hover:text-[#0D5488] hover:bg-[#EEF6FA]">Target Languages (29)</a>
+            <a href="language-map.html" class="px-3 py-2 rounded-lg text-[#0D5488] font-bold bg-[#EEF6FA] border-b-2 border-[#EFBB20]">Language Map</a>
+            <a href="language-tree.html" class="px-3 py-2 rounded-lg hover:text-[#0D5488] hover:bg-[#EEF6FA]">Language Tree</a>
+            <a href="language-relatedness.html" class="px-3 py-2 rounded-lg hover:text-[#0D5488] hover:bg-[#EEF6FA]">Relatedness Matrix</a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-8">
+      
+      <!-- Cartographic Header Banner -->
+      <div class="bg-white p-6 sm:p-8 rounded-2xl border border-[#D0DFE8] shadow-xs space-y-4">
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <div class="inline-flex items-center gap-2 px-3 py-1 bg-[#EEF6FA] text-[#0D5488] rounded-full text-xs font-bold uppercase tracking-wider border border-[#D0DFE8]">
+            <span>Official Cartography</span>
+            <span>•</span>
+            <span>Henrik Liljegren (2017)</span>
+            <span>•</span>
+            <span>QGIS 2.18.4</span>
+          </div>
+          <a href="/assets/aistudio/Language-mapEng_39a82f36.webp" download="FLI-Language-Map-Northern-Pakistan.webp" class="inline-flex items-center gap-2 bg-[#0D5488] hover:bg-[#0A3F66] text-white px-4 py-2 rounded-lg text-xs font-bold transition-colors shadow-xs">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+            <span>Download High-Resolution Map</span>
+          </a>
+        </div>
+        <h1 class="text-2xl sm:text-4xl font-serif font-bold text-stone-900">
+          Languages of Northern Pakistan and Surrounding Regions
+        </h1>
+        <p class="text-xs sm:text-sm text-stone-600 leading-relaxed max-w-4xl">
+          Produced for the <strong>Forum for Language Initiatives (FLI)</strong>, with the right to display and distribute. Map design: <em>Henrik Liljegren (2017)</em>. Cartographic software: <em>QGIS 2.18.4</em>. Coordinates: 34°0' to 37°0' North latitude, 69°0' to 77°0' East longitude.
+        </p>
+      </div>
+
+      <!-- High-Resolution Map Viewer -->
+      <div class="bg-white rounded-2xl border border-[#D0DFE8] p-4 sm:p-6 shadow-sm space-y-6">
+        <div class="relative rounded-xl overflow-hidden border border-stone-200 bg-stone-100 flex items-center justify-center group">
+          <img 
+            src="/assets/aistudio/Language-mapEng_39a82f36.webp" 
+            alt="Languages of northern Pakistan and surrounding regions cartographic map by Henrik Liljegren 2017" 
+            class="w-full h-auto max-h-[850px] object-contain cursor-zoom-in"
+            onclick="document.getElementById('zoomModal').classList.remove('hidden')"
+          />
+          <div class="absolute bottom-4 right-4 bg-stone-900/80 backdrop-blur-sm text-white px-3 py-1.5 rounded-lg text-xs font-medium flex items-center gap-2 pointer-events-none">
+            <svg class="w-4 h-4 text-[#EFBB20]" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"/></svg>
+            <span>Click map to inspect full screen</span>
+          </div>
+        </div>
+
+        <!-- Language Family Legend Chips -->
+        <div class="space-y-3 pt-2 border-t border-stone-200">
+          <div class="text-xs font-bold text-[#0D5488] uppercase tracking-wider">Map Legend & Language Families:</div>
+          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 text-xs">
+            <div class="flex items-center gap-2.5 bg-stone-50 p-2.5 rounded-xl border border-stone-200">
+              <span class="w-4 h-4 rounded-full bg-[#1E88E5] shrink-0 shadow-xs"></span>
+              <div>
+                <span class="font-bold text-stone-900 block">Indo-Aryan</span>
+                <span class="text-[10px] text-stone-500">25+ Languages</span>
+              </div>
+            </div>
+            <div class="flex items-center gap-2.5 bg-stone-50 p-2.5 rounded-xl border border-stone-200">
+              <span class="w-4 h-4 rounded-full bg-[#43A047] shrink-0 shadow-xs"></span>
+              <div>
+                <span class="font-bold text-stone-900 block">Iranian</span>
+                <span class="text-[10px] text-stone-500">Wakhi, Ormuri, Yidgha</span>
+              </div>
+            </div>
+            <div class="flex items-center gap-2.5 bg-stone-50 p-2.5 rounded-xl border border-stone-200">
+              <span class="w-4 h-4 rounded-full bg-[#FB8C00] shrink-0 shadow-xs"></span>
+              <div>
+                <span class="font-bold text-stone-900 block">Nuristani</span>
+                <span class="text-[10px] text-stone-500">Kati, Kamviri</span>
+              </div>
+            </div>
+            <div class="flex items-center gap-2.5 bg-stone-50 p-2.5 rounded-xl border border-stone-200">
+              <span class="w-4 h-4 rounded-full bg-[#212121] shrink-0 shadow-xs"></span>
+              <div>
+                <span class="font-bold text-stone-900 block">Tibeto-Burman</span>
+                <span class="text-[10px] text-stone-500">Balti, Purik</span>
+              </div>
+            </div>
+            <div class="flex items-center gap-2.5 bg-stone-50 p-2.5 rounded-xl border border-stone-200">
+              <span class="w-4 h-4 rounded-full bg-[#D81B60] shrink-0 shadow-xs"></span>
+              <div>
+                <span class="font-bold text-stone-900 block">Turkic</span>
+                <span class="text-[10px] text-stone-500">Kyrgyz, Uzbek</span>
+              </div>
+            </div>
+            <div class="flex items-center gap-2.5 bg-stone-50 p-2.5 rounded-xl border border-stone-200">
+              <span class="w-4 h-4 rounded-full bg-[#E53935] shrink-0 shadow-xs"></span>
+              <div>
+                <span class="font-bold text-stone-900 block">Isolate</span>
+                <span class="text-[10px] text-stone-500">Burushaski (Hunza/Yasin)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <!-- ZOOM MODAL -->
+    <div id="zoomModal" class="hidden fixed inset-0 z-50 bg-black/90 p-4 flex items-center justify-center" onclick="this.classList.add('hidden')">
+      <div class="relative max-w-7xl max-h-[95vh] overflow-auto">
+        <button class="absolute top-2 right-2 bg-white/20 hover:bg-white text-white hover:text-black p-2 rounded-full font-bold">✕</button>
+        <img src="/assets/aistudio/Language-mapEng_39a82f36.webp" alt="Full view" class="w-full h-auto rounded-lg shadow-2xl" />
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="bg-[#08314F] text-[#DCE7F0] border-t-4 border-[#EFBB20] py-8 text-center text-xs mt-16">
+      <p>Forum for Language Initiatives (FLI) • Map © Henrik Liljegren (2017) • Produced for FLI</p>
+      <div class="mt-2 flex justify-center gap-4 text-[#8BAECA]">
+        <a href="index.html" class="hover:text-white">Home</a>
+        <a href="about.html" class="hover:text-white">About Us</a>
+        <a href="language-tree.html" class="hover:text-white">Language Tree</a>
+        <a href="language-relatedness.html" class="hover:text-white">Relatedness Matrix</a>
+      </div>
+    </footer>
+
+  </body>
+</html>
