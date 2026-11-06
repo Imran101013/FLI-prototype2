@@ -11,7 +11,7 @@
 @source "../js/main.js";
 
 @theme {
-  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-sans: "Metrophobic", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
 }
 
 /* Brand tokens — use these as Elementor Global Colors (Site Settings › Global Colors).

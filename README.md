@@ -113,7 +113,7 @@ Yellow is only used as a fill (with maroon text on it) or on dark backgrounds, n
 
 **Global Fonts** (all Google Fonts, available in Elementor free):
 - Headings: **Cinzel** 600–700
-- Body: **Plus Jakarta Sans** 400–700
+- Body: **Metrophobic** (one weight only, Regular 400; the browser synthesizes bold where the design uses bold)
 - Urdu / Nastaliq text: **Noto Nastaliq Urdu** (fallback **Amiri**), right-to-left, line height ≈ 2.1
 
 **Widget mapping.** Most sections map to free widgets: Heading, Text Editor, Button, Image, Icon Box / Image Box (cards), Icon List (check lists, contact details), Counter (number strips), Tabs/Accordion/Toggle (FEL practical info, board bios), Testimonial (Impact Stories), Video (COVID-19), Social Icons.
