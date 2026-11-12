@@ -49,12 +49,12 @@ assets/img/                Images (logo/favicon, photos from fli-online.org, her
 | `publications.html?series=translated` | `/materials-translated-by-fli-into-urdu/` |
 | `newsletters.html` | `/newsletters/` |
 | **Resources** | |
-| `digital-resources.html` | `/digital-resources/` |
-| `fonts.html` | `/fonts/` |
-| `keyboards.html` | `/fli-pc-keyboards-2/` |
-| `software.html` | `/software/` (also covers `/research-tools/`, whose three tools are all listed here) |
-| `covid-19.html` | `/covid-19/` |
-| `windows-configuration-settings.html` | `/windows-configuration-settings-for-pakistani-languages/` |
+| `digital-resources.html` | `/digital-resources/` (all sections) |
+| `digital-resources.html?tab=fonts` | `/fonts/` |
+| `digital-resources.html?tab=keyboards` | `/fli-pc-keyboards-2/` |
+| `digital-resources.html?tab=software` | `/software/` (also covers `/research-tools/`, whose three tools are all listed here) |
+| `digital-resources.html?tab=covid-19` | `/covid-19/` |
+| `digital-resources.html?tab=windows` | `/windows-configuration-settings-for-pakistani-languages/` |
 | **Advocacy & Networking** | |
 | `advocacy-awareness.html` | `/advocacy-awareness/` |
 | `partners-meetings.html` | `/writers-worships/` |
@@ -67,7 +67,7 @@ assets/img/                Images (logo/favicon, photos from fli-online.org, her
 | `fli-in-the-media.html` | `/fli-in-the-media/` |
 | `contact.html` | `/contact/` |
 
-Pages with a section tab bar (About, Languages, Programs, Publications, Resources, Advocacy, News) are separate pages; each tab is a link to its sibling page. The exception is Publications: its series tabs filter the one list on `publications.html` instead of linking to a page per series.
+Pages with a section tab bar (About, Languages, Programs, Publications, Resources, Advocacy, News) are separate pages; each tab is a link to its sibling page. The exceptions are Publications and Resources: their tabs stay on one page. On `publications.html` the series tabs filter the one list; on `digital-resources.html` "All Resources" shows every section and each other tab shows one.
 
 ## Interactive features
 
@@ -76,6 +76,7 @@ Pages with a section tab bar (About, Languages, Programs, Publications, Resource
 - **Publications**: search, card/table view toggle, series tabs. `publications.html?q=Palula` pre-fills the search; `publications.html?series=vernacular` (or `language-culture`, `other`, `translated`) opens a series tab.
 - **Newsletters**: keyword search and year filter.
 - **Language Map**: region explorer and full-size map viewer.
+- **Digital Resources**: tabs for Fonts, Keyboards, Software, COVID-19 and Windows Settings; `digital-resources.html?tab=fonts` (or `keyboards`, `software`, `covid-19`, `windows`) opens one directly.
 - **Fonts**: live Nastaliq/Naskh type tester.
 - **Contact and subscribe forms**: validation and a thank-you state. They don't send anything; in WordPress, connect them to a form plugin.
 

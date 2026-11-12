@@ -14,6 +14,20 @@
   var $ = function (sel, root) { return (root || document).querySelector(sel); };
   var $$ = function (sel, root) { return Array.prototype.slice.call((root || document).querySelectorAll(sel)); };
   var params = new URLSearchParams(window.location.search);
+  // Swap one set of classes for another (used for active/inactive tabs).
+  var swap = function (el, add, remove) {
+    remove.forEach(function (c) { el.classList.remove(c); });
+    add.forEach(function (c) { el.classList.add(c); });
+  };
+  // A plain left click; modified clicks keep their "open in new tab" behaviour.
+  var plainClick = function (e) { return !(e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0); };
+  // Update a query parameter in the address bar without reloading (null removes it).
+  var setParam = function (name, value) {
+    if (!window.history || !history.replaceState) return;
+    var u = new URL(window.location.href);
+    if (value == null) u.searchParams.delete(name); else u.searchParams.set(name, value);
+    history.replaceState(null, '', u.pathname + u.search + u.hash);
+  };
 
   function escapeHtml(s) {
     return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
@@ -237,10 +251,6 @@
     var TAB_OFF = ['bg-white', 'text-[#4b5563]', 'border', 'border-[#d5cfc5]', 'hover:bg-[#f0ece3]'];
     var BADGE_ON = ['bg-white/20', 'text-white'];
     var BADGE_OFF = ['bg-[#e5dfd5]', 'text-[#1F1414]'];
-    var swap = function (el, add, remove) {
-      remove.forEach(function (c) { el.classList.remove(c); });
-      add.forEach(function (c) { el.classList.add(c); });
-    };
     var matches = function (el, term) {
       return (series === 'all' || el.getAttribute('data-series') === series) &&
         (!term || el.getAttribute('data-search').indexOf(term) !== -1);
@@ -292,21 +302,48 @@
     $$('[data-pub-view]', lib).forEach(function (b) { b.addEventListener('click', function () { setView(b.getAttribute('data-pub-view')); }); });
     seriesTabs.forEach(function (t) {
       t.addEventListener('click', function (e) {
-        if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; // let "open in new tab" work
+        if (!plainClick(e)) return;
         e.preventDefault();
         setSeries(t.getAttribute('data-pub-series'));
         applyPubs();
-        if (window.history && history.replaceState) {
-          var u = new URL(window.location.href);
-          if (series === 'all') u.searchParams.delete('series'); else u.searchParams.set('series', series);
-          history.replaceState(null, '', u.pathname + u.search + u.hash);
-        }
+        setParam('series', series === 'all' ? null : series);
       });
     });
     pq.addEventListener('input', applyPubs);
     if (params.get('q')) pq.value = params.get('q');
     if (seriesTabs.length) setSeries(params.get('series') || 'all');
     setView(storage('fli-pub-view') === 'table' ? 'table' : 'cards');
+  }
+
+  /* ------------------------------------------------------------------ *
+   * Digital Resources: "All Resources" shows every section, other tabs one
+   * ------------------------------------------------------------------ */
+  var resNav = $('[data-res-tabs]');
+  if (resNav) {
+    var resTabs = $$('[data-res-tab]', resNav);
+    var RES_ON = ['bg-[#5B0404]', 'text-white', 'shadow-xs'];
+    var RES_OFF = ['text-[#6E5D57]', 'hover:text-[#5B0404]', 'hover:bg-[#f0ece3]'];
+    var showRes = function (key) {
+      if (!resTabs.some(function (t) { return t.getAttribute('data-res-tab') === key; })) key = 'all';
+      resTabs.forEach(function (t) {
+        var on = t.getAttribute('data-res-tab') === key;
+        swap(t, on ? RES_ON : RES_OFF, on ? RES_OFF : RES_ON);
+        if (on) t.setAttribute('aria-current', 'true'); else t.removeAttribute('aria-current');
+      });
+      $$('[data-res-panel]').forEach(function (p) {
+        p.classList.toggle('hidden', key !== 'all' && p.getAttribute('data-res-panel') !== key);
+      });
+      return key;
+    };
+    resTabs.forEach(function (t) {
+      t.addEventListener('click', function (e) {
+        if (!plainClick(e)) return;
+        e.preventDefault();
+        var key = showRes(t.getAttribute('data-res-tab'));
+        setParam('tab', key === 'all' ? null : key);
+      });
+    });
+    showRes(params.get('tab') || 'all');
   }
 
   /* ------------------------------------------------------------------ *

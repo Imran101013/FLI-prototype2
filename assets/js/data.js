@@ -428,31 +428,31 @@ window.FLI_DATA = {
   {
    "title": "Fonts",
    "desc": "Nastaliq, Naskh and phonetic fonts",
-   "href": "fonts.html",
+   "href": "digital-resources.html?tab=fonts",
    "keywords": "fonts nastaliq nafees awami scheherazade charis doulos andika lateef"
   },
   {
    "title": "Keyboards",
    "desc": "PC and Android keyboards for local languages",
-   "href": "keyboards.html",
+   "href": "digital-resources.html?tab=keyboards",
    "keywords": "keyboards keyman android pc typing"
   },
   {
    "title": "Software",
    "desc": "Bloom, FLEx, Keyman, Toolbox and WeSay",
-   "href": "software.html",
+   "href": "digital-resources.html?tab=software",
    "keywords": "software bloom flex keyman toolbox wesay"
   },
   {
    "title": "COVID-19 Awareness Messages",
    "desc": "WHO messages recorded in local languages",
-   "href": "covid-19.html",
+   "href": "digital-resources.html?tab=covid-19",
    "keywords": "covid coronavirus awareness videos who"
   },
   {
    "title": "Windows Configuration Settings",
    "desc": "Set up Windows for Pakistani languages",
-   "href": "windows-configuration-settings.html",
+   "href": "digital-resources.html?tab=windows",
    "keywords": "windows configuration settings urdu setup"
   },
   {
