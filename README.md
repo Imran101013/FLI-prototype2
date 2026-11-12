@@ -2,19 +2,20 @@
 
 A static HTML/CSS/JS prototype of the redesigned **fli-online.org**, intended as the reference for rebuilding the site in WordPress with **Elementor (free)**. It contains only pages that exist on the live site, populated with the live site's content.
 
+Long lists are cut to a sample, since this is a prototype: 3 publications per series, the 3 latest newsletters and the 3 latest news posts. The full lists are in git history (commit `152e163` and earlier).
+
 No build step, server or Node.js is needed. Open `index.html` in a browser (double-click works). Every page shares the same header, footer and search.
 
 ```
 index.html                 Home
 *.html                     One file per WordPress page (see the page map below)
 languages/<language>.html  The 28 individual language pages
-news/<post>.html           The 8 latest news posts
+news/<post>.html           The 3 latest news posts
 assets/css/styles.css      Compiled stylesheet (all pages use this)
 assets/css/tailwind-source.css   Source for styles.css (only needed to regenerate it)
-assets/js/main.js          Interactions: menus, search, language profiles, filters, forms
-assets/js/data.js          Search index and language profile data
+assets/js/main.js          Interactions: menus, search, filters, forms
+assets/js/data.js          Site search index
 assets/img/                Images (logo/favicon, photos from fli-online.org, hero images)
-_reference/                Scraped live-site content and screenshots of the old React prototype (not part of the site)
 ```
 
 ## Page map (prototype → live site)
@@ -42,19 +43,18 @@ _reference/                Scraped live-site content and screenshots of the old 
 | `curriculum-and-materials-development.html` | `/curriculum-and-materials-development/` |
 | **Publications** | |
 | `publications.html` | `/flis-publications/` |
-| `vernacular-series.html` | `/publication-series-of-local-language-literature/` |
-| `language-culture-series.html` | `/language-culture-series/` |
-| `other-publications.html` | `/other-books-published-by-fli/` |
+| `publications.html?series=vernacular` | `/publication-series-of-local-language-literature/` |
+| `publications.html?series=language-culture` | `/language-culture-series/` |
+| `publications.html?series=other` | `/other-books-published-by-fli/` |
+| `publications.html?series=translated` | `/materials-translated-by-fli-into-urdu/` |
 | `newsletters.html` | `/newsletters/` |
-| `materials-translated.html` | `/materials-translated-by-fli-into-urdu/` |
 | **Resources** | |
 | `digital-resources.html` | `/digital-resources/` |
 | `fonts.html` | `/fonts/` |
 | `keyboards.html` | `/fli-pc-keyboards-2/` |
-| `software.html` | `/software/` |
+| `software.html` | `/software/` (also covers `/research-tools/`, whose three tools are all listed here) |
 | `covid-19.html` | `/covid-19/` |
 | `windows-configuration-settings.html` | `/windows-configuration-settings-for-pakistani-languages/` |
-| `research-tools.html` | `/research-tools/` |
 | **Advocacy & Networking** | |
 | `advocacy-awareness.html` | `/advocacy-awareness/` |
 | `partners-meetings.html` | `/writers-worships/` |
@@ -63,17 +63,17 @@ _reference/                Scraped live-site content and screenshots of the old 
 | `ihcc4.html` | `/ihcc4/` |
 | **News & Media** | |
 | `news.html` | `/news/` |
-| `news/<post>.html` | the 8 latest posts on `/news/` |
+| `news/<post>.html` | the 3 latest posts on `/news/` |
 | `fli-in-the-media.html` | `/fli-in-the-media/` |
 | `contact.html` | `/contact/` |
 
-Pages with a section tab bar (About, Languages, Programs, Publications, Resources, Advocacy, News) are separate pages; each tab is a link to its sibling page.
+Pages with a section tab bar (About, Languages, Programs, Publications, Resources, Advocacy, News) are separate pages; each tab is a link to its sibling page. The exception is Publications: its series tabs filter the one list on `publications.html` instead of linking to a page per series.
 
 ## Interactive features
 
 - **Site search** (search icon, `/` or `Ctrl+K`): languages, publications, news, newsletters and pages.
-- **Target languages**: search, family and vitality filters, and a profile pop-up for each language. `languages.html?lang=palula` opens a profile directly.
-- **Publications**: search, card/table view toggle, series tabs. `publications.html?q=Palula` pre-fills the search.
+- **Target languages**: search, family and vitality filters, and each card links to that language's page in `languages/`. Madaklashti Persian has no page on the live site, so its card shows its full description and doesn't link anywhere (`languages.html#madaklashti` jumps to it).
+- **Publications**: search, card/table view toggle, series tabs. `publications.html?q=Palula` pre-fills the search; `publications.html?series=vernacular` (or `language-culture`, `other`, `translated`) opens a series tab.
 - **Newsletters**: keyword search and year filter.
 - **Language Map**: region explorer and full-size map viewer.
 - **Fonts**: live Nastaliq/Naskh type tester.
@@ -128,13 +128,13 @@ A few features need more than Elementor free provides:
 
 Most text comes directly from fli-online.org. These items don't, and need checking:
 
-- **English titles of Urdu-only publications.** The Vernacular Series (#10–28) and Other Publications are listed only in Urdu on the live site. Their English titles and the authors' names in Latin script are transliterations made for this prototype.
+- **English titles of Urdu-only publications.** Other Publications are listed only in Urdu on the live site (as are Vernacular Series #10–28, which the prototype no longer shows). Their English titles and the authors' names in Latin script are transliterations made for this prototype.
 - **Language metadata.** Vitality status, writing-system notes and some speaker figures aren't on the live language pages. Balti, Gojri, Khowar, Madaklashti, Palula and Shina speaker figures come from the earlier prototype. Gawri shows "1,200,000+" exactly as the live page states; this may be a typo for 120,000. The Nastaliq spellings of language names also come from the earlier prototype.
 - **Language Relatedness word table.** These sample words come from the earlier prototype and need a linguist's check. The chart image and PDF are FLI's own.
 - **Core value descriptions** and the **Urdu translations of the vision and mission** (`our-values.html`) are prototype copy. The value titles are FLI's.
 - **Strategic objectives.** The objective statements are FLI's exact wording. The "in practice" examples and badges were matched to activities described elsewhere on the site.
 - **Pages that are empty or title-only on the live site**, written for the prototype: Equipping the Communities, Discovery Course (topics and audience), Digital Resources, Keyboards, Windows Configuration Settings, Networking (built from the Advocacy page's alliances text).
-- **Missing items.** M K Khan has no bio on the live site. IHCC 4 returns a database error on the live site, so only its one-line description is used. LMD-5 has no report link. The Gawri and Khowar UNESCO booklets have no download links.
+- **Missing items.** M K Khan has no bio on the live site. IHCC 4 returns a database error on the live site, so only its one-line description is used. LMD-5 has no report link.
 - **Images.** The home hero, workshop, manuscript and classroom images are AI-generated and came from the earlier prototype. Replace them with real FLI photos. The other photos come from fli-online.org.
 
 ## Regenerating `styles.css` (only if you add new classes)

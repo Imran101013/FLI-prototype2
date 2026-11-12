@@ -124,8 +124,8 @@
       '<div class="font-bold text-[11px] uppercase tracking-wider text-[#5B0404] flex items-center gap-1.5"><span class="text-[#084A79]">' + icon(ic) + '</span><span>' + title + ' (' + items.length + ')</span></div>' +
       '<ul class="space-y-1">' + items.map(render).join('') + '</ul></div>';
   }
-  function resultItem(href, title, meta, extraAttr) {
-    return '<li><a href="' + href + '"' + (extraAttr || '') + ' class="w-full text-left p-2.5 rounded-lg hover:bg-[#FAF2F2] focus:bg-[#FAF2F2] focus:outline-none transition-colors flex items-center justify-between gap-3 group">' +
+  function resultItem(href, title, meta) {
+    return '<li><a href="' + href + '" class="w-full text-left p-2.5 rounded-lg hover:bg-[#FAF2F2] focus:bg-[#FAF2F2] focus:outline-none transition-colors flex items-center justify-between gap-3 group">' +
       '<span><span class="block font-semibold text-xs text-[#5B0404]">' + title + '</span><span class="block text-[11px] text-[#6b7280]">' + meta + '</span></span>' +
       '<span class="text-[#9ca3af] group-hover:text-[#5B0404] shrink-0">' + icon('arrow') + '</span></a></li>';
   }
@@ -156,7 +156,7 @@
     searchResults.innerHTML =
       resultGroup('Pages', 'file', pages, function (p) { return resultItem(BASE + p.href, escapeHtml(p.title), escapeHtml(p.desc)); }) +
       resultGroup('Target Languages', 'lang', langs, function (l) {
-        return resultItem(BASE + 'languages.html?lang=' + l.id, escapeHtml(l.name) + ' <span class="font-nastaliq text-[#6b7280] font-normal">(' + l.native + ')</span>', escapeHtml(l.family + ' · ' + l.status + ' · ISO ' + l.code), ' data-search-lang="' + l.id + '"');
+        return resultItem(BASE + (l.page ? 'languages/' + l.id + '.html' : 'languages.html#' + l.id), escapeHtml(l.name) + ' <span class="font-nastaliq text-[#6b7280] font-normal">(' + l.native + ')</span>', escapeHtml(l.family + ' · ' + l.status + ' · ISO ' + l.code));
       }) +
       resultGroup('Publications', 'book', pubs, function (p) {
         return resultItem(BASE + p.page + '?q=' + encodeURIComponent(p.title), escapeHtml(p.title), escapeHtml([p.author, p.lang, p.year].filter(Boolean).join(' · ')));
@@ -175,9 +175,7 @@
     searchInput.addEventListener('input', renderSearch);
     searchResults.addEventListener('click', function (e) {
       var s = e.target.closest('[data-suggest]');
-      if (s) { searchInput.value = s.getAttribute('data-suggest'); renderSearch(); searchInput.focus(); return; }
-      var l = e.target.closest('[data-search-lang]');
-      if (l && $('[data-lang-modal]')) { e.preventDefault(); hideModal(searchModal); openLanguage(l.getAttribute('data-search-lang')); }
+      if (s) { searchInput.value = s.getAttribute('data-suggest'); renderSearch(); searchInput.focus(); }
     });
     document.addEventListener('keydown', function (e) {
       var typing = /INPUT|TEXTAREA|SELECT/.test(document.activeElement.tagName);
@@ -185,40 +183,6 @@
         e.preventDefault(); showModal(searchModal, searchInput); renderSearch();
       }
     });
-  }
-
-  /* ------------------------------------------------------------------ *
-   * Language profile modal
-   * ------------------------------------------------------------------ */
-  var langModal = $('[data-lang-modal]');
-  function openLanguage(id) {
-    var l = DATA.languages.filter(function (x) { return x.id === id; })[0];
-    if (!l || !langModal) return;
-    var set = function (k, v) { var el = $('[data-lm="' + k + '"]', langModal); if (el) el.textContent = v; };
-    set('code', l.code); set('family', l.family); set('name', l.name); set('native', l.native);
-    set('status', l.status); set('speakers', l.speakers); set('script', l.script); set('region', l.region);
-    set('short', l.name.split(' ')[0]);
-    $('[data-lm="desc"]', langModal).innerHTML = l.desc.map(function (p) { return '<p>' + escapeHtml(p) + '</p>'; }).join('');
-    var res = $('[data-lm="resources"]', langModal);
-    res.innerHTML = l.resources.map(function (r) {
-      var href = r.internal ? BASE + r.href : r.href;
-      return '<li><a class="text-[#5B0404] font-semibold hover:underline" href="' + href + '"' + (r.internal ? '' : ' target="_blank" rel="noopener"') + '>' + escapeHtml(r.label) + '</a></li>';
-    }).join('');
-    $('[data-lm="resources-wrap"]', langModal).classList.toggle('hidden', !l.resources.length);
-    $('[data-lm="pubs"]', langModal).setAttribute('href', BASE + 'publications.html?q=' + encodeURIComponent(l.name.split(' ')[0]));
-    var pageLink = $('[data-lm="page"]', langModal);
-    pageLink.setAttribute('href', BASE + 'languages/' + l.id + '.html');
-    pageLink.classList.toggle('hidden', !l.page);
-    showModal(langModal, $('[data-lang-close]', langModal));
-  }
-  if (langModal) {
-    bindBackdrop(langModal);
-    $('[data-lang-close]', langModal).addEventListener('click', function () { hideModal(langModal); });
-    document.addEventListener('click', function (e) {
-      var t = e.target.closest('[data-lang-open]');
-      if (t) { e.preventDefault(); openLanguage(t.getAttribute('data-lang-open')); }
-    });
-    if (params.get('lang')) openLanguage(params.get('lang'));
   }
 
   /* ------------------------------------------------------------------ *
@@ -261,22 +225,58 @@
   }
 
   /* ------------------------------------------------------------------ *
-   * Publications library: search + cards/table view
+   * Publications library: series tabs + search + cards/table view
    * ------------------------------------------------------------------ */
   var lib = $('[data-pub-library]');
   if (lib) {
     var pq = $('[data-pub-q]', lib);
     var cardsWrap = $('[data-pub-cards]', lib), tableWrap = $('[data-pub-table]', lib);
+    var seriesTabs = $$('[data-pub-series]', lib);
+    var series = 'all';
+    var TAB_ON = ['bg-[#5B0404]', 'text-white', 'shadow-xs'];
+    var TAB_OFF = ['bg-white', 'text-[#4b5563]', 'border', 'border-[#d5cfc5]', 'hover:bg-[#f0ece3]'];
+    var BADGE_ON = ['bg-white/20', 'text-white'];
+    var BADGE_OFF = ['bg-[#e5dfd5]', 'text-[#1F1414]'];
+    var swap = function (el, add, remove) {
+      remove.forEach(function (c) { el.classList.remove(c); });
+      add.forEach(function (c) { el.classList.add(c); });
+    };
+    var matches = function (el, term) {
+      return (series === 'all' || el.getAttribute('data-series') === series) &&
+        (!term || el.getAttribute('data-search').indexOf(term) !== -1);
+    };
+    // Tab badges reflect the actual number of items in each series.
+    seriesTabs.forEach(function (tab) {
+      var key = tab.getAttribute('data-pub-series');
+      var badge = $('[data-pub-series-count]', tab);
+      if (badge) badge.textContent = $$('[data-pub-cards] [data-pub-item]' + (key === 'all' ? '' : '[data-series="' + key + '"]'), lib).length;
+    });
+    var setSeries = function (key) {
+      var tab = seriesTabs.filter(function (t) { return t.getAttribute('data-pub-series') === key; })[0];
+      if (!tab) key = 'all';
+      series = key;
+      seriesTabs.forEach(function (t) {
+        var on = t.getAttribute('data-pub-series') === key;
+        swap(t, on ? TAB_ON : TAB_OFF, on ? TAB_OFF : TAB_ON);
+        var badge = $('[data-pub-series-count]', t);
+        if (badge) swap(badge, on ? BADGE_ON : BADGE_OFF, on ? BADGE_OFF : BADGE_ON);
+        if (on) t.setAttribute('aria-current', 'true'); else t.removeAttribute('aria-current');
+      });
+      $$('[data-pub-series-desc]', lib).forEach(function (d) { d.classList.toggle('hidden', d.getAttribute('data-pub-series-desc') !== key); });
+    };
     var applyPubs = function () {
       var term = pq.value.trim().toLowerCase();
-      var shown = 0;
+      var shown = 0, row = 0;
       $$('[data-pub-cards] [data-pub-item]', lib).forEach(function (el) {
-        var ok = !term || el.getAttribute('data-search').indexOf(term) !== -1;
+        var ok = matches(el, term);
         el.classList.toggle('hidden', !ok);
         if (ok) shown++;
       });
       $$('[data-pub-table] [data-pub-item]', lib).forEach(function (el) {
-        el.classList.toggle('hidden', !(!term || el.getAttribute('data-search').indexOf(term) !== -1));
+        var ok = matches(el, term);
+        el.classList.toggle('hidden', !ok);
+        // Keep the "#" column sequential for whatever is currently visible.
+        if (ok && seriesTabs.length && el.cells[0]) el.cells[0].textContent = ++row;
       });
       $('[data-pub-count]', lib).textContent = shown;
       $('[data-pub-empty]', lib).classList.toggle('hidden', shown > 0);
@@ -290,8 +290,22 @@
       applyPubs();
     };
     $$('[data-pub-view]', lib).forEach(function (b) { b.addEventListener('click', function () { setView(b.getAttribute('data-pub-view')); }); });
+    seriesTabs.forEach(function (t) {
+      t.addEventListener('click', function (e) {
+        if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; // let "open in new tab" work
+        e.preventDefault();
+        setSeries(t.getAttribute('data-pub-series'));
+        applyPubs();
+        if (window.history && history.replaceState) {
+          var u = new URL(window.location.href);
+          if (series === 'all') u.searchParams.delete('series'); else u.searchParams.set('series', series);
+          history.replaceState(null, '', u.pathname + u.search + u.hash);
+        }
+      });
+    });
     pq.addEventListener('input', applyPubs);
     if (params.get('q')) pq.value = params.get('q');
+    if (seriesTabs.length) setSeries(params.get('series') || 'all');
     setView(storage('fli-pub-view') === 'table' ? 'table' : 'cards');
   }
 
