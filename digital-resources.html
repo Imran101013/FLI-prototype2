@@ -296,48 +296,15 @@
 
   <div class="space-y-12">
     <section data-res-panel="fonts" class="space-y-6" aria-label="Fonts">
-      <div><h2 class="text-2xl font-bold font-serif-display text-[#5B0404]">Fonts</h2><p class="text-sm text-[#4b5563] leading-relaxed mt-2">Nastaliq, Naskh and phonetic fonts — including Nafees Nastaleeq and Awami Nastaliq — with a live type tester.</p></div>
+      <div><h2 class="text-2xl font-bold font-serif-display text-[#5B0404]">Fonts</h2></div>
       <div class="space-y-8">
-        <div class="bg-white rounded-2xl border-2 border-[#5B0404]/20 p-6 lg:p-8 shadow-md space-y-6" data-type-tester>
-          <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4 pb-4 border-b border-[#e5dfd5]">
-            <div class="space-y-1">
-              <span class="text-xs font-bold text-[#084A79] uppercase tracking-wider">Live Type Tester</span>
-              <h2 class="text-lg font-bold text-[#5B0404] font-serif-display">Preview Nastaliq and Naskh text</h2>
-            </div>
-            <div class="flex flex-wrap items-center gap-3 text-xs">
-              <label class="flex items-center gap-2"><span class="text-[#6b7280]">Font:</span>
-                <select data-tt-font class="bg-[#faf8f5] border border-[#d5cfc5] rounded-lg px-2.5 py-1 text-xs font-medium text-[#5B0404]">
-                  <option value="'Noto Nastaliq Urdu', serif">Noto Nastaliq Urdu (Nastaliq)</option>
-                  <option value="'Amiri', serif">Amiri (Naskh)</option>
-                  <option value="serif">System serif</option>
-                </select>
-              </label>
-              <label class="flex items-center gap-2"><span class="text-[#6b7280]">Size: <span data-tt-size-label>28</span>px</span>
-                <input type="range" min="18" max="56" value="28" data-tt-size class="w-24 accent-[#5B0404]">
-              </label>
-            </div>
-          </div>
-          <div class="flex flex-wrap items-center gap-2">
-            <span class="text-[11px] text-[#6b7280] font-semibold">Load sample:</span>
-            <button type="button" data-tt-sample="پاکستان کی تمام نسلی و لسانی برادریوں کو ثقافتی اور اقتصادی طور پر پھلتا پھولتا دیکھنا" class="text-xs bg-[#f4f1eb] hover:bg-[#e7e2d8] text-[#5B0404] px-2.5 py-1 rounded-md transition-colors">Urdu (our vision)</button>
-            <button type="button" data-tt-sample="دیواکو شلوکے (ݜِݨا لوک کہانیاں)" class="text-xs bg-[#f4f1eb] hover:bg-[#e7e2d8] text-[#5B0404] px-2.5 py-1 rounded-md transition-colors">Shina book title</button>
-            <button type="button" data-tt-sample="ایڄان (گوَرباتی لوک کہانیاں)" class="text-xs bg-[#f4f1eb] hover:bg-[#e7e2d8] text-[#5B0404] px-2.5 py-1 rounded-md transition-colors">Gawarbati book title</button>
-            <button type="button" data-tt-sample="پالُولا متلی (پالُولا ضرب الامثال)" class="text-xs bg-[#f4f1eb] hover:bg-[#e7e2d8] text-[#5B0404] px-2.5 py-1 rounded-md transition-colors">Palula book title</button>
-            <button type="button" data-tt-sample="ګپی نر ګُلی (پتھر میں پھول)" class="text-xs bg-[#f4f1eb] hover:bg-[#e7e2d8] text-[#5B0404] px-2.5 py-1 rounded-md transition-colors">Ormuri book title</button>
-          </div>
-          <div class="relative">
-            <label for="tt-text" class="sr-only">Sample text</label>
-            <textarea id="tt-text" rows="3" dir="rtl" lang="ur" data-tt-text style="font-size:28px;font-family:'Noto Nastaliq Urdu', serif" class="w-full p-6 bg-[#faf8f5] border border-[#d5cfc5] rounded-xl text-[#5B0404] leading-[2.2] focus:outline-none focus:ring-2 focus:ring-[#5B0404] resize-none" placeholder="Type in Urdu, Khowar, Shina, Gawri…">پاکستان کی تمام نسلی و لسانی برادریوں کو ثقافتی اور اقتصادی طور پر پھلتا پھولتا دیکھنا</textarea>
-            <span class="absolute bottom-3 left-3 text-[10px] text-[#6b7280] pointer-events-none">Editable · right-to-left</span>
-          </div>
-        </div>
+       
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-          <div class="bg-white rounded-2xl p-6 border border-[#e5dfd5] hover:border-[#5B0404] shadow-xs hover:shadow-md transition-all flex flex-col justify-between space-y-4">
+          <div class="bg-white p-6 border border-[#e5dfd5] hover:border-[#5B0404] shadow-xs hover:shadow-md transition-all flex flex-col justify-between space-y-4">
             <div class="space-y-2">
               <div class="flex items-center justify-between gap-2 text-xs text-[#6b7280]">
                 <span class="font-semibold text-[#5B0404]">Center for Language Engineering (CLE)</span>
-                <span class="font-mono text-[11px] bg-[#faf8f5] px-2 py-0.5 rounded border border-[#e5dfd5] shrink-0">Nastaliq</span>
               </div>
               <h3 class="font-bold text-base text-[#5B0404]">Nafees Nastaleeq (updated)</h3>
               <p class="text-xs text-[#544540] leading-relaxed">A widely used Unicode Nastaliq font for Urdu, suitable for regional languages written in the Urdu-based script.</p>
@@ -348,11 +315,10 @@
               <a href="https://fli-online.org/wp-content/uploads/2024/05/nafees-nastaleeq-font.zip" target="_blank" rel="noopener" class="px-4 py-2 bg-[#5B0404] hover:bg-[#480303] text-white text-xs font-semibold rounded-lg inline-flex items-center gap-1.5 transition-colors shadow-xs"><svg class="w-3.5 h-3.5 text-[#F1C236]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3" /><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><path d="m7 10 5 5 5-5" /></svg><span>Download (ZIP)</span></a>
             </div>
           </div>
-          <div class="bg-white rounded-2xl p-6 border border-[#e5dfd5] hover:border-[#5B0404] shadow-xs hover:shadow-md transition-all flex flex-col justify-between space-y-4">
+          <div class="bg-white p-6 border border-[#e5dfd5] hover:border-[#5B0404] shadow-xs hover:shadow-md transition-all flex flex-col justify-between space-y-4">
             <div class="space-y-2">
               <div class="flex items-center justify-between gap-2 text-xs text-[#6b7280]">
                 <span class="font-semibold text-[#5B0404]">SIL International</span>
-                <span class="font-mono text-[11px] bg-[#faf8f5] px-2 py-0.5 rounded border border-[#e5dfd5] shrink-0">Nastaliq</span>
               </div>
               <h3 class="font-bold text-base text-[#5B0404]">Awami Nastaliq</h3>
               <p class="text-xs text-[#544540] leading-relaxed">A Nastaliq font designed for a wide range of languages of South and Southwest Asia, including the extra letters used by many minority languages.</p>
@@ -363,11 +329,10 @@
               <a href="https://fli-online.org/site/wp-content/uploads/2017/10/AwamiNastaliq-1.000.zip" target="_blank" rel="noopener" class="px-4 py-2 bg-[#5B0404] hover:bg-[#480303] text-white text-xs font-semibold rounded-lg inline-flex items-center gap-1.5 transition-colors shadow-xs"><svg class="w-3.5 h-3.5 text-[#F1C236]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3" /><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><path d="m7 10 5 5 5-5" /></svg><span>Download (ZIP)</span></a>
             </div>
           </div>
-          <div class="bg-white rounded-2xl p-6 border border-[#e5dfd5] hover:border-[#5B0404] shadow-xs hover:shadow-md transition-all flex flex-col justify-between space-y-4">
+          <div class="bg-white p-6 border border-[#e5dfd5] hover:border-[#5B0404] shadow-xs hover:shadow-md transition-all flex flex-col justify-between space-y-4">
             <div class="space-y-2">
               <div class="flex items-center justify-between gap-2 text-xs text-[#6b7280]">
                 <span class="font-semibold text-[#5B0404]">SIL International</span>
-                <span class="font-mono text-[11px] bg-[#faf8f5] px-2 py-0.5 rounded border border-[#e5dfd5] shrink-0">Naskh</span>
               </div>
               <h3 class="font-bold text-base text-[#5B0404]">Scheherazade New</h3>
               <p class="text-xs text-[#544540] leading-relaxed">A traditional Naskh-style Arabic script font with very wide character coverage.</p>
@@ -378,11 +343,10 @@
               <a href="https://software.sil.org/scheherazade/download/" target="_blank" rel="noopener" class="px-4 py-2 bg-[#5B0404] hover:bg-[#480303] text-white text-xs font-semibold rounded-lg inline-flex items-center gap-1.5 transition-colors shadow-xs"><svg class="w-3.5 h-3.5 text-[#F1C236]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6" /><path d="M10 14 21 3" /><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></svg><span>Download from SIL</span></a>
             </div>
           </div>
-          <div class="bg-white rounded-2xl p-6 border border-[#e5dfd5] hover:border-[#5B0404] shadow-xs hover:shadow-md transition-all flex flex-col justify-between space-y-4">
+          <div class="bg-white p-6 border border-[#e5dfd5] hover:border-[#5B0404] shadow-xs hover:shadow-md transition-all flex flex-col justify-between space-y-4">
             <div class="space-y-2">
               <div class="flex items-center justify-between gap-2 text-xs text-[#6b7280]">
                 <span class="font-semibold text-[#5B0404]">SIL International</span>
-                <span class="font-mono text-[11px] bg-[#faf8f5] px-2 py-0.5 rounded border border-[#e5dfd5] shrink-0">Naskh</span>
               </div>
               <h3 class="font-bold text-base text-[#5B0404]">Scheherazade</h3>
               <p class="text-xs text-[#544540] leading-relaxed">The original version of SIL’s traditional Naskh font for Arabic-script languages.</p>
@@ -393,11 +357,10 @@
               <a href="http://software.sil.org/scheherazade/" target="_blank" rel="noopener" class="px-4 py-2 bg-[#5B0404] hover:bg-[#480303] text-white text-xs font-semibold rounded-lg inline-flex items-center gap-1.5 transition-colors shadow-xs"><svg class="w-3.5 h-3.5 text-[#F1C236]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6" /><path d="M10 14 21 3" /><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></svg><span>Visit SIL website</span></a>
             </div>
           </div>
-          <div class="bg-white rounded-2xl p-6 border border-[#e5dfd5] hover:border-[#5B0404] shadow-xs hover:shadow-md transition-all flex flex-col justify-between space-y-4">
+          <div class="bg-white p-6 border border-[#e5dfd5] hover:border-[#5B0404] shadow-xs hover:shadow-md transition-all flex flex-col justify-between space-y-4">
             <div class="space-y-2">
               <div class="flex items-center justify-between gap-2 text-xs text-[#6b7280]">
                 <span class="font-semibold text-[#5B0404]">SIL International</span>
-                <span class="font-mono text-[11px] bg-[#faf8f5] px-2 py-0.5 rounded border border-[#e5dfd5] shrink-0">Naskh</span>
               </div>
               <h3 class="font-bold text-base text-[#5B0404]">Lateef</h3>
               <p class="text-xs text-[#544540] leading-relaxed">An Arabic-script font in the style used for Sindhi and other languages of South Asia.</p>
@@ -408,11 +371,10 @@
               <a href="http://software.sil.org/lateef/" target="_blank" rel="noopener" class="px-4 py-2 bg-[#5B0404] hover:bg-[#480303] text-white text-xs font-semibold rounded-lg inline-flex items-center gap-1.5 transition-colors shadow-xs"><svg class="w-3.5 h-3.5 text-[#F1C236]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6" /><path d="M10 14 21 3" /><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></svg><span>Visit SIL website</span></a>
             </div>
           </div>
-          <div class="bg-white rounded-2xl p-6 border border-[#e5dfd5] hover:border-[#5B0404] shadow-xs hover:shadow-md transition-all flex flex-col justify-between space-y-4">
+          <div class="bg-white p-6 border border-[#e5dfd5] hover:border-[#5B0404] shadow-xs hover:shadow-md transition-all flex flex-col justify-between space-y-4">
             <div class="space-y-2">
               <div class="flex items-center justify-between gap-2 text-xs text-[#6b7280]">
                 <span class="font-semibold text-[#5B0404]">SIL International</span>
-                <span class="font-mono text-[11px] bg-[#faf8f5] px-2 py-0.5 rounded border border-[#e5dfd5] shrink-0">Collection</span>
               </div>
               <h3 class="font-bold text-base text-[#5B0404]">Arabic Fonts</h3>
               <p class="text-xs text-[#544540] leading-relaxed">SIL’s collection of Unicode fonts for languages written in Arabic script.</p>
@@ -423,11 +385,10 @@
               <a href="http://software.sil.org/arabicfonts/" target="_blank" rel="noopener" class="px-4 py-2 bg-[#5B0404] hover:bg-[#480303] text-white text-xs font-semibold rounded-lg inline-flex items-center gap-1.5 transition-colors shadow-xs"><svg class="w-3.5 h-3.5 text-[#F1C236]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6" /><path d="M10 14 21 3" /><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></svg><span>Visit SIL website</span></a>
             </div>
           </div>
-          <div class="bg-white rounded-2xl p-6 border border-[#e5dfd5] hover:border-[#5B0404] shadow-xs hover:shadow-md transition-all flex flex-col justify-between space-y-4">
+          <div class="bg-white p-6 border border-[#e5dfd5] hover:border-[#5B0404] shadow-xs hover:shadow-md transition-all flex flex-col justify-between space-y-4">
             <div class="space-y-2">
               <div class="flex items-center justify-between gap-2 text-xs text-[#6b7280]">
                 <span class="font-semibold text-[#5B0404]">SIL International</span>
-                <span class="font-mono text-[11px] bg-[#faf8f5] px-2 py-0.5 rounded border border-[#e5dfd5] shrink-0">Latin</span>
               </div>
               <h3 class="font-bold text-base text-[#5B0404]">Andika</h3>
               <p class="text-xs text-[#544540] leading-relaxed">A clear sans-serif font designed for literacy and beginning readers.</p>
@@ -438,11 +399,10 @@
               <a href="http://software.sil.org/andika/" target="_blank" rel="noopener" class="px-4 py-2 bg-[#5B0404] hover:bg-[#480303] text-white text-xs font-semibold rounded-lg inline-flex items-center gap-1.5 transition-colors shadow-xs"><svg class="w-3.5 h-3.5 text-[#F1C236]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6" /><path d="M10 14 21 3" /><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></svg><span>Visit SIL website</span></a>
             </div>
           </div>
-          <div class="bg-white rounded-2xl p-6 border border-[#e5dfd5] hover:border-[#5B0404] shadow-xs hover:shadow-md transition-all flex flex-col justify-between space-y-4">
+          <div class="bg-white p-6 border border-[#e5dfd5] hover:border-[#5B0404] shadow-xs hover:shadow-md transition-all flex flex-col justify-between space-y-4">
             <div class="space-y-2">
               <div class="flex items-center justify-between gap-2 text-xs text-[#6b7280]">
                 <span class="font-semibold text-[#5B0404]">SIL International</span>
-                <span class="font-mono text-[11px] bg-[#faf8f5] px-2 py-0.5 rounded border border-[#e5dfd5] shrink-0">Latin + IPA</span>
               </div>
               <h3 class="font-bold text-base text-[#5B0404]">Charis SIL</h3>
               <p class="text-xs text-[#544540] leading-relaxed">A highly readable serif font with full coverage of the International Phonetic Alphabet.</p>
@@ -453,11 +413,10 @@
               <a href="http://software.sil.org/charis/" target="_blank" rel="noopener" class="px-4 py-2 bg-[#5B0404] hover:bg-[#480303] text-white text-xs font-semibold rounded-lg inline-flex items-center gap-1.5 transition-colors shadow-xs"><svg class="w-3.5 h-3.5 text-[#F1C236]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6" /><path d="M10 14 21 3" /><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></svg><span>Visit SIL website</span></a>
             </div>
           </div>
-          <div class="bg-white rounded-2xl p-6 border border-[#e5dfd5] hover:border-[#5B0404] shadow-xs hover:shadow-md transition-all flex flex-col justify-between space-y-4">
+          <div class="bg-white p-6 border border-[#e5dfd5] hover:border-[#5B0404] shadow-xs hover:shadow-md transition-all flex flex-col justify-between space-y-4">
             <div class="space-y-2">
               <div class="flex items-center justify-between gap-2 text-xs text-[#6b7280]">
                 <span class="font-semibold text-[#5B0404]">SIL International</span>
-                <span class="font-mono text-[11px] bg-[#faf8f5] px-2 py-0.5 rounded border border-[#e5dfd5] shrink-0">Latin + IPA</span>
               </div>
               <h3 class="font-bold text-base text-[#5B0404]">Doulos SIL</h3>
               <p class="text-xs text-[#544540] leading-relaxed">A Times-style font with complete IPA support, widely used for linguistic work.</p>
@@ -474,7 +433,7 @@
     <section data-res-panel="keyboards" class="space-y-6" aria-label="Keyboards">
       <div class="space-y-6">
         <div class="bg-white rounded-2xl border border-[#e5dfd5] p-6 lg:p-8 space-y-6">
-          <div><span class="text-xs font-bold text-[#084A79] uppercase">Type in Your Mother Tongue</span><h2 class="text-2xl font-bold font-serif-display text-[#5B0404] mt-1">Computer &amp; Mobile Keyboards</h2></div>
+          <div><h2 class="text-2xl font-bold font-serif-display text-[#5B0404] mt-1">Computer &amp; Mobile Keyboards</h2></div>
           <p class="text-sm text-[#4b5563] leading-relaxed">Many languages of northern Pakistan use letters that are not on a standard Urdu keyboard — such as
             <code class="bg-[#faf8f5] px-1.5 py-0.5 rounded text-[#5B0404] font-bold mx-0.5 nastaliq-text">ݜ</code>,
             <code class="bg-[#faf8f5] px-1.5 py-0.5 rounded text-[#5B0404] font-bold mx-0.5 nastaliq-text">ݨ</code> and
@@ -482,7 +441,7 @@
             FLI has developed <strong>15 PC and 15 Android keyboards</strong> for indigenous language communities, so that people can write their languages on computers and phones — and use them on social media.</p>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
 
-          <div class="p-5 bg-[#faf8f5] rounded-xl border border-[#e5dfd5] flex flex-col justify-between space-y-4">
+          <div class="p-5 bg-[#faf8f5] border border-[#e5dfd5] flex flex-col justify-between space-y-4">
             <div class="space-y-2">
               <span class="text-[10px] font-mono font-bold bg-white text-[#5B0404] px-2 py-0.5 rounded border border-[#e5dfd5]">Windows & macOS</span>
               <h3 class="font-bold text-sm text-[#5B0404]">15 PC keyboards</h3>
@@ -494,7 +453,7 @@
             </div>
           </div>
 
-          <div class="p-5 bg-[#faf8f5] rounded-xl border border-[#e5dfd5] flex flex-col justify-between space-y-4">
+          <div class="p-5 bg-[#faf8f5] border border-[#e5dfd5] flex flex-col justify-between space-y-4">
             <div class="space-y-2">
               <span class="text-[10px] font-mono font-bold bg-white text-[#5B0404] px-2 py-0.5 rounded border border-[#e5dfd5]">Android</span>
               <h3 class="font-bold text-sm text-[#5B0404]">15 Android keyboards</h3>
@@ -506,7 +465,7 @@
             </div>
           </div>
           </div></div>
-        <div class="bg-white rounded-2xl border border-[#e5dfd5] p-6 lg:p-8 space-y-6">
+        <div class="bg-white border border-[#e5dfd5] p-6 lg:p-8 space-y-6">
           <div><span class="text-xs font-bold text-[#084A79] uppercase">Getting started</span><h2 class="text-2xl font-bold font-serif-display text-[#5B0404] mt-1">How to install a keyboard</h2></div>
           <div class="space-y-4">
 
@@ -528,8 +487,8 @@
       </div>
     </section>
     <section data-res-panel="software" class="space-y-6" aria-label="Software">
-      <div class="bg-white rounded-2xl border border-[#e5dfd5] p-6 lg:p-8 space-y-6">
-        <div><span class="text-xs font-bold text-[#084A79] uppercase">Software for Language Work</span><h2 class="text-2xl font-bold font-serif-display text-[#5B0404] mt-1">Software</h2></div>
+      <div class="bg-white border border-[#e5dfd5] p-6 lg:p-8 space-y-6">
+        <div><h2 class="text-2xl font-bold font-serif-display text-[#5B0404] mt-1">Software</h2></div>
         <p class="text-sm text-[#4b5563] leading-relaxed">FLI recommends — and trains community researchers in — these free programs for making books, building dictionaries and creating keyboards.</p>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-2">
 
@@ -582,8 +541,8 @@
     </section>
     <section data-res-panel="covid-19" class="space-y-6" aria-label="COVID-19 Messages">
       <div class="space-y-6">
-        <div class="bg-white rounded-2xl border border-[#e5dfd5] p-6 lg:p-8 space-y-6">
-          <div><span class="text-xs font-bold text-[#084A79] uppercase">FLI’s contribution in dealing with the pandemic</span><h2 class="text-2xl font-bold font-serif-display text-[#5B0404] mt-1">Coronavirus Awareness Raising Videos</h2></div>
+        <div class="bg-white border border-[#e5dfd5] p-6 lg:p-8 space-y-6">
+          <div><h2 class="text-2xl font-bold font-serif-display text-[#5B0404] mt-1">Coronavirus Awareness Raising Videos</h2></div>
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
             <div class="lg:col-span-6 space-y-4">
               <p class="text-sm text-[#4b5563] leading-relaxed">The WHO’s coronavirus message was recorded in the indigenous languages of northern Pakistan and shared as videos. This video was made in Kalasha; the views it received show how much interest the messages generated. FLI raised awareness among 15 indigenous language communities this way.</p>
@@ -648,8 +607,8 @@
               <a href="https://www.youtube.com/watch?v=j0RsS6y2Nlo" target="_blank" rel="noopener" class="w-full py-2 bg-[#5B0404] hover:bg-[#480303] text-white rounded-lg text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors"><svg class="w-3.5 h-3.5 text-[#F1C236]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6" /><path d="M10 14 21 3" /><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></svg><span>Watch on YouTube</span></a>
             </div>
           </div></div>
-        <div class="bg-white rounded-2xl border border-[#e5dfd5] p-6 lg:p-8 space-y-6">
-          <div><span class="text-xs font-bold text-[#084A79] uppercase">Print and public spaces</span><h2 class="text-2xl font-bold font-serif-display text-[#5B0404] mt-1">Awareness Raising Banners</h2></div>
+        <div class="bg-white border border-[#e5dfd5] p-6 lg:p-8 space-y-6">
+          <div><h2 class="text-2xl font-bold font-serif-display text-[#5B0404] mt-1">Awareness Raising Banners</h2></div>
           <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
             <div class="md:col-span-7 space-y-4">
               <p class="text-sm text-[#4b5563] leading-relaxed">FLI translated the WHO’s coronavirus (COVID-19) protection message into the indigenous languages of northern Pakistan. Banners and billboards carrying the message were displayed at main entrances, markets, public places and government buildings. The picture shows a banner in Khowar on the wall of the Tehsil Headquarters in Booni, Upper Chitral.</p>
@@ -662,8 +621,8 @@
       </div>
     </section>
     <section data-res-panel="windows" class="space-y-6" aria-label="Windows Settings">
-      <div class="bg-white rounded-2xl border border-[#e5dfd5] p-6 lg:p-8 space-y-6">
-        <div><span class="text-xs font-bold text-[#084A79] uppercase">Step-by-Step Guide</span><h2 class="text-2xl font-bold font-serif-display text-[#5B0404] mt-1">Windows Configuration Settings for Pakistani Languages</h2></div>
+      <div class="bg-white border border-[#e5dfd5] p-6 lg:p-8 space-y-6">
+        <div><h2 class="text-2xl font-bold font-serif-display text-[#5B0404] mt-1">Windows Configuration Settings for Pakistani Languages</h2></div>
         <p class="text-sm text-[#4b5563] leading-relaxed">Follow these steps to set up Windows 10 or 11 to display and type the languages of northern Pakistan correctly.</p>
         <div class="space-y-4 pt-2">
 
