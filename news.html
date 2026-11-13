@@ -10,6 +10,7 @@
   <meta property="og:type" content="website">
   <link rel="icon" href="assets/img/favicon.png" type="image/png" sizes="64x64">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <script>document.documentElement.classList.add('fli-anim');</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&amp;family=Noto+Nastaliq+Urdu:wght@400;600;700&amp;family=Metrophobic&amp;family=Amiri:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet">
@@ -278,31 +279,37 @@
 </header>
 
 <main id="main" class="flex-1">
+<section class="bg-[#360202] text-white py-16 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-[#F1C236] relative overflow-hidden">
+  <div class="absolute inset-0" aria-hidden="true">
+    <img src="assets/img/success-stories.jpg" alt="" class="fli-kenburns w-full h-full object-cover object-[center_30%]" fetchpriority="high" decoding="async">
+    <div class="absolute inset-0 bg-[#480303]/85 lg:bg-transparent lg:bg-gradient-to-r lg:from-[#360202] lg:via-[#5B0404]/85 lg:to-[#5B0404]/40"></div>
+  </div>
+  <div class="max-w-7xl mx-auto relative z-10">
+    <h1 class="max-w-3xl text-3xl sm:text-5xl font-serif-display font-bold tracking-tight text-white mb-4 leading-tight" data-animate="fadeInUp">Latest Event News</h1>
+    <p class="text-lg sm:text-xl text-white/90 max-w-3xl leading-relaxed font-light" data-animate="fadeInUp" data-animate-delay="150">News from FLI’s community workshops, conferences, publications and board — and coverage of our work in the national and international media.</p>
+  </div>
+</section>
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10">
 
-  <div class="space-y-4 max-w-3xl">
-    <h1 class="text-3xl sm:text-4xl font-extrabold font-serif-display text-[#5B0404] tracking-tight">Latest Event News</h1>
-    <p class="text-sm text-[#4b5563] leading-relaxed">News from FLI’s community workshops, conferences, publications and board — and coverage of our work in the national and international media.</p>
-  </div>
 
   <nav class="flex items-center gap-2 border-b border-[#e5dfd5] overflow-x-auto no-scrollbar pb-1 text-xs font-semibold" aria-label="News and media">
     <a href="news.html" class="py-2.5 px-4 rounded-xl transition-all whitespace-nowrap inline-flex items-center gap-1.5 bg-[#5B0404] text-white shadow-xs" aria-current="page"><svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 18h-5" /><path d="M18 14h-8" /><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-4 0v-9a2 2 0 0 1 2-2h2" /><rect width="8" height="4" x="10" y="6" rx="1" /></svg><span>News</span></a>
     <a href="fli-in-the-media.html" class="py-2.5 px-4 rounded-xl transition-all whitespace-nowrap inline-flex items-center gap-1.5 text-[#6E5D57] hover:text-[#5B0404] hover:bg-[#f0ece3]"><svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m11 7.601-5.994 8.19a1 1 0 0 0 .1 1.298l.817.818a1 1 0 0 0 1.314.087L15.09 12" /><path d="M16.5 21.174C15.5 20.5 14.372 20 13 20c-2.058 0-3.928 2.356-6 2-2.072-.356-2.775-3.369-1.5-4.5" /><circle cx="16" cy="7" r="5" /></svg><span>FLI in the Media</span></a>
   </nav>
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
 
-      <article class="bg-white rounded-2xl border border-[#e5dfd5] hover:border-[#5B0404] hover:shadow-lg transition-all flex flex-col group overflow-hidden relative">
-        <div class="h-44 overflow-hidden bg-[#f5f1ea]"><img src="assets/img/news-executive-board-meeting.jpg" alt="" class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500" loading="lazy"></div>
-        <div class="p-6 flex flex-col flex-1 justify-between space-y-4">
+      <article class="md:col-span-2 bg-white rounded-2xl border border-[#e5dfd5] hover:border-[#5B0404] hover:shadow-lg transition-all duration-300 flex flex-col md:flex-row group overflow-hidden relative" data-animate="fadeInUp">
+        <div class="h-56 sm:h-72 md:h-auto md:min-h-[340px] md:w-1/2 lg:w-7/12 shrink-0 overflow-hidden bg-[#f5f1ea]"><img src="assets/img/news-executive-board-meeting.jpg" alt="" width="1030" height="775" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" decoding="async"></div>
+        <div class="p-6 lg:p-10 flex flex-col flex-1 justify-center space-y-6">
           <div class="space-y-3">
             <div class="flex items-center justify-between text-xs text-[#6b7280]">
               <span class="font-semibold text-[#084A79] uppercase tracking-wider text-[11px]">Governance</span>
               <span class="inline-flex items-center gap-1 text-[11px]"><svg class="w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4" /><path d="M16 2v4" /><rect width="18" height="18" x="3" y="4" rx="2" /><path d="M3 10h18" /></svg><time>October 12, 2026</time></span>
             </div>
-            <h3 class="font-bold text-base text-[#5B0404] group-hover:text-[#084A79] transition-colors leading-snug">
+            <h3 class="font-bold font-serif-display text-xl sm:text-2xl text-[#5B0404] group-hover:text-[#084A79] transition-colors leading-snug">
               <a href="news/executive-board-meeting.html" class="after:absolute after:inset-0">FLI Executive Board Meeting</a>
             </h3>
-            <p class="text-xs text-[#544540] leading-relaxed line-clamp-3">The Executive Board convened on 10 October 2026 to review FLI’s progress and deliberate on governance, institutional strengthening and sustainability.</p>
+            <p class="text-sm text-[#544540] leading-relaxed line-clamp-4">The Executive Board convened on 10 October 2026 to review FLI’s progress and deliberate on governance, institutional strengthening and sustainability.</p>
           </div>
           <div class="pt-3 border-t border-[#f0ece3] flex items-center justify-between gap-3 text-[11px] text-[#6b7280]">
             <span class="inline-flex items-center gap-1"><svg class="w-3.5 h-3.5 text-[#5B0404]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" /><circle cx="12" cy="10" r="3" /></svg><span>Islamabad</span></span>
@@ -310,8 +317,8 @@
           </div>
         </div>
       </article>
-      <article class="bg-white rounded-2xl border border-[#e5dfd5] hover:border-[#5B0404] hover:shadow-lg transition-all flex flex-col group overflow-hidden relative">
-        <div class="h-44 overflow-hidden bg-[#f5f1ea]"><img src="assets/img/news-gawarbati-workshop.jpg" alt="" class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500" loading="lazy"></div>
+      <article class="bg-white rounded-2xl border border-[#e5dfd5] hover:border-[#5B0404] hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col group overflow-hidden relative" data-animate="fadeInUp">
+        <div class="h-52 overflow-hidden bg-[#f5f1ea]"><img src="assets/img/news-gawarbati-workshop.jpg" alt="" width="1030" height="775" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out" loading="lazy" decoding="async"></div>
         <div class="p-6 flex flex-col flex-1 justify-between space-y-4">
           <div class="space-y-3">
             <div class="flex items-center justify-between text-xs text-[#6b7280]">
@@ -329,8 +336,8 @@
           </div>
         </div>
       </article>
-      <article class="bg-white rounded-2xl border border-[#e5dfd5] hover:border-[#5B0404] hover:shadow-lg transition-all flex flex-col group overflow-hidden relative">
-        <div class="h-44 overflow-hidden bg-[#f5f1ea]"><img src="assets/img/news-3rd-quarter-newsletter.png" alt="" class="w-full h-full object-cover group-hover:scale-102 transition-transform duration-500" loading="lazy"></div>
+      <article class="bg-white rounded-2xl border border-[#e5dfd5] hover:border-[#5B0404] hover:shadow-lg hover:-translate-y-1 transition-all duration-300 flex flex-col group overflow-hidden relative" data-animate="fadeInUp" data-animate-delay="100">
+        <div class="h-52 overflow-hidden bg-[#f5f1ea]"><img src="assets/img/news-3rd-quarter-newsletter.png" alt="" width="1030" height="633" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out" loading="lazy" decoding="async"></div>
         <div class="p-6 flex flex-col flex-1 justify-between space-y-4">
           <div class="space-y-3">
             <div class="flex items-center justify-between text-xs text-[#6b7280]">
@@ -349,6 +356,15 @@
         </div>
       </article>
   </div>
+
+  <section class="grid grid-cols-1 md:grid-cols-12 bg-white border border-[#e5dfd5] hover:border-[#5B0404] transition-colors overflow-hidden group relative" data-animate="fadeInUp" aria-labelledby="media-callout">
+    <div class="md:col-span-5 h-56 md:h-auto md:min-h-[280px] overflow-hidden"><img src="assets/img/media-gallery.jpg" alt="Visitors browsing FLI publications at a book stall" width="1600" height="1067" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out" loading="lazy" decoding="async"></div>
+    <div class="md:col-span-7 p-6 lg:p-10 flex flex-col justify-center space-y-3">
+      <h2 id="media-callout" class="text-2xl font-bold font-serif-display text-[#5B0404]">FLI in the Media</h2>
+      <p class="text-sm text-[#4b5563] leading-relaxed">Coverage of FLI’s work in international and national media — television reports, newspaper articles and related reading.</p>
+      <a href="fli-in-the-media.html" class="text-xs font-semibold text-[#5B0404] inline-flex items-center gap-1.5 pt-1 after:absolute after:inset-0"><span>See media coverage</span><svg class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></a>
+    </div>
+  </section>
 </div>
 </main>
 

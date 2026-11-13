@@ -76,3 +76,41 @@
   to { opacity: 1; transform: none; }
 }
 .modal-card { animation: fli-pop 0.16s ease-out; }
+
+/* ------------------------------------------------------------------ *
+ * Motion. Every effect copies a setting in free Elementor, so the
+ * WordPress rebuild needs no custom code (see README › Images and animations).
+ * ------------------------------------------------------------------ */
+
+/* Entrance animations = Advanced › Motion Effects › Entrance Animation.
+ * Usage: data-animate="fadeInUp" (or fadeIn, fadeInLeft, fadeInRight, zoomIn)
+ * and optionally data-animate-delay="150" (ms). An inline script in <head> adds
+ * .fli-anim to <html>; main.js adds .is-animated as each element scrolls into view. */
+.fli-anim [data-animate]:not(.is-animated) { opacity: 0; }
+/* Safety net: if main.js never runs, show everything after 3 s. */
+.fli-anim:not(.fli-anim-ready) [data-animate] { animation: fli-show 0s 3s forwards; }
+[data-animate].is-animated {
+  animation-duration: 0.8s;
+  animation-timing-function: cubic-bezier(0.22, 0.61, 0.36, 1);
+  animation-fill-mode: both;
+}
+[data-animate="fadeIn"].is-animated { animation-name: fli-fadeIn; }
+[data-animate="fadeInUp"].is-animated { animation-name: fli-fadeInUp; }
+[data-animate="fadeInLeft"].is-animated { animation-name: fli-fadeInLeft; }
+[data-animate="fadeInRight"].is-animated { animation-name: fli-fadeInRight; }
+[data-animate="zoomIn"].is-animated { animation-name: fli-zoomIn; }
+
+@keyframes fli-show { to { opacity: 1; } }
+@keyframes fli-fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fli-fadeInUp { from { opacity: 0; transform: translate3d(0, 28px, 0); } to { opacity: 1; transform: none; } }
+@keyframes fli-fadeInLeft { from { opacity: 0; transform: translate3d(-36px, 0, 0); } to { opacity: 1; transform: none; } }
+@keyframes fli-fadeInRight { from { opacity: 0; transform: translate3d(36px, 0, 0); } to { opacity: 1; transform: none; } }
+@keyframes fli-zoomIn { from { opacity: 0; transform: scale3d(0.92, 0.92, 1); } to { opacity: 1; transform: none; } }
+
+/* Slow zoom-out on page-banner photos = Background › Slideshow › Ken Burns Effect (Out). */
+.fli-kenburns { animation: fli-kenburns 18s cubic-bezier(0.25, 0.46, 0.45, 0.94) both; }
+@keyframes fli-kenburns { from { transform: scale(1.12); } to { transform: scale(1); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .fli-anim [data-animate], .fli-kenburns { opacity: 1 !important; animation: none !important; transform: none !important; }
+}

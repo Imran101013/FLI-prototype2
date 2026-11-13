@@ -442,6 +442,72 @@
   }
 
   /* ------------------------------------------------------------------ *
+   * Motion: entrance animations and number counters. Both copy free
+   * Elementor features (Motion Effects › Entrance Animation; Counter widget).
+   * Only runs on pages whose <head> adds .fli-anim to <html>.
+   * ------------------------------------------------------------------ */
+  var root = document.documentElement;
+  if (root.classList.contains('fli-anim')) {
+    var reducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reducedMotion || !('IntersectionObserver' in window)) {
+      root.classList.remove('fli-anim');
+    } else {
+      root.classList.add('fli-anim-ready');
+
+      // Counters: "2,000+" counts 0 → 2,000 keeping its prefix, suffix and separator.
+      // Screen readers get the final figure; the moving number is aria-hidden.
+      var formatCount = function (c, n) {
+        var s = String(n);
+        if (c.comma) s = s.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+        return c.pre + s + c.post;
+      };
+      var counters = [];
+      $$('[data-counter]').forEach(function (el) {
+        var text = el.textContent.trim();
+        var m = text.match(/^(\D*)(\d[\d,]*)(.*)$/);
+        if (!m) return;
+        var c = { el: el, pre: m[1], to: parseInt(m[2].replace(/,/g, ''), 10), comma: m[2].indexOf(',') !== -1, post: m[3] };
+        c.num = document.createElement('span');
+        c.num.setAttribute('aria-hidden', 'true');
+        c.num.textContent = formatCount(c, 0);
+        var sr = document.createElement('span');
+        sr.className = 'sr-only';
+        sr.textContent = text;
+        el.textContent = '';
+        el.appendChild(c.num);
+        el.appendChild(sr);
+        counters.push(c);
+      });
+      var countUp = function (c) {
+        var start = null, duration = 1800;
+        var step = function (t) {
+          if (start === null) start = t;
+          var p = Math.min((t - start) / duration, 1);
+          c.num.textContent = formatCount(c, Math.round(c.to * (1 - Math.pow(1 - p, 3))));
+          if (p < 1) window.requestAnimationFrame(step);
+        };
+        window.requestAnimationFrame(step);
+      };
+
+      var reveal = new IntersectionObserver(function (entries) {
+        entries.forEach(function (en) {
+          if (!en.isIntersecting) return;
+          reveal.unobserve(en.target);
+          if (en.target.hasAttribute('data-animate')) en.target.classList.add('is-animated');
+          var c = counters.filter(function (x) { return x.el === en.target; })[0];
+          if (c) countUp(c);
+        });
+      }, { rootMargin: '0px 0px -8% 0px' });
+      $$('[data-animate]').forEach(function (el) {
+        var delay = el.getAttribute('data-animate-delay');
+        if (delay) el.style.animationDelay = delay + 'ms';
+        reveal.observe(el);
+      });
+      counters.forEach(function (c) { if (!c.el.hasAttribute('data-animate')) reveal.observe(c.el); });
+    }
+  }
+
+  /* ------------------------------------------------------------------ *
    * Back to top
    * ------------------------------------------------------------------ */
   $$('[data-scroll-top]').forEach(function (b) {

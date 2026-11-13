@@ -189,7 +189,7 @@ window.FLI_DATA = {
    "family": "Iranian",
    "region": "Upper villages of Shishikuh valley, Lower Chitral",
    "status": "Definitely Endangered",
-   "page": false
+   "page": true
   },
   {
    "id": "mankiyali",

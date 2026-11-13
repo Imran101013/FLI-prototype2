@@ -9,11 +9,11 @@ No build step, server or Node.js is needed. Open `index.html` in a browser (doub
 ```
 index.html                 Home
 *.html                     One file per WordPress page (see the page map below)
-languages/<language>.html  The 28 individual language pages
+languages/<language>.html  The 29 individual language pages
 news/<post>.html           The 3 latest news posts
 assets/css/styles.css      Compiled stylesheet (all pages use this)
 assets/css/tailwind-source.css   Source for styles.css (only needed to regenerate it)
-assets/js/main.js          Interactions: menus, search, filters, forms
+assets/js/main.js          Interactions: menus, search, filters, forms, animations
 assets/js/data.js          Site search index
 assets/img/                Images (logo/favicon, photos from fli-online.org, hero images)
 ```
@@ -32,7 +32,7 @@ assets/img/                Images (logo/favicon, photos from fli-online.org, her
 | `impact-stories.html` | `/xxxx-2/` ("Impact Stories") |
 | **Target Languages** | |
 | `languages.html` | `/languages/` |
-| `languages/<id>.html` (28 pages) | `/site/<language>/` (Gawarbati's live link points to `/site/domaaki/`; Domaaki is at `/domaaki-2/`) |
+| `languages/<id>.html` (29 pages) | `/site/<language>/` (Gawarbati's live link points to `/site/domaaki/`; Domaaki is at `/domaaki-2/`). `languages/madaklashti.html` is new: the live site has no Madaklashti Persian page, so create one in WordPress |
 | `language-map.html` | `/language-map-2/` |
 | `language-tree.html` | `/language-tree/` |
 | `language-relatedness.html` | `/language-relatedness/` |
@@ -72,7 +72,7 @@ Pages with a section tab bar (About, Languages, Programs, Publications, Resource
 ## Interactive features
 
 - **Site search** (search icon, `/` or `Ctrl+K`): languages, publications, news, newsletters and pages.
-- **Target languages**: search, family and vitality filters, and each card links to that language's page in `languages/`. Madaklashti Persian has no page on the live site, so its card shows its full description and doesn't link anywhere (`languages.html#madaklashti` jumps to it).
+- **Target languages**: search, family and vitality filters, and each card shows a short excerpt and links to that language's page in `languages/`.
 - **Publications**: search, card/table view toggle, series tabs. `publications.html?q=Palula` pre-fills the search; `publications.html?series=vernacular` (or `language-culture`, `other`, `translated`) opens a series tab.
 - **Newsletters**: keyword search and year filter.
 - **Language Map**: region explorer and full-size map viewer.
@@ -125,6 +125,47 @@ A few features need more than Elementor free provides:
 - **Searchable lists** (languages, publications, newsletters): use a table plugin with built-in search, or paste the relevant markup plus `main.js` into an HTML widget.
 - **Single news posts**: Elementor free can't template single posts. Style them through the theme, or use the WordPress block editor for posts.
 
+### Images and animations
+
+The seven section landing pages (About Us, Languages, Programs, Publications, Resources, Advocacy, News & Media) open with a maroon page banner over a photo. Their sibling tab pages keep the plain title.
+
+| Page | Banner photo | Images inside the page |
+|---|---|---|
+| `about-us.html` | `language-workshop.jpg` | `hero-mountain-culture.jpg` under the introduction; `success-stories.jpg` (2024) and `partners-meeting-peshawar.jpg` (2025–2026) in the milestones; the language map in "Where We Work" |
+| `languages.html` | `hero-mountain-culture.jpg` | Language map with links to the map and tree, below the cards |
+| `equipping-the-communities.html` | `news-gawarbati-workshop.jpg` | `partners-meeting-peshawar.jpg`, `language-workshop.jpg` and `children-storytelling.jpg` on the three program pillars |
+| `publications.html` | `media-gallery.jpg` | `publications.png` book cover with the 72 books / 17 languages figures; latest newsletter cover in the newsletters call-out |
+| `digital-resources.html` | `manuscript-heritage.jpg` | (the COVID-19 banner photo was already there) |
+| `advocacy-awareness.html` | `partners-meeting-peshawar.jpg` | `manuscript-heritage.jpg`, `children-storytelling.jpg` and `language-workshop.jpg` on the campaign cards; `hero-mountain-culture.jpg` behind "Get Involved" |
+| `news.html` | `success-stories.jpg` | The latest story is shown as a wide feature card; `media-gallery.jpg` in the "FLI in the Media" call-out |
+
+**Page banner in Elementor:** Container › Style › Background: the photo (or Background type *Slideshow* with that one photo, to get the Ken Burns zoom below). Background Overlay: gradient from `#360202` to `#5B0404` at 85 % to `#5B0404` at 40 %, angle 90°. On phones the prototype uses a flat `#480303` at 85 % so the text stays readable; if your setup can't change the overlay per device, use the flat overlay everywhere. Border: 4 px bottom, `#F1C236`.
+
+Every animation copies a setting in **free** Elementor, so no custom code is needed:
+
+| Prototype | Used on | Elementor (free) setting |
+|---|---|---|
+| `data-animate="fadeInUp"` | Headings, text blocks, cards | Advanced › Motion Effects › Entrance Animation: *Fade In Up* |
+| `data-animate="fadeInLeft"` / `"fadeInRight"` | Milestone timeline; map beside its text | *Fade In Left* / *Fade In Right* |
+| `data-animate="zoomIn"` | Book cover, COVID-19 banner photo | *Zoom In* |
+| `data-animate="fadeIn"` | Introduction photo on About | *Fade In* |
+| `data-animate-delay="100"` | Cards after the first in a row | Animation Delay: 0, 100, 200 ms across a row; 150 ms for text under a heading. The prototype runs each animation for 0.8 s (Elementor's *Fast* is closest) |
+| `data-counter` | Figures such as 29, 72, 2,000+ | Counter widget: starting number 0, suffix "+", thousand separator on, duration 1800 ms |
+| `.fli-kenburns` | Banner photos (slow 18 s zoom-out) | Background › Slideshow › Ken Burns Effect: on, direction *Out* |
+| `group-hover:scale-105` on photos | Card and figure photos | Image widget › Style › Hover Animation: *Grow*, inside a container with Overflow: *Hidden* |
+| `hover:-translate-y-1` on cards | Linked cards | Advanced › Transform › Hover › Offset Y: −4 px, transition 0.3 s |
+
+Visitors who turn on "reduce motion" in their system settings get no animations in the prototype. To do the same in WordPress, add this under Appearance › Customize › Additional CSS (if your Elementor version doesn't already handle it):
+
+```css
+@media (prefers-reduced-motion: reduce) {
+  .elementor-invisible { visibility: visible !important; }
+  .elementor-element.animated { animation: none !important; }
+}
+```
+
+In the prototype, the animations are the "Motion" block in `assets/css/tailwind-source.css` and the "Motion" section of `main.js`. A page opts in with a one-line script in its `<head>` that adds the `fli-anim` class to `<html>`. If `main.js` fails to load, hidden elements appear after 3 seconds.
+
 ## Content to verify with FLI before launch
 
 Most text comes directly from fli-online.org. These items don't, and need checking:
@@ -135,8 +176,10 @@ Most text comes directly from fli-online.org. These items don't, and need checki
 - **Core value descriptions** and the **Urdu translations of the vision and mission** (`our-values.html`) are prototype copy. The value titles are FLI's.
 - **Strategic objectives.** The objective statements are FLI's exact wording. The "in practice" examples and badges were matched to activities described elsewhere on the site.
 - **Pages that are empty or title-only on the live site**, written for the prototype: Equipping the Communities, Discovery Course (topics and audience), Digital Resources, Keyboards, Windows Configuration Settings, Networking (built from the Advocacy page's alliances text).
+- **Madaklashti Persian page** (`languages/madaklashti.html`). The live site has no page for this language. The prototype page uses only what the site already says: the description that used to fill its card on the languages list, and its community partner Hunarmandan in Madaklasht (from Equipping the Communities). There are no Madaklashti publications yet, so its "Explore more" box links to the contact form, with the language pre-filled, in place of a publications search.
 - **Missing items.** M K Khan has no bio on the live site. IHCC 4 returns a database error on the live site, so only its one-line description is used. LMD-5 has no report link.
-- **Images.** The home hero, workshop, manuscript and classroom images are AI-generated and came from the earlier prototype. Replace them with real FLI photos. The other photos come from fli-online.org.
+- **Images.** The home hero, workshop, manuscript and classroom images are AI-generated and came from the earlier prototype. Besides the home page, they now appear on About, Languages, Programs, Resources and Advocacy (see Images and animations above). Replace them with real FLI photos. The other photos come from fli-online.org.
+- **Image captions.** Two captions were inferred from the photos themselves. The About milestones give `success-stories.jpg` as taken at FEL XXVIII at Allama Iqbal Open University, because the AIOU sign and the conference lanyards are visible. The Publications page names the book in `publications.png` as چترال کی زبانیں (The Languages of Chitral) by Fakhruddin Akhunzada, read from its cover.
 
 ## Regenerating `styles.css` (only if you add new classes)
 

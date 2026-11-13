@@ -10,6 +10,7 @@
   <meta property="og:type" content="website">
   <link rel="icon" href="assets/img/favicon.png" type="image/png" sizes="64x64">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <script>document.documentElement.classList.add('fli-anim');</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&amp;family=Noto+Nastaliq+Urdu:wght@400;600;700&amp;family=Metrophobic&amp;family=Amiri:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet">
@@ -278,13 +279,18 @@
 </header>
 
 <main id="main" class="flex-1">
+<section class="bg-[#360202] text-white py-16 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-[#F1C236] relative overflow-hidden">
+  <div class="absolute inset-0" aria-hidden="true">
+    <img src="assets/img/partners-meeting-peshawar.jpg" alt="" class="fli-kenburns w-full h-full object-cover object-[center_35%]" fetchpriority="high" decoding="async">
+    <div class="absolute inset-0 bg-[#480303]/85 lg:bg-transparent lg:bg-gradient-to-r lg:from-[#360202] lg:via-[#5B0404]/85 lg:to-[#5B0404]/40"></div>
+  </div>
+  <div class="max-w-7xl mx-auto relative z-10">
+    <h1 class="max-w-3xl text-3xl sm:text-5xl font-serif-display font-bold tracking-tight text-white mb-4 leading-tight" data-animate="fadeInUp">Advocacy &amp; Awareness</h1>
+    <p class="text-lg sm:text-xl text-white/90 max-w-3xl leading-relaxed font-light" data-animate="fadeInUp" data-animate-delay="150">Amplifying voices. Building bridges. Advancing change. We work alongside elders, youth, artists, scholars and policymakers so that the stories and struggles of our communities are heard, respected and acted upon.</p>
+  </div>
+</section>
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10">
 
-  <div class="space-y-4 max-w-3xl">
-    
-    <h1 class="text-3xl sm:text-4xl font-extrabold font-serif-display text-[#5B0404] tracking-tight">Advocacy &amp; Awareness</h1>
-    <p class="text-sm text-[#4b5563] leading-relaxed">Amplifying voices. Building bridges. Advancing change. We work alongside elders, youth, artists, scholars and policymakers so that the stories and struggles of our communities are heard, respected and acted upon.</p>
-  </div>
 
   <nav class="flex items-center gap-2 border-b border-[#e5dfd5] overflow-x-auto no-scrollbar pb-1 text-xs font-semibold" aria-label="Advocacy and networking">
     <a href="advocacy-awareness.html" class="py-2.5 px-4 rounded-xl transition-all whitespace-nowrap inline-flex items-center gap-1.5 bg-[#5B0404] text-white shadow-xs" aria-current="page"><span>Advocacy &amp; Awareness</span></a>
@@ -295,68 +301,81 @@
   </nav>
 
   <div class="space-y-10">
-    <div class="bg-white border border-[#e5dfd5] p-6 lg:p-8 space-y-6">
+    <div class="bg-white border border-[#e5dfd5] p-6 lg:p-8 space-y-6" data-animate="fadeInUp">
       <div><h2 class="text-2xl font-bold font-serif-display text-[#5B0404] mt-1">Advocacy and Networking</h2></div>
       <p class="text-sm text-[#4b5563] leading-relaxed">At FLI, advocacy is rooted in dignity, community wisdom and cultural continuity. We work alongside local voices — elders, youth, artists and activists — to shape narratives, influence policy and foster meaningful partnerships. Our networking efforts connect grassroots movements with national and international allies, ensuring that the stories and struggles of our communities are heard, respected and acted upon.</p></div>
     <div class="space-y-4">
-      <h2 class="text-lg font-bold font-serif-display text-[#5B0404]">Current Campaigns</h2>
+      <h2 class="text-lg font-bold font-serif-display text-[#5B0404]" data-animate="fadeInUp">Current Campaigns</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-      <div class="p-6 bg-white rounded-2xl border border-[#e5dfd5] space-y-4 hover:border-[#5B0404] transition-all">
-        <h3 class="font-bold text-base text-[#5B0404]">Reviving Indigenous Poetry</h3>
-        <p class="text-xs text-[#544540] leading-relaxed">A community-led initiative to document, celebrate and share the poetic traditions of northern Pakistan. Through workshops, digital storytelling and public readings, we are reclaiming cultural space for indigenous expression.</p>
-        <div class="pt-2 text-xs font-semibold text-[#084A79]">Recent: Ormuri Mushaira in Kanigram, 2026</div>
+      <div class="bg-white rounded-2xl border border-[#e5dfd5] overflow-hidden hover:border-[#5B0404] hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group flex flex-col" data-animate="fadeInUp">
+        <div class="h-44 overflow-hidden"><img src="assets/img/manuscript-heritage.jpg" alt="A handwritten book of poetry in Perso-Arabic script" width="1200" height="896" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out" loading="lazy" decoding="async"></div>
+        <div class="p-6 space-y-4 flex-1 flex flex-col">
+          <h3 class="font-bold text-base text-[#5B0404]">Reviving Indigenous Poetry</h3>
+          <p class="text-xs text-[#544540] leading-relaxed">A community-led initiative to document, celebrate and share the poetic traditions of northern Pakistan. Through workshops, digital storytelling and public readings, we are reclaiming cultural space for indigenous expression.</p>
+          <div class="pt-2 mt-auto text-xs font-semibold text-[#084A79]">Recent: Ormuri Mushaira in Kanigram, 2026</div>
+        </div>
       </div>
 
-      <div class="p-6 bg-white rounded-2xl border border-[#e5dfd5] space-y-4 hover:border-[#5B0404] transition-all">
-        <h3 class="font-bold text-base text-[#5B0404]">Youth for Cultural Sustainability</h3>
-        <p class="text-xs text-[#544540] leading-relaxed">Empowering young leaders to become custodians of their heritage through training, mentorship and creative platforms.</p>
-        <div class="pt-2 text-xs font-semibold text-[#084A79]">Recent: writers’ workshops in Yadgha community schools</div>
+      <div class="bg-white rounded-2xl border border-[#e5dfd5] overflow-hidden hover:border-[#5B0404] hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group flex flex-col" data-animate="fadeInUp" data-animate-delay="100">
+        <div class="h-44 overflow-hidden"><img src="assets/img/children-storytelling.jpg" alt="Children reading illustrated storybooks in their mother tongue" width="1200" height="896" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out" loading="lazy" decoding="async"></div>
+        <div class="p-6 space-y-4 flex-1 flex flex-col">
+          <h3 class="font-bold text-base text-[#5B0404]">Youth for Cultural Sustainability</h3>
+          <p class="text-xs text-[#544540] leading-relaxed">Empowering young leaders to become custodians of their heritage through training, mentorship and creative platforms.</p>
+          <div class="pt-2 mt-auto text-xs font-semibold text-[#084A79]">Recent: writers’ workshops in Yadgha community schools</div>
+        </div>
       </div>
 
-      <div class="p-6 bg-white rounded-2xl border border-[#e5dfd5] space-y-4 hover:border-[#5B0404] transition-all">
-        <h3 class="font-bold text-base text-[#5B0404]">Gendered Voices in Tradition</h3>
-        <p class="text-xs text-[#544540] leading-relaxed">Encouraging the role of women in oral traditions and advocating for inclusive cultural policy that honours their contributions.</p>
-        <div class="pt-2 text-xs font-semibold text-[#084A79]">Recent: half of the 50 teachers trained in Booni were women</div>
+      <div class="bg-white rounded-2xl border border-[#e5dfd5] overflow-hidden hover:border-[#5B0404] hover:shadow-lg hover:-translate-y-1 transition-all duration-300 group flex flex-col" data-animate="fadeInUp" data-animate-delay="200">
+        <div class="h-44 overflow-hidden"><img src="assets/img/language-workshop.jpg" alt="A young woman working alongside elders at a language workshop" width="1200" height="896" class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out" loading="lazy" decoding="async"></div>
+        <div class="p-6 space-y-4 flex-1 flex flex-col">
+          <h3 class="font-bold text-base text-[#5B0404]">Gendered Voices in Tradition</h3>
+          <p class="text-xs text-[#544540] leading-relaxed">Encouraging the role of women in oral traditions and advocating for inclusive cultural policy that honours their contributions.</p>
+          <div class="pt-2 mt-auto text-xs font-semibold text-[#084A79]">Recent: half of the 50 teachers trained in Booni were women</div>
+        </div>
       </div>
       </div>
     </div>
-    <div class="bg-white border border-[#e5dfd5] p-6 lg:p-8 space-y-4">
+    <div class="bg-white border border-[#e5dfd5] p-6 lg:p-8 space-y-4" data-animate="fadeInUp">
       <h2 class="text-2xl font-bold font-serif-display text-[#5B0404]">Policy Engagement</h2>
       <p class="text-sm text-[#4b5563] leading-relaxed">We engage with policymakers, educators and cultural institutions to advocate for:</p>
       <ul class="grid grid-cols-1 md:grid-cols-2 gap-3">
-        <li class="p-4 bg-[#faf8f5] rounded-xl border border-[#e5dfd5] flex items-start gap-3 text-xs"><svg class="w-4 h-4 text-[#084A79] shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /><path d="m9 12 2 2 4-4" /></svg><span>Inclusion of indigenous languages in local curricula</span></li>
-        <li class="p-4 bg-[#faf8f5] rounded-xl border border-[#e5dfd5] flex items-start gap-3 text-xs"><svg class="w-4 h-4 text-[#084A79] shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /><path d="m9 12 2 2 4-4" /></svg><span>Ethical storytelling and consent-based documentation practices</span></li>
-        <li class="p-4 bg-[#faf8f5] rounded-xl border border-[#e5dfd5] flex items-start gap-3 text-xs"><svg class="w-4 h-4 text-[#084A79] shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /><path d="m9 12 2 2 4-4" /></svg><span>Support for community-led cultural events and institutions</span></li>
-        <li class="p-4 bg-[#faf8f5] rounded-xl border border-[#e5dfd5] flex items-start gap-3 text-xs"><svg class="w-4 h-4 text-[#084A79] shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /><path d="m9 12 2 2 4-4" /></svg><span>Recognition of intangible cultural heritage in development planning</span></li>
+        <li class="p-4 bg-[#faf8f5] rounded-xl border border-[#e5dfd5] flex items-start gap-3 text-xs" data-animate="fadeInUp"><svg class="w-4 h-4 text-[#084A79] shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /><path d="m9 12 2 2 4-4" /></svg><span>Inclusion of indigenous languages in local curricula</span></li>
+        <li class="p-4 bg-[#faf8f5] rounded-xl border border-[#e5dfd5] flex items-start gap-3 text-xs" data-animate="fadeInUp" data-animate-delay="100"><svg class="w-4 h-4 text-[#084A79] shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /><path d="m9 12 2 2 4-4" /></svg><span>Ethical storytelling and consent-based documentation practices</span></li>
+        <li class="p-4 bg-[#faf8f5] rounded-xl border border-[#e5dfd5] flex items-start gap-3 text-xs" data-animate="fadeInUp"><svg class="w-4 h-4 text-[#084A79] shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /><path d="m9 12 2 2 4-4" /></svg><span>Support for community-led cultural events and institutions</span></li>
+        <li class="p-4 bg-[#faf8f5] rounded-xl border border-[#e5dfd5] flex items-start gap-3 text-xs" data-animate="fadeInUp" data-animate-delay="100"><svg class="w-4 h-4 text-[#084A79] shrink-0 mt-0.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10" /><path d="m9 12 2 2 4-4" /></svg><span>Recognition of intangible cultural heritage in development planning</span></li>
       </ul>
     </div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
 
-      <div class="bg-white rounded-2xl border border-[#e5dfd5] p-6 space-y-3">
+      <div class="bg-white rounded-2xl border border-[#e5dfd5] p-6 space-y-3" data-animate="fadeInUp">
         <h3 class="font-bold text-sm text-[#5B0404] flex items-center gap-2"><svg class="w-4 h-4 text-[#084A79]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m11 17 2 2a1 1 0 1 0 3-3" /><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4" /><path d="m21 3 1 11h-2" /><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3" /><path d="M3 4h8" /></svg>Networking &amp; Alliances</h3>
         <p class="text-xs text-[#6b7280]">We are proud to collaborate with:</p>
         <ul class="text-xs text-[#4b5563] space-y-1.5 list-disc pl-4"><li><strong>Local partners:</strong> Community Based Organizations represented by elders, youth groups and artists’ collectives</li><li><strong>National allies:</strong> government bodies, cultural NGOs, academic institutions and media networks</li><li><strong>International networks:</strong> fellowship programmes, donor agencies and international academia</li></ul>
       </div>
 
-      <div class="bg-white rounded-2xl border border-[#e5dfd5] p-6 space-y-3">
+      <div class="bg-white rounded-2xl border border-[#e5dfd5] p-6 space-y-3" data-animate="fadeInUp" data-animate-delay="100">
         <h3 class="font-bold text-sm text-[#5B0404] flex items-center gap-2"><svg class="w-4 h-4 text-[#084A79]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m16 6 4 14" /><path d="M12 6v14" /><path d="M8 8v12" /><path d="M4 4v16" /></svg>Advocacy Resources</h3>
         <p class="text-xs text-[#6b7280]">A growing library of tools for community advocates:</p>
         <ul class="text-xs text-[#4b5563] space-y-1.5 list-disc pl-4"><li>Publications in and about the indigenous languages of northern Pakistan</li><li>Organizing cultural events</li><li>Consent and co-authorship templates</li><li>Media engagement for rural voices</li></ul>
       </div>
 
-      <div class="bg-white rounded-2xl border border-[#e5dfd5] p-6 space-y-3">
+      <div class="bg-white rounded-2xl border border-[#e5dfd5] p-6 space-y-3" data-animate="fadeInUp" data-animate-delay="200">
         <h3 class="font-bold text-sm text-[#5B0404] flex items-center gap-2"><svg class="w-4 h-4 text-[#084A79]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 2v4" /><path d="M16 2v4" /><rect width="18" height="18" x="3" y="4" rx="2" /><path d="M3 10h18" /></svg>Events &amp; Dialogues</h3>
         <p class="text-xs text-[#6b7280]">We host and participate in:</p>
         <ul class="text-xs text-[#4b5563] space-y-1.5 list-disc pl-4"><li>Community forums on cultural preservation</li><li>Roundtables with policymakers</li><li>Workshops on digital storytelling and advocacy</li><li>Cultural festivals led by local communities</li></ul>
       </div>
     </div>
-    <div class="bg-gradient-to-tr from-[#072F4C] to-[#084A79] rounded-2xl p-6 sm:p-8 text-white flex flex-col md:flex-row items-center justify-between gap-6">
-      <div class="space-y-2 text-center md:text-left">
+    <div class="relative overflow-hidden bg-[#072F4C] rounded-2xl p-6 sm:p-10 text-white flex flex-col md:flex-row items-center justify-between gap-6" data-animate="fadeInUp">
+      <div class="absolute inset-0" aria-hidden="true">
+        <img src="assets/img/hero-mountain-culture.jpg" alt="" class="w-full h-full object-cover object-center" loading="lazy" decoding="async">
+        <div class="absolute inset-0 bg-gradient-to-r from-[#072F4C] via-[#072F4C]/85 to-[#084A79]/55"></div>
+      </div>
+      <div class="relative space-y-2 text-center md:text-left">
         <h2 class="text-xl font-bold font-serif-display">Get Involved</h2>
         <p class="text-sm text-[#DCE8F2] max-w-xl">Whether you’re a cultural worker, donor, researcher or community member — there’s a place for you in our network. Let’s build a future where every voice is heard and every culture thrives.</p>
       </div>
-      <div class="flex flex-wrap justify-center gap-3 shrink-0">
+      <div class="relative flex flex-wrap justify-center gap-3 shrink-0">
         <a href="contact.html" class="px-4 py-2.5 bg-[#F1C236] hover:bg-[#D9AB28] text-[#5B0404] text-xs font-bold rounded-xl transition-colors">Partner with Us</a>
         <a href="contact.html" class="px-4 py-2.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs font-semibold rounded-xl transition-colors">Volunteer or Intern</a>
         <a href="#footer-email" class="px-4 py-2.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs font-semibold rounded-xl transition-colors">Join Our Mailing List</a>

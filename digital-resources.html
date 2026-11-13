@@ -10,6 +10,7 @@
   <meta property="og:type" content="website">
   <link rel="icon" href="assets/img/favicon.png" type="image/png" sizes="64x64">
   <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <script>document.documentElement.classList.add('fli-anim');</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&amp;family=Noto+Nastaliq+Urdu:wght@400;600;700&amp;family=Metrophobic&amp;family=Amiri:ital,wght@0,400;0,700;1,400&amp;display=swap" rel="stylesheet">
@@ -278,12 +279,18 @@
 </header>
 
 <main id="main" class="flex-1">
+<section class="bg-[#360202] text-white py-16 sm:py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-[#F1C236] relative overflow-hidden">
+  <div class="absolute inset-0" aria-hidden="true">
+    <img src="assets/img/manuscript-heritage.jpg" alt="" class="fli-kenburns w-full h-full object-cover object-center" fetchpriority="high" decoding="async">
+    <div class="absolute inset-0 bg-[#480303]/85 lg:bg-transparent lg:bg-gradient-to-r lg:from-[#360202] lg:via-[#5B0404]/85 lg:to-[#5B0404]/40"></div>
+  </div>
+  <div class="max-w-7xl mx-auto relative z-10">
+    <h1 class="max-w-3xl text-3xl sm:text-5xl font-serif-display font-bold tracking-tight text-white mb-4 leading-tight" data-animate="fadeInUp">Digital Resources</h1>
+    <p class="text-lg sm:text-xl text-white/90 max-w-3xl leading-relaxed font-light" data-animate="fadeInUp" data-animate-delay="150">Free tools that help speakers of northern Pakistan’s languages type, publish and document their languages on computers, phones and the web.</p>
+  </div>
+</section>
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-10">
 
-  <div class="space-y-4 max-w-3xl">
-    <h1 class="text-3xl sm:text-4xl font-extrabold font-serif-display text-[#5B0404] tracking-tight">Digital Resources</h1>
-    <p class="text-sm text-[#4b5563] leading-relaxed">Free tools that help speakers of northern Pakistan’s languages type, publish and document their languages on computers, phones and the web.</p>
-  </div>
 
   <nav class="flex items-center gap-2 border-b border-[#e5dfd5] overflow-x-auto no-scrollbar pb-1 text-xs font-semibold" aria-label="Digital resources" data-res-tabs>
     <a href="digital-resources.html" data-res-tab="all" class="py-2.5 px-4 rounded-xl transition-all whitespace-nowrap inline-flex items-center gap-1.5 bg-[#5B0404] text-white shadow-xs" aria-current="true"><span>All Resources</span></a>
@@ -296,12 +303,12 @@
 
   <div class="space-y-12">
     <section data-res-panel="fonts" class="space-y-6" aria-label="Fonts">
-      <div><h2 class="text-2xl font-bold font-serif-display text-[#5B0404]">Fonts</h2></div>
+      <div data-animate="fadeInUp"><h2 class="text-2xl font-bold font-serif-display text-[#5B0404]">Fonts</h2></div>
       <div class="space-y-8">
        
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-          <div class="bg-white p-6 border border-[#e5dfd5] hover:border-[#5B0404] shadow-xs hover:shadow-md transition-all flex flex-col justify-between space-y-4">
+          <div data-animate="fadeInUp" class="bg-white p-6 border border-[#e5dfd5] hover:border-[#5B0404] shadow-xs hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between space-y-4">
             <div class="space-y-2">
               <div class="flex items-center justify-between gap-2 text-xs text-[#6b7280]">
                 <span class="font-semibold text-[#5B0404]">Center for Language Engineering (CLE)</span>
@@ -315,7 +322,7 @@
               <a href="https://fli-online.org/wp-content/uploads/2024/05/nafees-nastaleeq-font.zip" target="_blank" rel="noopener" class="px-4 py-2 bg-[#5B0404] hover:bg-[#480303] text-white text-xs font-semibold rounded-lg inline-flex items-center gap-1.5 transition-colors shadow-xs"><svg class="w-3.5 h-3.5 text-[#F1C236]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3" /><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><path d="m7 10 5 5 5-5" /></svg><span>Download (ZIP)</span></a>
             </div>
           </div>
-          <div class="bg-white p-6 border border-[#e5dfd5] hover:border-[#5B0404] shadow-xs hover:shadow-md transition-all flex flex-col justify-between space-y-4">
+          <div data-animate="fadeInUp" data-animate-delay="100" class="bg-white p-6 border border-[#e5dfd5] hover:border-[#5B0404] shadow-xs hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between space-y-4">
             <div class="space-y-2">
               <div class="flex items-center justify-between gap-2 text-xs text-[#6b7280]">
                 <span class="font-semibold text-[#5B0404]">SIL International</span>
@@ -329,7 +336,7 @@
               <a href="https://fli-online.org/site/wp-content/uploads/2017/10/AwamiNastaliq-1.000.zip" target="_blank" rel="noopener" class="px-4 py-2 bg-[#5B0404] hover:bg-[#480303] text-white text-xs font-semibold rounded-lg inline-flex items-center gap-1.5 transition-colors shadow-xs"><svg class="w-3.5 h-3.5 text-[#F1C236]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3" /><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><path d="m7 10 5 5 5-5" /></svg><span>Download (ZIP)</span></a>
             </div>
           </div>
-          <div class="bg-white p-6 border border-[#e5dfd5] hover:border-[#5B0404] shadow-xs hover:shadow-md transition-all flex flex-col justify-between space-y-4">
+          <div data-animate="fadeInUp" data-animate-delay="200" class="bg-white p-6 border border-[#e5dfd5] hover:border-[#5B0404] shadow-xs hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between space-y-4">
             <div class="space-y-2">
               <div class="flex items-center justify-between gap-2 text-xs text-[#6b7280]">
                 <span class="font-semibold text-[#5B0404]">SIL International</span>
@@ -343,7 +350,7 @@
               <a href="https://software.sil.org/scheherazade/download/" target="_blank" rel="noopener" class="px-4 py-2 bg-[#5B0404] hover:bg-[#480303] text-white text-xs font-semibold rounded-lg inline-flex items-center gap-1.5 transition-colors shadow-xs"><svg class="w-3.5 h-3.5 text-[#F1C236]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6" /><path d="M10 14 21 3" /><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></svg><span>Download from SIL</span></a>
             </div>
           </div>
-          <div class="bg-white p-6 border border-[#e5dfd5] hover:border-[#5B0404] shadow-xs hover:shadow-md transition-all flex flex-col justify-between space-y-4">
+          <div data-animate="fadeInUp" class="bg-white p-6 border border-[#e5dfd5] hover:border-[#5B0404] shadow-xs hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between space-y-4">
             <div class="space-y-2">
               <div class="flex items-center justify-between gap-2 text-xs text-[#6b7280]">
                 <span class="font-semibold text-[#5B0404]">SIL International</span>
@@ -357,7 +364,7 @@
               <a href="http://software.sil.org/scheherazade/" target="_blank" rel="noopener" class="px-4 py-2 bg-[#5B0404] hover:bg-[#480303] text-white text-xs font-semibold rounded-lg inline-flex items-center gap-1.5 transition-colors shadow-xs"><svg class="w-3.5 h-3.5 text-[#F1C236]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6" /><path d="M10 14 21 3" /><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></svg><span>Visit SIL website</span></a>
             </div>
           </div>
-          <div class="bg-white p-6 border border-[#e5dfd5] hover:border-[#5B0404] shadow-xs hover:shadow-md transition-all flex flex-col justify-between space-y-4">
+          <div data-animate="fadeInUp" data-animate-delay="100" class="bg-white p-6 border border-[#e5dfd5] hover:border-[#5B0404] shadow-xs hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between space-y-4">
             <div class="space-y-2">
               <div class="flex items-center justify-between gap-2 text-xs text-[#6b7280]">
                 <span class="font-semibold text-[#5B0404]">SIL International</span>
@@ -371,7 +378,7 @@
               <a href="http://software.sil.org/lateef/" target="_blank" rel="noopener" class="px-4 py-2 bg-[#5B0404] hover:bg-[#480303] text-white text-xs font-semibold rounded-lg inline-flex items-center gap-1.5 transition-colors shadow-xs"><svg class="w-3.5 h-3.5 text-[#F1C236]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6" /><path d="M10 14 21 3" /><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></svg><span>Visit SIL website</span></a>
             </div>
           </div>
-          <div class="bg-white p-6 border border-[#e5dfd5] hover:border-[#5B0404] shadow-xs hover:shadow-md transition-all flex flex-col justify-between space-y-4">
+          <div data-animate="fadeInUp" data-animate-delay="200" class="bg-white p-6 border border-[#e5dfd5] hover:border-[#5B0404] shadow-xs hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between space-y-4">
             <div class="space-y-2">
               <div class="flex items-center justify-between gap-2 text-xs text-[#6b7280]">
                 <span class="font-semibold text-[#5B0404]">SIL International</span>
@@ -385,7 +392,7 @@
               <a href="http://software.sil.org/arabicfonts/" target="_blank" rel="noopener" class="px-4 py-2 bg-[#5B0404] hover:bg-[#480303] text-white text-xs font-semibold rounded-lg inline-flex items-center gap-1.5 transition-colors shadow-xs"><svg class="w-3.5 h-3.5 text-[#F1C236]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6" /><path d="M10 14 21 3" /><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></svg><span>Visit SIL website</span></a>
             </div>
           </div>
-          <div class="bg-white p-6 border border-[#e5dfd5] hover:border-[#5B0404] shadow-xs hover:shadow-md transition-all flex flex-col justify-between space-y-4">
+          <div data-animate="fadeInUp" class="bg-white p-6 border border-[#e5dfd5] hover:border-[#5B0404] shadow-xs hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between space-y-4">
             <div class="space-y-2">
               <div class="flex items-center justify-between gap-2 text-xs text-[#6b7280]">
                 <span class="font-semibold text-[#5B0404]">SIL International</span>
@@ -399,7 +406,7 @@
               <a href="http://software.sil.org/andika/" target="_blank" rel="noopener" class="px-4 py-2 bg-[#5B0404] hover:bg-[#480303] text-white text-xs font-semibold rounded-lg inline-flex items-center gap-1.5 transition-colors shadow-xs"><svg class="w-3.5 h-3.5 text-[#F1C236]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6" /><path d="M10 14 21 3" /><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></svg><span>Visit SIL website</span></a>
             </div>
           </div>
-          <div class="bg-white p-6 border border-[#e5dfd5] hover:border-[#5B0404] shadow-xs hover:shadow-md transition-all flex flex-col justify-between space-y-4">
+          <div data-animate="fadeInUp" data-animate-delay="100" class="bg-white p-6 border border-[#e5dfd5] hover:border-[#5B0404] shadow-xs hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between space-y-4">
             <div class="space-y-2">
               <div class="flex items-center justify-between gap-2 text-xs text-[#6b7280]">
                 <span class="font-semibold text-[#5B0404]">SIL International</span>
@@ -413,7 +420,7 @@
               <a href="http://software.sil.org/charis/" target="_blank" rel="noopener" class="px-4 py-2 bg-[#5B0404] hover:bg-[#480303] text-white text-xs font-semibold rounded-lg inline-flex items-center gap-1.5 transition-colors shadow-xs"><svg class="w-3.5 h-3.5 text-[#F1C236]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6" /><path d="M10 14 21 3" /><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></svg><span>Visit SIL website</span></a>
             </div>
           </div>
-          <div class="bg-white p-6 border border-[#e5dfd5] hover:border-[#5B0404] shadow-xs hover:shadow-md transition-all flex flex-col justify-between space-y-4">
+          <div data-animate="fadeInUp" data-animate-delay="200" class="bg-white p-6 border border-[#e5dfd5] hover:border-[#5B0404] shadow-xs hover:shadow-md hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between space-y-4">
             <div class="space-y-2">
               <div class="flex items-center justify-between gap-2 text-xs text-[#6b7280]">
                 <span class="font-semibold text-[#5B0404]">SIL International</span>
@@ -432,7 +439,7 @@
     </section>
     <section data-res-panel="keyboards" class="space-y-6" aria-label="Keyboards">
       <div class="space-y-6">
-        <div class="bg-white rounded-2xl border border-[#e5dfd5] p-6 lg:p-8 space-y-6">
+        <div data-animate="fadeInUp" class="bg-white rounded-2xl border border-[#e5dfd5] p-6 lg:p-8 space-y-6">
           <div><h2 class="text-2xl font-bold font-serif-display text-[#5B0404] mt-1">Computer &amp; Mobile Keyboards</h2></div>
           <p class="text-sm text-[#4b5563] leading-relaxed">Many languages of northern Pakistan use letters that are not on a standard Urdu keyboard — such as
             <code class="bg-[#faf8f5] px-1.5 py-0.5 rounded text-[#5B0404] font-bold mx-0.5 nastaliq-text">ݜ</code>,
@@ -441,7 +448,7 @@
             FLI has developed <strong>15 PC and 15 Android keyboards</strong> for indigenous language communities, so that people can write their languages on computers and phones — and use them on social media.</p>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
 
-          <div class="p-5 bg-[#faf8f5] border border-[#e5dfd5] flex flex-col justify-between space-y-4">
+          <div data-animate="fadeInUp" class="p-5 bg-[#faf8f5] border border-[#e5dfd5] flex flex-col justify-between space-y-4">
             <div class="space-y-2">
               <span class="text-[10px] font-mono font-bold bg-white text-[#5B0404] px-2 py-0.5 rounded border border-[#e5dfd5]">Windows & macOS</span>
               <h3 class="font-bold text-sm text-[#5B0404]">15 PC keyboards</h3>
@@ -453,7 +460,7 @@
             </div>
           </div>
 
-          <div class="p-5 bg-[#faf8f5] border border-[#e5dfd5] flex flex-col justify-between space-y-4">
+          <div data-animate="fadeInUp" data-animate-delay="100" class="p-5 bg-[#faf8f5] border border-[#e5dfd5] flex flex-col justify-between space-y-4">
             <div class="space-y-2">
               <span class="text-[10px] font-mono font-bold bg-white text-[#5B0404] px-2 py-0.5 rounded border border-[#e5dfd5]">Android</span>
               <h3 class="font-bold text-sm text-[#5B0404]">15 Android keyboards</h3>
@@ -465,21 +472,21 @@
             </div>
           </div>
           </div></div>
-        <div class="bg-white border border-[#e5dfd5] p-6 lg:p-8 space-y-6">
+        <div data-animate="fadeInUp" class="bg-white border border-[#e5dfd5] p-6 lg:p-8 space-y-6">
           <div><span class="text-xs font-bold text-[#084A79] uppercase">Getting started</span><h2 class="text-2xl font-bold font-serif-display text-[#5B0404] mt-1">How to install a keyboard</h2></div>
           <div class="space-y-4">
 
-          <div class="p-4 bg-[#faf8f5] rounded-xl border border-[#e5dfd5] flex items-start gap-4">
+          <div data-animate="fadeInUp" class="p-4 bg-[#faf8f5] rounded-xl border border-[#e5dfd5] flex items-start gap-4">
             <span class="w-7 h-7 rounded-full bg-[#5B0404] text-white flex items-center justify-center font-bold text-xs shrink-0">1</span>
             <div><h3 class="font-bold text-xs text-[#5B0404]">Install Keyman</h3><p class="text-xs text-[#6b7280] mt-0.5">Download Keyman for your computer or phone from keyman.com.</p></div>
           </div>
 
-          <div class="p-4 bg-[#faf8f5] rounded-xl border border-[#e5dfd5] flex items-start gap-4">
+          <div data-animate="fadeInUp" data-animate-delay="100" class="p-4 bg-[#faf8f5] rounded-xl border border-[#e5dfd5] flex items-start gap-4">
             <span class="w-7 h-7 rounded-full bg-[#5B0404] text-white flex items-center justify-center font-bold text-xs shrink-0">2</span>
             <div><h3 class="font-bold text-xs text-[#5B0404]">Get the keyboard for your language</h3><p class="text-xs text-[#6b7280] mt-0.5">Contact FLI to receive the keyboard package for your language.</p></div>
           </div>
 
-          <div class="p-4 bg-[#faf8f5] rounded-xl border border-[#e5dfd5] flex items-start gap-4">
+          <div data-animate="fadeInUp" data-animate-delay="200" class="p-4 bg-[#faf8f5] rounded-xl border border-[#e5dfd5] flex items-start gap-4">
             <span class="w-7 h-7 rounded-full bg-[#5B0404] text-white flex items-center justify-center font-bold text-xs shrink-0">3</span>
             <div><h3 class="font-bold text-xs text-[#5B0404]">Switch between keyboards</h3><p class="text-xs text-[#6b7280] mt-0.5">On Windows, press Windows + Space to switch between English, Urdu and your mother tongue.</p></div>
           </div>
@@ -487,12 +494,12 @@
       </div>
     </section>
     <section data-res-panel="software" class="space-y-6" aria-label="Software">
-      <div class="bg-white border border-[#e5dfd5] p-6 lg:p-8 space-y-6">
+      <div data-animate="fadeInUp" class="bg-white border border-[#e5dfd5] p-6 lg:p-8 space-y-6">
         <div><h2 class="text-2xl font-bold font-serif-display text-[#5B0404] mt-1">Software</h2></div>
         <p class="text-sm text-[#4b5563] leading-relaxed">FLI recommends — and trains community researchers in — these free programs for making books, building dictionaries and creating keyboards.</p>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-2">
 
-          <div class="p-5 bg-[#faf8f5] rounded-xl border border-[#e5dfd5] space-y-3 flex flex-col justify-between">
+          <div data-animate="fadeInUp" class="p-5 bg-[#faf8f5] rounded-xl border border-[#e5dfd5] space-y-3 flex flex-col justify-between">
             <div class="space-y-2">
               <div class="text-[10px] font-bold text-[#084A79] uppercase">Book creation</div>
               <h3 class="font-bold text-base text-[#5B0404]">Bloom</h3>
@@ -501,7 +508,7 @@
             </div>
             <a href="http://bloomlibrary.org/" target="_blank" rel="noopener" class="text-xs font-semibold text-[#5B0404] hover:underline inline-flex items-center gap-1 pt-1">Visit website <svg class="w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6" /><path d="M10 14 21 3" /><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></svg></a>
           </div>
-          <div class="p-5 bg-[#faf8f5] rounded-xl border border-[#e5dfd5] space-y-3 flex flex-col justify-between">
+          <div data-animate="fadeInUp" data-animate-delay="100" class="p-5 bg-[#faf8f5] rounded-xl border border-[#e5dfd5] space-y-3 flex flex-col justify-between">
             <div class="space-y-2">
               <div class="text-[10px] font-bold text-[#084A79] uppercase">Lexicon & texts</div>
               <h3 class="font-bold text-base text-[#5B0404]">FLEx (FieldWorks Language Explorer)</h3>
@@ -510,7 +517,7 @@
             </div>
             <a href="http://software.sil.org/fieldworks/" target="_blank" rel="noopener" class="text-xs font-semibold text-[#5B0404] hover:underline inline-flex items-center gap-1 pt-1">Visit website <svg class="w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6" /><path d="M10 14 21 3" /><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></svg></a>
           </div>
-          <div class="p-5 bg-[#faf8f5] rounded-xl border border-[#e5dfd5] space-y-3 flex flex-col justify-between">
+          <div data-animate="fadeInUp" data-animate-delay="200" class="p-5 bg-[#faf8f5] rounded-xl border border-[#e5dfd5] space-y-3 flex flex-col justify-between">
             <div class="space-y-2">
               <div class="text-[10px] font-bold text-[#084A79] uppercase">Keyboards</div>
               <h3 class="font-bold text-base text-[#5B0404]">Keyman</h3>
@@ -519,7 +526,7 @@
             </div>
             <a href="http://www.keyman.com/" target="_blank" rel="noopener" class="text-xs font-semibold text-[#5B0404] hover:underline inline-flex items-center gap-1 pt-1">Visit website <svg class="w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6" /><path d="M10 14 21 3" /><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></svg></a>
           </div>
-          <div class="p-5 bg-[#faf8f5] rounded-xl border border-[#e5dfd5] space-y-3 flex flex-col justify-between">
+          <div data-animate="fadeInUp" class="p-5 bg-[#faf8f5] rounded-xl border border-[#e5dfd5] space-y-3 flex flex-col justify-between">
             <div class="space-y-2">
               <div class="text-[10px] font-bold text-[#084A79] uppercase">Data management</div>
               <h3 class="font-bold text-base text-[#5B0404]">Field Linguist’s Toolbox</h3>
@@ -528,7 +535,7 @@
             </div>
             <a href="http://software.sil.org/toolbox/" target="_blank" rel="noopener" class="text-xs font-semibold text-[#5B0404] hover:underline inline-flex items-center gap-1 pt-1">Visit website <svg class="w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6" /><path d="M10 14 21 3" /><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></svg></a>
           </div>
-          <div class="p-5 bg-[#faf8f5] rounded-xl border border-[#e5dfd5] space-y-3 flex flex-col justify-between">
+          <div data-animate="fadeInUp" data-animate-delay="100" class="p-5 bg-[#faf8f5] rounded-xl border border-[#e5dfd5] space-y-3 flex flex-col justify-between">
             <div class="space-y-2">
               <div class="text-[10px] font-bold text-[#084A79] uppercase">Community dictionary</div>
               <h3 class="font-bold text-base text-[#5B0404]">WeSay</h3>
@@ -541,14 +548,14 @@
     </section>
     <section data-res-panel="covid-19" class="space-y-6" aria-label="COVID-19 Messages">
       <div class="space-y-6">
-        <div class="bg-white border border-[#e5dfd5] p-6 lg:p-8 space-y-6">
+        <div data-animate="fadeInUp" class="bg-white border border-[#e5dfd5] p-6 lg:p-8 space-y-6">
           <div><h2 class="text-2xl font-bold font-serif-display text-[#5B0404] mt-1">Coronavirus Awareness Raising Videos</h2></div>
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
             <div class="lg:col-span-6 space-y-4">
               <p class="text-sm text-[#4b5563] leading-relaxed">The WHO’s coronavirus message was recorded in the indigenous languages of northern Pakistan and shared as videos. This video was made in Kalasha; the views it received show how much interest the messages generated. FLI raised awareness among 15 indigenous language communities this way.</p>
               <a href="https://www.youtube.com/channel/UCFt29Q50vPfN0mgJEkfHmqA" target="_blank" rel="noopener" class="px-4 py-2 bg-[#5B0404] hover:bg-[#480303] text-white text-xs font-semibold rounded-lg inline-flex items-center gap-1.5 transition-colors shadow-xs"><svg class="w-3.5 h-3.5 text-[#F1C236]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6" /><path d="M10 14 21 3" /><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></svg><span>Watch the messages in other languages on YouTube</span></a>
             </div>
-            <div class="lg:col-span-6">
+            <div class="lg:col-span-6" data-animate="fadeInRight" data-animate-delay="150">
               <video controls preload="none" class="w-full rounded-xl border border-[#e5dfd5] bg-black aspect-video" aria-label="COVID-19 awareness message in Kalasha">
                 <source src="https://fli-online.org/site/wp-content/uploads/2020/11/Kalasha.mp4" type="video/mp4">
                 <a href="https://fli-online.org/site/wp-content/uploads/2020/11/Kalasha.mp4">Download the Kalasha video</a>
@@ -557,49 +564,49 @@
           </div>
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 pt-2">
 
-            <div class="p-5 bg-[#faf8f5] rounded-xl border border-[#e5dfd5] space-y-3 flex flex-col justify-between">
+            <div data-animate="fadeInUp" class="p-5 bg-[#faf8f5] rounded-xl border border-[#e5dfd5] space-y-3 flex flex-col justify-between">
               <div class="space-y-1.5">
                 <div class="flex items-center justify-between"><span class="text-[10px] font-bold text-[#084A79] uppercase">WHO message</span><svg class="w-4 h-4 text-[#5B0404]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z" /><circle cx="12" cy="12" r="10" /></svg></div>
                 <h3 class="font-bold text-sm text-[#5B0404]">COVID-19 message in Kalasha</h3>
               </div>
               <a href="https://www.youtube.com/watch?v=PxxmvYcZTcg" target="_blank" rel="noopener" class="w-full py-2 bg-[#5B0404] hover:bg-[#480303] text-white rounded-lg text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors"><svg class="w-3.5 h-3.5 text-[#F1C236]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6" /><path d="M10 14 21 3" /><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></svg><span>Watch on YouTube</span></a>
             </div>
-            <div class="p-5 bg-[#faf8f5] rounded-xl border border-[#e5dfd5] space-y-3 flex flex-col justify-between">
+            <div data-animate="fadeInUp" data-animate-delay="100" class="p-5 bg-[#faf8f5] rounded-xl border border-[#e5dfd5] space-y-3 flex flex-col justify-between">
               <div class="space-y-1.5">
                 <div class="flex items-center justify-between"><span class="text-[10px] font-bold text-[#084A79] uppercase">WHO message</span><svg class="w-4 h-4 text-[#5B0404]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z" /><circle cx="12" cy="12" r="10" /></svg></div>
                 <h3 class="font-bold text-sm text-[#5B0404]">COVID-19 message in Shina</h3>
               </div>
               <a href="https://www.youtube.com/watch?v=VXp5qLeBTKg" target="_blank" rel="noopener" class="w-full py-2 bg-[#5B0404] hover:bg-[#480303] text-white rounded-lg text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors"><svg class="w-3.5 h-3.5 text-[#F1C236]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6" /><path d="M10 14 21 3" /><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></svg><span>Watch on YouTube</span></a>
             </div>
-            <div class="p-5 bg-[#faf8f5] rounded-xl border border-[#e5dfd5] space-y-3 flex flex-col justify-between">
+            <div data-animate="fadeInUp" data-animate-delay="200" class="p-5 bg-[#faf8f5] rounded-xl border border-[#e5dfd5] space-y-3 flex flex-col justify-between">
               <div class="space-y-1.5">
                 <div class="flex items-center justify-between"><span class="text-[10px] font-bold text-[#084A79] uppercase">WHO message</span><svg class="w-4 h-4 text-[#5B0404]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z" /><circle cx="12" cy="12" r="10" /></svg></div>
                 <h3 class="font-bold text-sm text-[#5B0404]">COVID-19 message in Khowar</h3>
               </div>
               <a href="https://www.youtube.com/watch?v=H9VFWaMNyS0" target="_blank" rel="noopener" class="w-full py-2 bg-[#5B0404] hover:bg-[#480303] text-white rounded-lg text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors"><svg class="w-3.5 h-3.5 text-[#F1C236]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6" /><path d="M10 14 21 3" /><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></svg><span>Watch on YouTube</span></a>
             </div>
-            <div class="p-5 bg-[#faf8f5] rounded-xl border border-[#e5dfd5] space-y-3 flex flex-col justify-between">
+            <div data-animate="fadeInUp" data-animate-delay="300" class="p-5 bg-[#faf8f5] rounded-xl border border-[#e5dfd5] space-y-3 flex flex-col justify-between">
               <div class="space-y-1.5">
                 <div class="flex items-center justify-between"><span class="text-[10px] font-bold text-[#084A79] uppercase">WHO message</span><svg class="w-4 h-4 text-[#5B0404]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z" /><circle cx="12" cy="12" r="10" /></svg></div>
                 <h3 class="font-bold text-sm text-[#5B0404]">COVID-19 message in Kataviri</h3>
               </div>
               <a href="https://www.youtube.com/watch?v=DBgMq9AgVEY" target="_blank" rel="noopener" class="w-full py-2 bg-[#5B0404] hover:bg-[#480303] text-white rounded-lg text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors"><svg class="w-3.5 h-3.5 text-[#F1C236]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6" /><path d="M10 14 21 3" /><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></svg><span>Watch on YouTube</span></a>
             </div>
-            <div class="p-5 bg-[#faf8f5] rounded-xl border border-[#e5dfd5] space-y-3 flex flex-col justify-between">
+            <div data-animate="fadeInUp" class="p-5 bg-[#faf8f5] rounded-xl border border-[#e5dfd5] space-y-3 flex flex-col justify-between">
               <div class="space-y-1.5">
                 <div class="flex items-center justify-between"><span class="text-[10px] font-bold text-[#084A79] uppercase">WHO message</span><svg class="w-4 h-4 text-[#5B0404]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z" /><circle cx="12" cy="12" r="10" /></svg></div>
                 <h3 class="font-bold text-sm text-[#5B0404]">COVID-19 message in Palula</h3>
               </div>
               <a href="https://www.youtube.com/watch?v=g-2xcnqfGgY" target="_blank" rel="noopener" class="w-full py-2 bg-[#5B0404] hover:bg-[#480303] text-white rounded-lg text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors"><svg class="w-3.5 h-3.5 text-[#F1C236]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6" /><path d="M10 14 21 3" /><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></svg><span>Watch on YouTube</span></a>
             </div>
-            <div class="p-5 bg-[#faf8f5] rounded-xl border border-[#e5dfd5] space-y-3 flex flex-col justify-between">
+            <div data-animate="fadeInUp" data-animate-delay="100" class="p-5 bg-[#faf8f5] rounded-xl border border-[#e5dfd5] space-y-3 flex flex-col justify-between">
               <div class="space-y-1.5">
                 <div class="flex items-center justify-between"><span class="text-[10px] font-bold text-[#084A79] uppercase">WHO message</span><svg class="w-4 h-4 text-[#5B0404]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z" /><circle cx="12" cy="12" r="10" /></svg></div>
                 <h3 class="font-bold text-sm text-[#5B0404]">COVID-19 message in Torwali</h3>
               </div>
               <a href="https://www.youtube.com/watch?v=ZXVgSnNSKKE" target="_blank" rel="noopener" class="w-full py-2 bg-[#5B0404] hover:bg-[#480303] text-white rounded-lg text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors"><svg class="w-3.5 h-3.5 text-[#F1C236]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6" /><path d="M10 14 21 3" /><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></svg><span>Watch on YouTube</span></a>
             </div>
-            <div class="p-5 bg-[#faf8f5] rounded-xl border border-[#e5dfd5] space-y-3 flex flex-col justify-between">
+            <div data-animate="fadeInUp" data-animate-delay="200" class="p-5 bg-[#faf8f5] rounded-xl border border-[#e5dfd5] space-y-3 flex flex-col justify-between">
               <div class="space-y-1.5">
                 <div class="flex items-center justify-between"><span class="text-[10px] font-bold text-[#084A79] uppercase">WHO message</span><svg class="w-4 h-4 text-[#5B0404]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z" /><circle cx="12" cy="12" r="10" /></svg></div>
                 <h3 class="font-bold text-sm text-[#5B0404]">COVID-19 message in Wakhi</h3>
@@ -607,36 +614,36 @@
               <a href="https://www.youtube.com/watch?v=j0RsS6y2Nlo" target="_blank" rel="noopener" class="w-full py-2 bg-[#5B0404] hover:bg-[#480303] text-white rounded-lg text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors"><svg class="w-3.5 h-3.5 text-[#F1C236]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6" /><path d="M10 14 21 3" /><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></svg><span>Watch on YouTube</span></a>
             </div>
           </div></div>
-        <div class="bg-white border border-[#e5dfd5] p-6 lg:p-8 space-y-6">
+        <div data-animate="fadeInUp" class="bg-white border border-[#e5dfd5] p-6 lg:p-8 space-y-6">
           <div><h2 class="text-2xl font-bold font-serif-display text-[#5B0404] mt-1">Awareness Raising Banners</h2></div>
           <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
             <div class="md:col-span-7 space-y-4">
               <p class="text-sm text-[#4b5563] leading-relaxed">FLI translated the WHO’s coronavirus (COVID-19) protection message into the indigenous languages of northern Pakistan. Banners and billboards carrying the message were displayed at main entrances, markets, public places and government buildings. The picture shows a banner in Khowar on the wall of the Tehsil Headquarters in Booni, Upper Chitral.</p>
               <a href="https://www.facebook.com/LanguageForum" target="_blank" rel="noopener" class="px-4 py-2 bg-[#5B0404] hover:bg-[#480303] text-white text-xs font-semibold rounded-lg inline-flex items-center gap-1.5 transition-colors shadow-xs"><svg class="w-3.5 h-3.5 text-[#F1C236]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6" /><path d="M10 14 21 3" /><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" /></svg><span>See on Facebook</span></a>
             </div>
-            <button type="button" data-lightbox-open="assets/img/covid-banner-khowar.png" data-lightbox-alt="COVID-19 awareness banner in Khowar, Booni" class="md:col-span-5 block rounded-xl overflow-hidden border border-[#e5dfd5] bg-[#faf8f5] cursor-zoom-in">
-              <img src="assets/img/covid-banner-khowar.png" alt="COVID-19 awareness banner in Khowar at the Tehsil Headquarters, Booni" class="w-full max-h-96 object-contain" loading="lazy">
+            <button type="button" data-animate="zoomIn" data-animate-delay="150" data-lightbox-open="assets/img/covid-banner-khowar.png" data-lightbox-alt="COVID-19 awareness banner in Khowar, Booni" class="md:col-span-5 block rounded-xl overflow-hidden border border-[#e5dfd5] bg-[#faf8f5] cursor-zoom-in group">
+              <img src="assets/img/covid-banner-khowar.png" alt="COVID-19 awareness banner in Khowar at the Tehsil Headquarters, Booni" class="w-full max-h-96 object-contain group-hover:scale-105 transition-transform duration-700 ease-out" loading="lazy" decoding="async">
             </button>
           </div></div>
       </div>
     </section>
     <section data-res-panel="windows" class="space-y-6" aria-label="Windows Settings">
-      <div class="bg-white border border-[#e5dfd5] p-6 lg:p-8 space-y-6">
+      <div data-animate="fadeInUp" class="bg-white border border-[#e5dfd5] p-6 lg:p-8 space-y-6">
         <div><h2 class="text-2xl font-bold font-serif-display text-[#5B0404] mt-1">Windows Configuration Settings for Pakistani Languages</h2></div>
         <p class="text-sm text-[#4b5563] leading-relaxed">Follow these steps to set up Windows 10 or 11 to display and type the languages of northern Pakistan correctly.</p>
         <div class="space-y-4 pt-2">
 
-          <div class="p-4 bg-[#faf8f5] rounded-xl border border-[#e5dfd5] flex items-start gap-4">
+          <div data-animate="fadeInUp" class="p-4 bg-[#faf8f5] rounded-xl border border-[#e5dfd5] flex items-start gap-4">
             <span class="w-7 h-7 rounded-full bg-[#5B0404] text-white flex items-center justify-center font-bold text-xs shrink-0">1</span>
             <div><h3 class="font-bold text-xs text-[#5B0404]">Add the Urdu (Pakistan) language</h3><p class="text-xs text-[#6b7280] mt-0.5">Open Settings › Time &amp; Language › Language &amp; region › Add a language, search for “Urdu (Pakistan)” and install it.</p></div>
           </div>
 
-          <div class="p-4 bg-[#faf8f5] rounded-xl border border-[#e5dfd5] flex items-start gap-4">
+          <div data-animate="fadeInUp" data-animate-delay="100" class="p-4 bg-[#faf8f5] rounded-xl border border-[#e5dfd5] flex items-start gap-4">
             <span class="w-7 h-7 rounded-full bg-[#5B0404] text-white flex items-center justify-center font-bold text-xs shrink-0">2</span>
             <div><h3 class="font-bold text-xs text-[#5B0404]">Install a Nastaliq font</h3><p class="text-xs text-[#6b7280] mt-0.5">Download Awami Nastaliq or Nafees Nastaleeq from the <a href="digital-resources.html?tab=fonts" class="text-[#5B0404] underline">Fonts</a> page, right-click the font file and choose “Install for all users”.</p></div>
           </div>
 
-          <div class="p-4 bg-[#faf8f5] rounded-xl border border-[#e5dfd5] flex items-start gap-4">
+          <div data-animate="fadeInUp" data-animate-delay="200" class="p-4 bg-[#faf8f5] rounded-xl border border-[#e5dfd5] flex items-start gap-4">
             <span class="w-7 h-7 rounded-full bg-[#5B0404] text-white flex items-center justify-center font-bold text-xs shrink-0">3</span>
             <div><h3 class="font-bold text-xs text-[#5B0404]">Install Keyman and your language keyboard</h3><p class="text-xs text-[#6b7280] mt-0.5">Install Keyman and the keyboard for your language (see <a href="digital-resources.html?tab=keyboards" class="text-[#5B0404] underline">Keyboards</a>). Press Windows + Space to switch between keyboards.</p></div>
           </div>
