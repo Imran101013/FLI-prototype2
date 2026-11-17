@@ -1435,6 +1435,9 @@
   .text-\[13\.5px\] {
     font-size: 13.5px;
   }
+  .text-\[15px\] {
+    font-size: 15px;
+  }
   .leading-loose {
     --tw-leading: var(--leading-loose);
     line-height: var(--leading-loose);
@@ -2971,6 +2974,14 @@
   }
   [id] {
     scroll-margin-top: calc(var(--header-h, 113px) + 16px);
+  }
+  p {
+    font-size: calc(1em + 4px);
+    --text-xs: calc(0.75rem + 4px);
+    --text-sm: calc(0.875rem + 4px);
+    --text-base: calc(1rem + 4px);
+    --text-lg: calc(1.125rem + 4px);
+    --text-xl: calc(1.25rem + 4px);
   }
 }
 [data-dropdown].dropdown-closed .dropdown-panel {

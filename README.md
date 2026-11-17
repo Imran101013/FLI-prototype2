@@ -115,6 +115,7 @@ Yellow is only used as a fill (with maroon text on it) or on dark backgrounds, n
 **Global Fonts** (all Google Fonts, available in Elementor free):
 - Headings: **Cinzel** 600–700
 - Body: **Metrophobic** (one weight only, Regular 400; the browser synthesizes bold where the design uses bold)
+- Paragraph sizes: every `<p>` is 4 px larger than its class says, so `text-xs` = 16 px, `text-sm` = 18 px, `text-base` = 20 px, `text-lg` = 22 px, `text-xl` = 24 px. A `<p>` with no size class is 4 px larger than its parent. Set Text Editor typography to these sizes (the rule is in `assets/css/tailwind-source.css`).
 - Urdu / Nastaliq text: **Noto Nastaliq Urdu** (fallback **Amiri**), right-to-left, line height ≈ 2.1
 
 **Widget mapping.** Most sections map to free widgets: Heading, Text Editor, Button, Image, Icon Box / Image Box (cards), Icon List (check lists, contact details), Counter (number strips), Tabs/Accordion/Toggle (FEL practical info, board bios), Testimonial (Impact Stories), Video (COVID-19), Social Icons.

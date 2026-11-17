@@ -45,6 +45,19 @@
   }
   summary::-webkit-details-marker { display: none; }
   [id] { scroll-margin-top: calc(var(--header-h, 113px) + 16px); }
+
+  /* Paragraph text runs 4px larger than the size its class names:
+   * on a <p>, text-xs = 16px, text-sm = 18px, text-base = 20px, text-lg = 22px,
+   * text-xl = 24px (sm:/md:/lg: variants too). A <p> with no size class is 4px
+   * larger than its parent. In Elementor, set Text Editor typography to these sizes. */
+  p {
+    font-size: calc(1em + 4px);
+    --text-xs: calc(0.75rem + 4px);
+    --text-sm: calc(0.875rem + 4px);
+    --text-base: calc(1rem + 4px);
+    --text-lg: calc(1.125rem + 4px);
+    --text-xl: calc(1.25rem + 4px);
+  }
 }
 
 @utility font-nastaliq {
